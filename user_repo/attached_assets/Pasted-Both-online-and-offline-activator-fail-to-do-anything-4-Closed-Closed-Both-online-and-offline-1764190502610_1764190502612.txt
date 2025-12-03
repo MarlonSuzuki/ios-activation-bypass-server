@@ -1,0 +1,253 @@
+Both online and offline activator fail to do anything... #4
+Closed
+Closed
+Both online and offline activator fail to do anything...
+#4
+@randomlol90
+Description
+randomlol90
+opened 5 days ago · edited by randomlol90
+▶ Verifying System Requirements...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] AFC Transfer Mode: pymobiledevice3
+╰─▶ Local Server running at http://1x2.1x8.1.8:xxxx (Root: /var/folders/jk/sjnk8jj90f5f16fjg205kmxc0000gn/T/ios_activation_bz9n_mx3)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Detecting Device...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Device: iPhone12,8 (iOS 26.0.1)
+UDID: xxxxxxxx-xxxxxxxxxxxxxx
+Press Enter to start...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Rebooting device...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Extracting System Logs...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[⚠] Archive failed, trying live watch...
+[✗] Could not find GUID in logs.
+
+I have tried opening the books app and have followed all the guides
+
+Activity
+gliddd4
+gliddd4 commented 5 days ago
+gliddd4
+5 days ago
+same issue
+
+chiheb122
+chiheb122 commented 5 days ago
+chiheb122
+5 days ago
+Same issue why you don’t use only UDID
+
+Rust505
+Rust505 commented 5 days ago
+Rust505
+5 days ago
+Contributor
+same problem
+
+rhcp011235
+rhcp011235 commented 5 days ago
+rhcp011235
+5 days ago
+Owner
+Skill issue or help debug it.
+
+rhcp011235
+rhcp011235 commented 5 days ago
+rhcp011235
+5 days ago
+Owner
+Same issue why you don’t use only UDID
+
+if you think its an issue, fix it and file a pull request
+
+heartss4avii
+heartss4avii commented 4 days ago
+heartss4avii
+4 days ago
+Has anyone found a solve for this yet ?
+
+gliddd4
+gliddd4 commented 4 days ago
+gliddd4
+4 days ago
+Working on a fix
+
+gliddd4
+gliddd4 commented 3 days ago
+gliddd4
+3 days ago
+wip but it fixes guid extraction
+
+gliddd4
+gliddd4 commented 3 days ago
+gliddd4
+3 days ago
+i wont make a pull request until the rest is working
+
+NickTurner4
+NickTurner4 commented 3 days ago
+NickTurner4
+3 days ago
+@randomlol90 I changed the "activator.py" to stop getting the error. it was near the bottom of the document. My problem now is I'm getting a server error.
+
+"# 2. Get GUID
+self.guid = self.get_guid()"
+to
+" # 2. Get GUID
+self.guid = self.device_info['UniqueDeviceID']"
+
+heartss4avii
+heartss4avii commented 3 days ago
+heartss4avii
+3 days ago
+@NickTurner4 Whats the error ?
+
+NickTurner4
+NickTurner4 commented 3 days ago
+NickTurner4
+3 days ago
+@SheLuvsTripp It gets to the "Requesting Payload..." step and then says "[X] Server Error:" I could be adding the link in wrong. I don't know anything about any of this, but I've been working on it the last two days. lol I want to get the right.
+
+heartss4avii
+heartss4avii commented 3 days ago
+heartss4avii
+3 days ago
+@NickTurner4 you got discord ?
+
+NickTurner4
+NickTurner4 commented 3 days ago
+NickTurner4
+3 days ago
+@SheLuvsTripp no. I found out about all this on twitter. Im surprised any of this exists. lol
+
+NickTurner4
+NickTurner4 commented 3 days ago
+NickTurner4
+3 days ago
+@SheLuvsTripp Do you have any tips on the server stuff?
+
+83 remaining items
+Rust505
+Rust505 commented 8 hours ago
+Rust505
+8 hours ago
+Contributor
+This happened because I was using a different mobilegestalt plist file.
+
+xcybermanx
+xcybermanx commented 7 hours ago
+xcybermanx
+7 hours ago
+This happened because I was using a different mobilegestalt plist file.
+
+great & happy for you pull the fork :)
+
+Rust505
+Rust505 commented 7 hours ago
+Rust505
+7 hours ago
+Contributor
+I haven't updated my fork yet. PLEASE WAIT.
+
+xcybermanx
+xcybermanx commented 7 hours ago
+xcybermanx
+7 hours ago
+I haven't updated my fork yet. PLEASE WAIT.
+
+what the issue before you fix it
+
+Rust505
+Rust505 commented 7 hours ago
+Rust505
+7 hours ago
+Contributor
+Image
+
+xcybermanx
+xcybermanx commented 7 hours ago
+xcybermanx
+7 hours ago · edited by xcybermanx
+Image
+
+i have this issue before i test my code
+
+if you have data or you want backup it update to 26.2 beta3 & backup all your data
+
+after you need to restore it to 26.1
+
+this only way to get it back
+
+if no data restore it
+
+randomlol90
+randomlol90 commented 5 hours ago
+randomlol90
+5 hours ago
+Author
+I haven't updated my fork yet. PLEASE WAIT.
+
+lmk when you do
+
+Rust505
+Rust505 commented 5 hours ago
+Rust505
+5 hours ago
+Contributor
+Image Activation successful! SIM card not working, camera errors, Face ID, etc.
+
+rhcp011235
+rhcp011235 commented 5 hours ago
+rhcp011235
+5 hours ago
+Owner
+Image Activation successful! SIM card not working, camera errors, Face ID, etc.
+
+Let me know if I can merge what you sent.
+
+also, thats all I have to share in terms of getting stuff working, FaceID and the rest is more stuff. I dont have it currently. its for sale ~100-300 (I have no interest) I just open sourced what I had
+
+Rust505
+Rust505 commented 5 hours ago
+Rust505
+5 hours ago
+Contributor
+I found all the information for free.
+
+Rust505
+Rust505 commented 5 hours ago
+Rust505
+5 hours ago
+Contributor
+@rhcp011235 Do you have a telegram?
+
+Rust505
+Rust505 commented 4 hours ago
+Rust505
+4 hours ago
+Contributor
+I improved your project using your data, and now everything works.
+
+rhcp011235
+rhcp011235 commented 4 hours ago
+rhcp011235
+4 hours ago
+Owner
+@rhcp011235 Do you have a telegram?
+
+Yea, rhcp011235
+
+rhcp011235
+rhcp011235 commented 3 hours ago
+rhcp011235
+3 hours ago
+Owner
+Will close this now

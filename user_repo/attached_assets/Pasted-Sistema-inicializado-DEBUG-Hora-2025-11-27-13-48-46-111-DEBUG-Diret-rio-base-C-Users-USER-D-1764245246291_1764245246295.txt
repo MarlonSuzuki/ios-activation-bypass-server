@@ -1,0 +1,195 @@
+Sistema inicializado
+[DEBUG] Hora: 2025-11-27 13:48:46.111
+[DEBUG] Diretório base: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\
+[DEBUG] Procurando iOS.exe em: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\iOS.exe
+[DEBUG] Criando processo...
+[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user
+[DEBUG] Iniciando processo iOS.exe list...
+[DEBUG] Processo iniciado, PID: 12636
+[DEBUG] Lendo stdout...
+[DEBUG] Stdout lido (45 bytes)
+[DEBUG] Lendo stderr...
+[DEBUG] Stderr lido (0 bytes)
+[DEBUG] Aguardando processo terminar (5s timeout)...
+[DEBUG] Processo terminou: True, Exit Code: 0
+[DEBUG] ═══ STDOUT ═══
+[DEBUG] ═══ FIM STDOUT ═══
+[DEBUG] STDERR estava vazio
+[DEBUG] Analisando saída para detectar dispositivos...
+[DEBUG] Procurando por "deviceList" no JSON...
+[DEBUG] ✓ Encontrado "deviceList"
+[DEBUG] ✓ deviceList tem conteúdo!
+[DEBUG] Extraindo informações do dispositivo...
+[DEBUG] ╔═══════════════════════════════════════════╗
+[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO ║
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] Parseando JSON da lista de dispositivos...
+[DEBUG] Encontrados 1 dispositivo(s)
+[DEBUG] iOS.exe path: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\iOS.exe
+[DEBUG] iOS.exe existe: True
+[DEBUG] UDID válido: True
+[DEBUG] Tentativa 1/3: info --udid=00008030-00020C923E22802E
+[DEBUG] ExitCode: 0, Output: 3339b, Error: 124b
+[DEBUG] ═══ INFO OUTPUT ═══
+[DEBUG] ═══ FIM OUTPUT ═══
+[DEBUG] ═══ INFO ERROR ═══
+[DEBUG] ═══ FIM ERROR ═══
+[DEBUG] Primeiro char: '{', é JSON: True
+[DEBUG] Parseando como JSON...
+[DEBUG] JSON ValueKind: Object
+[DEBUG] JSON primeiras 200 chars: {"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":524245983,"BasebandChipID":104,"BasebandKeyHashInformation":{"AKeyStatus":64,"SKeyStatus":2},"BasebandMasterKey
+[DEBUG] JSON parseado! Propriedades:
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:48:56+02:00","udid":"0000
+[DEBUG] ProductType: iPhone12,5
+[DEBUG] Serial: G6TZNKJLN70X
+[DEBUG] GUID: 00008030-00020C923E22802E
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/get2.php?prd=iPhone12,5&guid=00008030-00020C923E22802E&sn=G6TZNKJLN70X
+[DEBUG] Hora: 2025-11-27 13:57:56.051
+[DEBUG] Diretório base: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\
+[DEBUG] Procurando iOS.exe em: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\iOS.exe
+[DEBUG] Criando processo...
+[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user
+[DEBUG] Iniciando processo iOS.exe list...
+[DEBUG] Processo iniciado, PID: 12824
+[DEBUG] Lendo stdout...
+[DEBUG] Stdout lido (45 bytes)
+[DEBUG] Lendo stderr...
+[DEBUG] Stderr lido (0 bytes)
+[DEBUG] Aguardando processo terminar (5s timeout)...
+[DEBUG] Processo terminou: True, Exit Code: 0
+[DEBUG] ═══ STDOUT ═══
+[DEBUG] ═══ FIM STDOUT ═══
+[DEBUG] STDERR estava vazio
+[DEBUG] Analisando saída para detectar dispositivos...
+[DEBUG] Procurando por "deviceList" no JSON...
+[DEBUG] ✓ Encontrado "deviceList"
+[DEBUG] ✓ deviceList tem conteúdo!
+[DEBUG] Extraindo informações do dispositivo...
+[DEBUG] ╔═══════════════════════════════════════════╗
+[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO ║
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] Parseando JSON da lista de dispositivos...
+[DEBUG] Encontrados 1 dispositivo(s)
+[DEBUG] iOS.exe path: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\iOS.exe
+[DEBUG] iOS.exe existe: True
+[DEBUG] UDID válido: True
+[DEBUG] Tentativa 1/3: info --udid=00008030-00020C923E22802E
+[DEBUG] ExitCode: 0, Output: 3339b, Error: 124b
+[DEBUG] ═══ INFO OUTPUT ═══
+[DEBUG] ═══ FIM OUTPUT ═══
+[DEBUG] ═══ INFO ERROR ═══
+[DEBUG] ═══ FIM ERROR ═══
+[DEBUG] Primeiro char: '{', é JSON: True
+[DEBUG] Parseando como JSON...
+[DEBUG] JSON ValueKind: Object
+[DEBUG] JSON primeiras 200 chars: {"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":524245983,"BasebandChipID":104,"BasebandKeyHashInformation":{"AKeyStatus":64,"SKeyStatus":2},"BasebandMasterKey
+[DEBUG] JSON parseado! Propriedades:
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:57:59+02:00","udid":"0000
+[DEBUG] ProductType: iPhone12,5
+[DEBUG] Serial: G6TZNKJLN70X
+[DEBUG] GUID: 00008030-00020C923E22802E
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/get2.php?prd=iPhone12,5&guid=00008030-00020C923E22802E&sn=G6TZNKJLN70X
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E rm --path "/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:58:27+02:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E rm --path "/Downloads/downloads.28.sqlitedb-shm"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:58:27+02:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E rm --path "/Downloads/downloads.28.sqlitedb-wal"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:58:27+02:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E push --srcPath="C:\Users\USER\AppData\Local\Temp\iOSPayload\payload.db" --dstPath="/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:58:27+02:00","udid":"0000
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:58:27+02:00","udid":"0000
+[DEBUG] Tentativa 1: resposta
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E push --srcPath "C:\Users\USER\AppData\Local\Temp\iTunesMetadata.plist" --dstPath "/var/mobile/Media/Books/iTunesMetadata.plist"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:59:01+02:00","udid":"0000
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T13:59:02+02:00","udid":"0000
+09:06
+Sistema inicializado
+[DEBUG] Hora: 2025-11-27 14:04:38.770
+[DEBUG] Diretório base: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\
+[DEBUG] Procurando iOS.exe em: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\iOS.exe
+[DEBUG] Criando processo...
+[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user
+[DEBUG] Iniciando processo iOS.exe list...
+[DEBUG] Processo iniciado, PID: 1456
+[DEBUG] Lendo stdout...
+[DEBUG] Stdout lido (45 bytes)
+[DEBUG] Lendo stderr...
+[DEBUG] Stderr lido (434 bytes)
+[DEBUG] Aguardando processo terminar (5s timeout)...
+[DEBUG] Processo terminou: True, Exit Code: 0
+[DEBUG] ═══ STDOUT ═══
+[DEBUG] ═══ FIM STDOUT ═══
+[DEBUG] ═══ STDERR ═══
+[DEBUG] ═══ FIM STDERR ═══
+[DEBUG] Analisando saída para detectar dispositivos...
+[DEBUG] Procurando por "deviceList" no JSON...
+[DEBUG] ✓ Encontrado "deviceList"
+[DEBUG] ✓ deviceList tem conteúdo!
+[DEBUG] Extraindo informações do dispositivo...
+[DEBUG] ╔═══════════════════════════════════════════╗
+[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO ║
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] Parseando JSON da lista de dispositivos...
+[DEBUG] Encontrados 1 dispositivo(s)
+[DEBUG] iOS.exe path: C:\Users\USER\Downloads\Distribuicao_Final\Distribuicao_Final\bin\iOS.exe
+[DEBUG] iOS.exe existe: True
+[DEBUG] UDID válido: True
+[DEBUG] Tentativa 1/3: info --udid=00008030-00020C923E22802E
+[DEBUG] ExitCode: 0, Output: 3387b, Error: 124b
+[DEBUG] ═══ INFO OUTPUT ═══
+[DEBUG] ═══ FIM OUTPUT ═══
+[DEBUG] ═══ INFO ERROR ═══
+[DEBUG] ═══ FIM ERROR ═══
+[DEBUG] Primeiro char: '{', é JSON: True
+[DEBUG] Parseando como JSON...
+[DEBUG] JSON ValueKind: Object
+[DEBUG] JSON primeiras 200 chars: {"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":524245983,"BasebandChipID":104,"BasebandKeyHashInformation":{"AKeyStatus":64,"SKeyStatus":2},"BasebandMasterKey
+[DEBUG] JSON parseado! Propriedades:
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:04:46+02:00","udid":"0000
+[DEBUG] ProductType: iPhone12,5
+[DEBUG] Serial: G6TZNKJLN70X
+[DEBUG] GUID: 00008030-00020C923E22802E
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/get2.php?prd=iPhone12,5&guid=00008030-00020C923E22802E&sn=G6TZNKJLN70X
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E rm --path "/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:12+02:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E rm --path "/Downloads/downloads.28.sqlitedb-shm"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:12+02:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E rm --path "/Downloads/downloads.28.sqlitedb-wal"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:12+02:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E push --srcPath="C:\Users\USER\AppData\Local\Temp\iOSPayload\payload.db" --dstPath="/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:12+02:00","udid":"0000
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:13+02:00","udid":"0000
+[DEBUG] Tentativa 1: resposta
+[DEBUG] CMD: fsync --udid 00008030-00020C923E22802E push --srcPath "C:\Users\USER\AppData\Local\Temp\iTunesMetadata.plist" --dstPath "/var/mobile/Media/Books/iTunesMetadata.plist"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:44+02:00","udid":"0000
+[DEBUG] CMD: reboot --udid 00008030-00020C923E22802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T14:05:44+02:00","udid":"0000

@@ -1,0 +1,156 @@
+Connectors
+These are first-party integrations Replit supports. Sign in once and build with them across your apps.
+Name
+Description
+Connection Status
+
+GitHub
+GitHub
+Access GitHub repositories, users, and organizations from your Replit apps	
+Active
+
+Manage
+
+AgentMail
+AgentMail
+Send and manage emails using the AgentMail API	
+
+Sign in
+
+Asana
+Asana
+Read tasks and project data from Asana workspaces	
+
+Sign in
+
+Box
+Box
+Access Box files and folders from Replit	
+
+Sign in
+
+Confluence
+Confluence
+Read users and groups, create and edit content in Confluence spaces	
+
+Sign in
+
+Discord
+Discord
+Access Discord guild information and user profiles	
+
+Sign in
+
+Dropbox
+Dropbox
+Access Dropbox files, content, and metadata	
+
+Sign in
+
+Gmail
+Gmail
+Send, receive, and manage Gmail messages	
+
+Sign in
+
+Google Calendar
+Google Calendar
+Read and write Google Calendar events and settings	
+
+Sign in
+
+Google Docs
+Google Docs
+Create, read, and edit Google Docs	
+
+Sign in
+
+Google Drive
+Google Drive
+Access and manage Google Drive files and folders	
+
+Sign in
+
+Google Sheets
+Google Sheets
+Read and write data in Google Sheets	
+
+Sign in
+
+HubSpot
+HubSpot
+Access HubSpot CRM objects, contacts, and deals from Replit	
+
+Sign in
+
+Jira
+Jira
+View users and manage Jira work items and issues	
+
+Sign in
+
+Linear
+Linear
+Create and manage Linear issues, comments, and schedules	
+
+Sign in
+
+Notion
+Notion
+Read and write to Notion workspaces and pages	
+
+Sign in
+
+OneDrive
+OneDrive
+Access and manage OneDrive files and folders	
+
+Sign in
+
+Outlook
+Outlook
+Send and receive emails, manage Outlook calendar events	
+
+Sign in
+
+Resend
+Resend
+Send transactional emails using the Resend API	
+
+Sign in
+
+SendGrid
+SendGrid
+Send transactional emails using the SendGrid API	
+
+Sign in
+
+SharePoint
+SharePoint
+Read, write, and manage SharePoint sites and documents	
+
+Sign in
+
+Spotify
+Spotify
+Access and manage Spotify playlists and libraries	
+
+Sign in
+
+Todoist
+Todoist
+Read and write to your Todoist tasks and projects	
+
+Sign in
+
+Twilio
+Twilio
+Send SMS messages and make voice calls using the Twilio API	
+
+Sign in
+
+Zendesk
+Zendesk
+Access Zendesk users and support tickets from Replit	
+
+Sign in

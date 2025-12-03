@@ -1,0 +1,56 @@
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> # LIMPEZA TOTAL
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> Remove-Item -Recurse -Force .git -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> Remove-Item -Recurse -Force .local -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> Remove-Item -Recurse -Force C__ -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> # NOVO GIT LIMPO
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git init
+Initialized empty Git repository in C:/Users/Tributos Consultoria/Videos/MITEstudo/Cliente Windows/.git/
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git remote add origin https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git config user.email "seu-email@example.com"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git config user.name "Seu Nome"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> # ADD APENAS ARQUIVOS VÁLIDOS (sem os caminhos corrompidos)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git add -A
+warning: in the working copy of 'App.xaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'App.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'COMPILAR_E_DISTRIBUIR.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Cliente Windows.csproj', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'EXECUTAR_CLIENTE.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'INICIAR_SERVIDOR.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'INSTALAR_PHP.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'INSTALAR_PHP_MANUAL.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'LEIA-ME.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'MainWindow.xaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'PHP_SETUP.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ServerLauncher.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ToolboxWindow.xaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ToolboxWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git clean -fd
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> # COMMIT LIMPO
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git commit -m "Full project with Railway fallback support"
+[master (root-commit) 1860409] Full project with Railway fallback support
+ 15 files changed, 2604 insertions(+)
+ create mode 100644 App.xaml
+ create mode 100644 App.xaml.cs
+ create mode 100644 COMPILAR_E_DISTRIBUIR.bat
+ create mode 100644 Cliente Windows.csproj
+ create mode 100644 EXECUTAR_CLIENTE.bat
+ create mode 100644 INICIAR_SERVIDOR.bat
+ create mode 100644 INSTALAR_PHP.bat
+ create mode 100644 INSTALAR_PHP_MANUAL.md
+ create mode 100644 LEIA-ME.md
+ create mode 100644 MainWindow.xaml
+ create mode 100644 MainWindow.xaml.cs
+ create mode 100644 PHP_SETUP.txt
+ create mode 100644 ServerLauncher.cs
+ create mode 100644 ToolboxWindow.xaml
+ create mode 100644 ToolboxWindow.xaml.cs
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> # FORCE PUSH (sobrescreve GitHub)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> git push -u origin main --force
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows>

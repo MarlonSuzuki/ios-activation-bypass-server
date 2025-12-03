@@ -1,0 +1,1686 @@
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Net.Http;
+using System.Windows;
+using System.Text.Json;
+using System.Linq;
+using Microsoft.Win32;
+
+namespace ClienteWindows
+{
+    public partial class MainWindow : Window
+    {
+        private string logText = "";
+        private string debugLogText = "";
+        private string currentUDID = "";
+        private string currentSerial = "";
+        private string currentProductType = "";
+        private HttpClient httpClient = new HttpClient();
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            ServerCombo.SelectionChanged += ServerCombo_SelectionChanged;
+            LanguageCombo.SelectionChanged += LanguageCombo_SelectionChanged;
+            
+            // Set initial log text with current language
+            logText = Strings.AppStarted + "\n";
+            LogOutput.Text = logText;
+            
+            debugLogText = Strings.SystemInitialized + "\n";
+            DebugOutput.Text = debugLogText;
+        }
+
+        private void LanguageCombo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (LanguageCombo.SelectedIndex == 0)
+                Strings.CurrentLanguage = Strings.Language.English;
+            else
+                Strings.CurrentLanguage = Strings.Language.PortugueseBR;
+
+            AddLog($"[*] Language changed to: {(LanguageCombo.SelectedIndex == 0 ? "English" : "Português-BR")}");
+        }
+
+        private void ServerCombo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            // Hide all server-specific options first
+            CustomUrlLabel.Visibility = Visibility.Collapsed;
+            CustomUrlInput.Visibility = Visibility.Collapsed;
+            LocalhostLabel.Visibility = Visibility.Collapsed;
+            LocalhostInfo.Visibility = Visibility.Collapsed;
+            StartServerBtn.Visibility = Visibility.Collapsed;
+
+            // Show options based on selection
+            if (ServerCombo.SelectedIndex == 1) // Localhost
+            {
+                LocalhostLabel.Visibility = Visibility.Visible;
+                LocalhostInfo.Visibility = Visibility.Visible;
+                StartServerBtn.Visibility = Visibility.Visible;
+                AddLog("Localhost selected. Use INICIAR_SERVIDOR.bat to run the server.");
+            }
+            else if (ServerCombo.SelectedIndex == 2) // Custom URL
+            {
+                CustomUrlLabel.Visibility = Visibility.Visible;
+                CustomUrlInput.Visibility = Visibility.Visible;
+                AddLog("Custom URL selected.");
+            }
+            else // Remote Server
+            {
+                AddLog("Remote Server selected.");
+            }
+        }
+
+        private void StartServer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Procurar em múltiplos caminhos
+                string[] possiblePaths = new[]
+                {
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "INICIAR_SERVIDOR.bat"),
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "INICIAR_SERVIDOR.bat"),
+                    @"C:\Users\Tributos Consultoria\Music\MITEstudo\INICIAR_SERVIDOR.bat",
+                    @"C:\Users\Tributos Consultoria\Music\MITEstudo\Distribuicao\INICIAR_SERVIDOR.bat",
+                    @"C:\Users\Tributos Consultoria\Pictures\MITEstudo\INICIAR_SERVIDOR.bat",
+                    @"C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\INICIAR_SERVIDOR.bat"
+                };
+
+                string foundPath = null;
+                foreach (var path in possiblePaths)
+                {
+                    if (File.Exists(path))
+                    {
+                        foundPath = path;
+                        break;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(foundPath))
+                {
+                    Process.Start(foundPath);
+                    AddLog($"[*] Script iniciado: {foundPath}");
+                    AddLog("[*] Servidor deve estar em http://localhost:8000");
+                }
+                else
+                {
+                    AddLog("[ERRO] INICIAR_SERVIDOR.bat não encontrado em nenhum caminho!");
+                    AddLog("[DICA] Certifique-se que o script está na pasta do projeto");
+                }
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] {ex.Message}");
+            }
+        }
+
+        private void DetectButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddLog("═══════════════════════════════════════════════════════");
+            AddLog("[INICIO] Detectando dispositivo...");
+            AddLog($"[DEBUG] Hora: {DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}");
+            AddLog($"[DEBUG] Diretório base: {AppDomain.CurrentDomain.BaseDirectory}");
+
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string iosExePath = Path.Combine(baseDir, "iOS.exe");
+            
+            AddLog($"[DEBUG] Procurando iOS.exe em: {iosExePath}");
+            if (!File.Exists(iosExePath))
+            {
+                AddLog($"[ERRO CRÍTICO] iOS.exe NÃO ENCONTRADO!");
+                AddLog($"[ERRO] Caminho esperado: {iosExePath}");
+                AddLog("[AVISO] Arquivos na pasta:");
+                try
+                {
+                    var files = Directory.GetFiles(baseDir);
+                    foreach (var f in files)
+                    {
+                        AddLog($"  - {Path.GetFileName(f)}");
+                    }
+                }
+                catch (Exception dirEx)
+                {
+                    AddLog($"[ERRO] Não conseguiu listar arquivos: {dirEx.Message}");
+                }
+                AddLog("═══════════════════════════════════════════════════════");
+                return;
+            }
+            
+            AddLog("[OK] iOS.exe encontrado!");
+
+            try
+            {
+                AddLog("[DEBUG] Criando processo...");
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = iosExePath,
+                        Arguments = "list",
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true
+                    }
+                };
+
+                // Adicionar variável de ambiente para iOS 17+
+                AddLog("[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user");
+                process.StartInfo.EnvironmentVariables["ENABLE_GO_IOS_AGENT"] = "user";
+
+                AddLog("[DEBUG] Iniciando processo iOS.exe list...");
+                process.Start();
+                AddLog("[DEBUG] Processo iniciado, PID: " + process.Id);
+                
+                AddLog("[DEBUG] Lendo stdout...");
+                string output = process.StandardOutput.ReadToEnd();
+                AddLog($"[DEBUG] Stdout lido ({output.Length} bytes)");
+                
+                AddLog("[DEBUG] Lendo stderr...");
+                string error = process.StandardError.ReadToEnd();
+                AddLog($"[DEBUG] Stderr lido ({error.Length} bytes)");
+                
+                AddLog("[DEBUG] Aguardando processo terminar (5s timeout)...");
+                bool exited = process.WaitForExit(5000);
+                AddLog($"[DEBUG] Processo terminou: {exited}, Exit Code: {process.ExitCode}");
+
+                AddLog("");
+                AddLog("[DEBUG] ═══ STDOUT ═══");
+                AddLog(string.IsNullOrWhiteSpace(output) ? "[DEBUG] (VAZIO)" : output);
+                AddLog("[DEBUG] ═══ FIM STDOUT ═══");
+                
+                if (!string.IsNullOrWhiteSpace(error))
+                {
+                    AddLog("[DEBUG] ═══ STDERR ═══");
+                    AddLog(error);
+                    AddLog("[DEBUG] ═══ FIM STDERR ═══");
+                }
+                else
+                {
+                    AddLog("[DEBUG] STDERR estava vazio");
+                }
+
+                AddLog("");
+                AddLog("[DEBUG] Analisando saída para detectar dispositivos...");
+                
+                // Verificar se há devices na saída JSON
+                bool deviceFound = false;
+                try
+                {
+                    AddLog("[DEBUG] Procurando por \"deviceList\" no JSON...");
+                    // Procurar por "deviceList" no JSON
+                    if (output.Contains("\"deviceList\""))
+                    {
+                        AddLog("[DEBUG] ✓ Encontrado \"deviceList\"");
+                        if (output.Contains("\"deviceList\":[]"))
+                        {
+                            AddLog("[DEBUG] ✗ deviceList está VAZIO []");
+                        }
+                        else
+                        {
+                            AddLog("[DEBUG] ✓ deviceList tem conteúdo!");
+                            deviceFound = true;
+                        }
+                    }
+                    else
+                    {
+                        AddLog("[DEBUG] ✗ \"deviceList\" não encontrado");
+                    }
+                    
+                    // Alternativa: procurar por device UDID
+                    if (output.Contains("\"udid\""))
+                    {
+                        AddLog("[DEBUG] ✓ Encontrado \"udid\"");
+                        deviceFound = true;
+                    }
+                    if (output.Contains("\"serialNumber\""))
+                    {
+                        AddLog("[DEBUG] ✓ Encontrado \"serialNumber\"");
+                        deviceFound = true;
+                    }
+                }
+                catch (Exception parseEx)
+                {
+                    AddLog($"[ERRO] Erro ao analisar saída: {parseEx.Message}");
+                    AddLog($"[DEBUG] Stack: {parseEx.StackTrace}");
+                }
+
+                AddLog("");
+                if (deviceFound)
+                {
+                    AddLog("[DEBUG] Extraindo informações do dispositivo...");
+                    ExtractDeviceInfo(output);
+                    AddLog("[✓ OK] iPhone DETECTADO COM SUCESSO!");
+                    ConnectionLabel.Text = "Connected via USB";
+                    StatusLabel.Text = "Detected";
+                    HelloActivationBtn.IsEnabled = true;
+                    PasscodeActivationBtn.IsEnabled = true;
+                    ManualBypassBtn.IsEnabled = true;
+                    ProcessOFFBtn.IsEnabled = true;
+                    ExtractBypassBtn.IsEnabled = true;
+                }
+                else
+                {
+                    AddLog("[✗ AVISO] iPhone NÃO foi detectado");
+                    AddLog("");
+                    AddLog("[DEBUG] CHECKLIST - Verifique:");
+                    AddLog("  1. iPhone conectado via USB? (apareça no gerenciador de dispositivos)");
+                    AddLog("  2. Confiança liberada no iPhone? (toque \"Confiar\" na tela do iPhone)");
+                    AddLog("  3. iTunes/Finder/iCloud ABERTO? (feche TODOS antes de tentar)");
+                    AddLog("  4. Executando como Administrador? (clique direito → Executar como administrador)");
+                    AddLog("  5. Já tentou reiniciar Windows ou desconectar/reconectar USB?");
+                    ConnectionLabel.Text = "N/A";
+                    StatusLabel.Text = "Not Connected";
+                }
+                AddLog("═══════════════════════════════════════════════════════");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO CRÍTICO] Exceção ao detectar: {ex.GetType().Name}");
+                AddLog($"[ERRO] Mensagem: {ex.Message}");
+                AddLog($"[DEBUG] Stack Trace:");
+                AddLog(ex.StackTrace);
+                if (ex.InnerException != null)
+                {
+                    AddLog($"[DEBUG] Inner Exception: {ex.InnerException.Message}");
+                }
+                AddLog("═══════════════════════════════════════════════════════");
+            }
+        }
+
+        private void HelloActivation_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(currentUDID))
+            {
+                AddLog("[ERRO] iPhone não detectado. Clique em 'Detect iPhone' primeiro!");
+                return;
+            }
+
+            AddLog("[*] Gerando payload Hello Activation...");
+            ExecuteActivation("hello");
+            SendLogsToServer();
+        }
+
+        private void PasscodeActivation_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(currentUDID))
+            {
+                AddLog("[ERRO] iPhone não detectado. Clique em 'Detect iPhone' primeiro!");
+                return;
+            }
+
+            AddLog("[*] Gerando payload Passcode Activation...");
+            ExecuteActivation("passcode");
+            SendLogsToServer();
+        }
+
+        private void ProcessOFF_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(currentUDID))
+            {
+                AddLog("[ERRO] iPhone não detectado. Clique em 'Detect iPhone' primeiro!");
+                return;
+            }
+
+            AddLog("[*] Executando Process OFF...");
+            ExecuteActivation("processoff");
+        }
+
+        private void Toolbox_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(currentUDID))
+            {
+                AddLog("[ERRO] iPhone não detectado!");
+                return;
+            }
+
+            ToolboxWindow toolbox = new ToolboxWindow();
+            toolbox.Owner = this;
+            
+            if (toolbox.ShowDialog() == true)
+            {
+                switch (toolbox.SelectedAction)
+                {
+                    case ToolboxWindow.ToolboxAction.Reboot:
+                        AddLog("[*] Reiniciando iPhone...");
+                        RestartDevice();
+                        break;
+
+                    case ToolboxWindow.ToolboxAction.Erase:
+                        AddLog("[*] Apagando dispositivo...");
+                        EraseDevice();
+                        break;
+
+                    case ToolboxWindow.ToolboxAction.DevMode:
+                        AddLog("[*] Habilitando Developer Mode...");
+                        EnableDevMode();
+                        break;
+
+                    case ToolboxWindow.ToolboxAction.HelloNoDeactivate:
+                        AddLog("[*] Retornando para Hello Screen (sem desativar)...");
+                        ReturnToHello(false);
+                        break;
+
+                    case ToolboxWindow.ToolboxAction.HelloDeactivate:
+                        AddLog("[*] Retornando para Hello Screen (desativando)...");
+                        ReturnToHello(true);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void ExecuteCommand(string command, string description)
+        {
+            try
+            {
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string iosExePath = Path.Combine(baseDir, "iOS.exe");
+
+                AddLog($"[DEBUG] Executando: {description}");
+                AddLog($"[DEBUG] Comando: {command}");
+                
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = iosExePath,
+                        Arguments = command,
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true
+                    }
+                };
+
+                process.StartInfo.EnvironmentVariables["ENABLE_GO_IOS_AGENT"] = "user";
+                process.Start();
+                
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+                bool exited = process.WaitForExit(15000);
+
+                AddLog($"[DEBUG] Processo saiu: {exited}, ExitCode: {process.ExitCode}");
+                
+                if (process.ExitCode == 0 || output.Contains("success"))
+                {
+                    AddLog($"[OK] {description} concluído com sucesso!");
+                }
+                else
+                {
+                    AddLog($"[*] {description} enviado!");
+                }
+
+                if (!string.IsNullOrEmpty(output) && output.Length < 500)
+                    AddLog($"Output: {output}");
+                if (!string.IsNullOrEmpty(error) && error.Length < 500)
+                    AddLog($"Error: {error}");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] {ex.Message}");
+            }
+        }
+
+        private void RestartDevice()
+        {
+            ExecuteCommand($"reboot --udid {currentUDID}", "Restart Device");
+        }
+
+        private void EraseDevice()
+        {
+            ExecuteCommand($"erase --force --udid {currentUDID}", "Erase Device");
+        }
+
+        private void EnableDevMode()
+        {
+            ExecuteCommand($"devmode enable --udid {currentUDID}", "Enable Developer Mode");
+        }
+
+        private void ReturnToHello(bool deactivate)
+        {
+            string desc = deactivate ? "Return to Hello (Deactivating)" : "Return to Hello (Without Deactivating)";
+            string cmd = deactivate ? $"activate --deactivate --udid {currentUDID}" : $"activate --udid {currentUDID}";
+            ExecuteCommand(cmd, desc);
+        }
+
+
+        private void ExecuteActivation(string type)
+        {
+            try
+            {
+                AddLog("═══════════════════════════════════════════════════════");
+                AddLog("[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA");
+                AddLog("═══════════════════════════════════════════════════════");
+
+                // VALIDAÇÃO: Verificar se device foi detectado corretamente
+                if (string.IsNullOrWhiteSpace(currentProductType) || string.IsNullOrWhiteSpace(currentSerial))
+                {
+                    AddLog("");
+                    AddLog("[✗ ERRO] Informações do dispositivo incompletas!");
+                    AddLog("═══════════════════════════════════════════════════════");
+                    AddLog("[!] AÇÃO NECESSÁRIA:");
+                    AddLog("  1. Clique em 'Detect iPhone' novamente");
+                    AddLog("  2. Se falhar novamente, verifique:");
+                    AddLog("     - iPhone conectado via USB?");
+                    AddLog("     - Confiança liberada no iPhone? (toque em 'Confiar')");
+                    AddLog("     - iTunes/Finder/iCloud FECHADOS?");
+                    AddLog("     - Executando como Administrador?");
+                    AddLog("     - Tente desconectar/reconectar USB");
+                    AddLog("═══════════════════════════════════════════════════════");
+                    return;
+                }
+
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string iosExePath = Path.Combine(baseDir, "iOS.exe");
+
+                // PHASE 1: Initial Reboot
+                AddLog("[*] PHASE 1: Reboot Inicial");
+                RunCommand(iosExePath, $"reboot --udid {currentUDID}");
+                System.Threading.Thread.Sleep(10000);
+
+                // PHASE 2: Extract SystemGroup GUID (from BookKit/BLDatabase path, NOT device UDID)
+                AddLog("[*] PHASE 2: Extraindo SystemGroup GUID do Syslog");
+                string guid = ExtractGuidFromSyslog(iosExePath);
+                if (string.IsNullOrWhiteSpace(guid))
+                {
+                    AddLog("[AVISO] SystemGroup GUID não encontrado no syslog");
+                    AddLog("[INFO] Tentando usar UDID como fallback (pode não funcionar)");
+                    guid = currentUDID;
+                }
+                AddLog($"[OK] GUID: {guid}");
+
+                // PHASE 3: Get Payload URL from Server (COM RETRY PARA 503)
+                AddLog("[*] PHASE 3: Requisitando Payload do Servidor");
+                AddLog($"[DEBUG] ProductType: {currentProductType}");
+                AddLog($"[DEBUG] Serial: {currentSerial}");
+                AddLog($"[DEBUG] GUID: {guid}");
+                
+                string server = GetServerURLWithFallback();
+                string url = $"{server}/get2.php?prd={currentProductType}&guid={guid}&sn={currentSerial}";
+                AddLog($"[DEBUG] URL: {url}");
+
+                string downloadUrl = "";
+                int maxServerRetries = 5;
+                int retryAttempt = 0;
+                bool serverSuccess = false;
+
+                while (retryAttempt < maxServerRetries && !serverSuccess)
+                {
+                    retryAttempt++;
+                    try
+                    {
+                        using (var client = new HttpClient())
+                        {
+                            client.Timeout = TimeSpan.FromSeconds(10);
+                            var response = client.GetAsync(url).Result;
+                            
+                            if (response.IsSuccessStatusCode)
+                            {
+                                string content = response.Content.ReadAsStringAsync().Result;
+                                try
+                                {
+                                    using (JsonDocument doc = JsonDocument.Parse(content))
+                                    {
+                                        // Suporta ambos: downloadUrl (camelCase) e download_url (snake_case)
+                                        if (doc.RootElement.TryGetProperty("downloadUrl", out var dlUrl))
+                                            downloadUrl = dlUrl.GetString();
+                                        else if (doc.RootElement.TryGetProperty("download_url", out var dlUrl2))
+                                            downloadUrl = dlUrl2.GetString();
+                                    }
+                                }
+                                catch
+                                {
+                                    downloadUrl = content.Trim();
+                                }
+                                // Sanitize URL - remove double slashes
+                                downloadUrl = System.Text.RegularExpressions.Regex.Replace(downloadUrl, "([^:])//", "$1/");
+                                AddLog($"[OK] Payload URL: {downloadUrl}");
+                                serverSuccess = true;
+                            }
+                            else if ((int)response.StatusCode == 503)
+                            {
+                                // Servidor temporariamente indisponível - RETRY COM DELAY
+                                if (retryAttempt < maxServerRetries)
+                                {
+                                    int delaySeconds = retryAttempt * 3; // 3, 6, 9, 12, 15 segundos
+                                    AddLog($"[AVISO] Servidor temporariamente indisponível (503)");
+                                    AddLog($"[*] Tentativa {retryAttempt}/{maxServerRetries}");
+                                    AddLog($"[*] Aguardando {delaySeconds} segundos antes de tentar novamente...");
+                                    System.Threading.Thread.Sleep(delaySeconds * 1000);
+                                }
+                                else
+                                {
+                                    AddLog($"[✗ ERRO CRÍTICO] Servidor indisponível após {maxServerRetries} tentativas!");
+                                    AddLog($"[!] Servidor pode estar em manutenção. Tente novamente em alguns minutos.");
+                                    return;
+                                }
+                            }
+                            else if ((int)response.StatusCode == 400)
+                            {
+                                AddLog($"[✗ ERRO] Parâmetros inválidos enviados ao servidor");
+                                AddLog($"[!] ProductType: {currentProductType}");
+                                AddLog($"[!] Serial: {currentSerial}");
+                                AddLog($"[!] GUID: {guid}");
+                                AddLog($"[!] Tente detectar o iPhone novamente");
+                                return;
+                            }
+                            else
+                            {
+                                AddLog($"[✗ ERRO] Servidor retornou erro: {response.StatusCode}");
+                                return;
+                            }
+                        }
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        AddLog($"[✗ ERRO] Falha de conexão: {ex.Message}");
+                        if (retryAttempt < maxServerRetries)
+                        {
+                            AddLog($"[*] Tentando novamente ({retryAttempt}/{maxServerRetries})...");
+                            System.Threading.Thread.Sleep(5000);
+                        }
+                        else
+                        {
+                            AddLog($"[✗ ERRO CRÍTICO] Não foi possível conectar ao servidor");
+                            return;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        AddLog($"[✗ ERRO INESPERADO] {ex.Message}");
+                        return;
+                    }
+                }
+
+                // PHASE 4: Download Payload
+                AddLog("[*] PHASE 4: Baixando Payload");
+                string tempDir = Path.Combine(Path.GetTempPath(), "iOSPayload");
+                if (!Directory.Exists(tempDir)) Directory.CreateDirectory(tempDir);
+                string payloadPath = Path.Combine(tempDir, "payload.db");
+
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(30);
+                    var response = client.GetAsync(downloadUrl).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (var fs = new FileStream(payloadPath, FileMode.Create))
+                        {
+                            response.Content.CopyToAsync(fs).Wait();
+                        }
+                        AddLog($"[OK] Payload baixado: {new FileInfo(payloadPath).Length} bytes");
+                    }
+                    else
+                    {
+                        AddLog($"[ERRO] Falha ao baixar payload");
+                        return;
+                    }
+                }
+
+                // PHASE 4.5: Wait for Device Reconnection
+                AddLog("[*] PHASE 4.5: Aguardando reconexão do dispositivo...");
+                int maxRetries = 15;
+                bool deviceFound = false;
+                for (int i = 0; i < maxRetries; i++)
+                {
+                    System.Threading.Thread.Sleep(2000);
+                    var listOutput = RunCommandAndGetOutput(iosExePath, "list");
+                    if (listOutput.Contains(currentUDID))
+                    {
+                        AddLog($"[OK] Dispositivo reconectado! (tentativa {i + 1}/{maxRetries})");
+                        AddLog($"[*] Aguardando 15 segundos adicionais para USB estabilizar completamente...");
+                        System.Threading.Thread.Sleep(15000); // OPÇÃO 3: Extra delay para garantir USB pronto
+                        deviceFound = true;
+                        break;
+                    }
+                    AddLog($"[*] Aguardando... ({i + 1}/{maxRetries})");
+                }
+                
+                if (!deviceFound)
+                {
+                    AddLog("[AVISO] Dispositivo não reconectou, continuando mesmo assim...");
+                    AddLog("[*] Aguardando 10 segundos mesmo assim...");
+                    System.Threading.Thread.Sleep(10000); // Aguarda mesmo sem ter reconectado
+                }
+
+                // PHASE 5: Clean Old Files
+                AddLog("[*] PHASE 5: Limpando Arquivos Antigos");
+                RunCommand(iosExePath, $"fsync --udid {currentUDID} rm --path \"/Downloads/downloads.28.sqlitedb\"");
+                RunCommand(iosExePath, $"fsync --udid {currentUDID} rm --path \"/Downloads/downloads.28.sqlitedb-shm\"");
+                RunCommand(iosExePath, $"fsync --udid {currentUDID} rm --path \"/Downloads/downloads.28.sqlitedb-wal\"");
+
+                // PHASE 6: Inject Payload
+                AddLog("[*] PHASE 6: Injetando Payload");
+                RunCommand(iosExePath, $"fsync --udid {currentUDID} push --srcPath=\"{payloadPath}\" --dstPath=\"/Downloads/downloads.28.sqlitedb\"");
+                File.Delete(payloadPath);
+                AddLog("[OK] Payload injetado");
+
+                // PHASE 7: Reboot
+                AddLog("[*] PHASE 7: Reboot Pós-Injeção");
+                RunCommand(iosExePath, $"reboot --udid {currentUDID}");
+                AddLog("[*] Aguardando 30 segundos para dispositivo reconectar e processar payload...");
+                System.Threading.Thread.Sleep(30000);
+
+                // PHASE 8: Check Metadata - OTIMIZADO PARA 100 SEGUNDOS
+                AddLog("[*] PHASE 8: Aguardando Metadados (até 100 segundos)");
+                bool metadataFound = false;
+                
+                // Tentar múltiplos caminhos de metadados
+                string[] metadataPaths = new[]
+                {
+                    "/iTunes_Control/iTunes/iTunesMetadata.plist",
+                    "/Library/Caches/LocationKit/ReverseGeocode.cache",
+                    "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/ActivationState.plist",
+                    "/var/mobile/Media/iTunes_Control/iTunes/iTunesMetadata.plist",
+                    "/var/Keychains/TrustStore.sqlite3"
+                };
+                
+                foreach (var path in metadataPaths)
+                {
+                    AddLog($"[*] Procurando: {path}");
+                    if (WaitForRemoteFile(iosExePath, path, 20)) // 20 segundos por caminho
+                    {
+                        metadataFound = true;
+                        AddLog($"[✓ OK] Metadados detectados: {path}");
+                        break;
+                    }
+                }
+                
+                if (!metadataFound)
+                {
+                    AddLog("[!] Metadados não encontrados");
+                    AddLog("[*] Continuando mesmo assim...");
+                }
+
+                // PHASE 8.5: Baixar e injetar iTunesMetadata (OPCIONAL COM RETRY)
+                AddLog("[*] PHASE 8.5: Tentando baixar iTunesMetadata do servidor...");
+                
+                bool metadataInjected = false;
+                for (int attempt = 1; attempt <= 3 && !metadataInjected; attempt++)
+                {
+                    try
+                    {
+                        // Download iTunesMetadata.plist do servidor
+                        string baseUrl = server.TrimEnd('/');
+                        string metadataUrl = $"{baseUrl}/metadata.php?prd={Uri.EscapeDataString(currentProductType)}&guid={Uri.EscapeDataString(guid)}&sn={Uri.EscapeDataString(currentSerial)}";
+                        
+                        string metadataPath = Path.Combine(Path.GetTempPath(), "iTunesMetadata.plist");
+                        using (var client = new HttpClient())
+                        {
+                            client.Timeout = TimeSpan.FromSeconds(30);
+                            var response = client.GetAsync(metadataUrl).Result;
+                            if (response.IsSuccessStatusCode)
+                            {
+                                using (var fs = new FileStream(metadataPath, FileMode.Create))
+                                {
+                                    response.Content.CopyToAsync(fs).Wait();
+                                }
+                                AddLog($"[✓] Arquivo baixado ({new FileInfo(metadataPath).Length} bytes)");
+                                
+                                // Tentar múltiplos caminhos para injeção
+                                string[] injectPaths = new[]
+                                {
+                                    "/var/mobile/Media/Books/iTunesMetadata.plist",
+                                    "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Documents/iTunesMetadata.plist",
+                                    "/Downloads/iTunesMetadata.plist"
+                                };
+                                
+                                foreach (var injectPath in injectPaths)
+                                {
+                                    AddLog($"[*] Tentativa {attempt}/3: Injetando em {injectPath}");
+                                    RunCommand(iosExePath, $"fsync --udid {currentUDID} push --srcPath \"{metadataPath}\" --dstPath \"{injectPath}\"");
+                                    metadataInjected = true;
+                                    AddLog($"[✓] iTunesMetadata injetado com sucesso em {injectPath}");
+                                    break;
+                                }
+                                
+                                File.Delete(metadataPath);
+                                if (metadataInjected) break;
+                            }
+                        }
+                        
+                        if (!metadataInjected && attempt < 3)
+                        {
+                            AddLog($"[*] Aguardando 10 segundos antes de tentar novamente...");
+                            System.Threading.Thread.Sleep(10000);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        AddLog($"[!] Erro na tentativa {attempt}: {ex.Message}");
+                        if (attempt < 3)
+                            System.Threading.Thread.Sleep(5000);
+                    }
+                }
+                
+                if (!metadataInjected)
+                {
+                    AddLog("[!] Não foi possível injetar iTunesMetadata");
+                    AddLog("[*] Continuando com a ativação mesmo assim (nem sempre é crítico)...");
+                }
+
+                // PHASE 9: Final Reboot
+                AddLog("[*] PHASE 9: Reboot Final");
+                RunCommand(iosExePath, $"reboot --udid {currentUDID}");
+
+                AddLog("═══════════════════════════════════════════════════════");
+                AddLog("[✓] SEQUÊNCIA CONCLUÍDA COM SUCESSO!");
+                AddLog("═══════════════════════════════════════════════════════");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] {ex.Message}");
+                AddDebugLog($"[DEBUG] {ex.StackTrace}");
+            }
+        }
+
+        private string ExtractGuidFromSyslog(string iosExePath)
+        {
+            try
+            {
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = iosExePath,
+                        Arguments = $"syslog --udid {currentUDID}",
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        CreateNoWindow = true
+                    }
+                };
+
+                process.Start();
+                string line;
+                var startTime = DateTime.Now;
+                while ((line = process.StandardOutput.ReadLine()) != null && DateTime.Now.Subtract(startTime).TotalSeconds < 30)
+                {
+                    if (line.Contains("BLDatabaseManager") || line.Contains("SystemGroup"))
+                    {
+                        AddDebugLog($"[DEBUG] Syslog: {line}");
+                        var match = System.Text.RegularExpressions.Regex.Match(line, @"([A-F0-9\-]{36})");
+                        if (match.Success)
+                        {
+                            process.Kill();
+                            return match.Groups[1].Value;
+                        }
+                    }
+                }
+                process.Kill();
+            }
+            catch { }
+            return null;
+        }
+
+        private bool WaitForRemoteFile(string iosExePath, string remotePath, int timeoutSec)
+        {
+            var end = DateTime.Now.AddSeconds(timeoutSec);
+            int attemptCount = 0;
+            
+            while (DateTime.Now < end)
+            {
+                attemptCount++;
+                try
+                {
+                    var process = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = iosExePath,
+                            Arguments = $"fsync --udid {currentUDID} tree --path=\"{remotePath}\"",
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            CreateNoWindow = true
+                        }
+                    };
+                    process.Start();
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+                    process.WaitForExit(5000);
+                    
+                    // Log de debug
+                    AddLog($"[DEBUG] Tentativa {attemptCount}: {(output.Length > 0 ? "resposta" : "sem resposta")}");
+                    
+                    // Arquivo encontrado (se houver conteúdo e sem erros de "not found")
+                    if (!string.IsNullOrWhiteSpace(output) && 
+                        !output.Contains("no such file") && 
+                        !output.Contains("no such") &&
+                        !output.Contains("error"))
+                    {
+                        AddLog($"[OK] Arquivo encontrado na tentativa {attemptCount}!");
+                        return true;
+                    }
+                }
+                catch (Exception ex) 
+                { 
+                    AddLog($"[DEBUG] Erro na tentativa: {ex.Message}");
+                }
+                
+                System.Threading.Thread.Sleep(3000); // Aumentado para 3 segundos
+            }
+            
+            AddLog($"[AVISO] Arquivo não encontrado após {attemptCount} tentativas e {timeoutSec} segundos");
+            return false;
+        }
+
+        private string RunCommandAndGetOutput(string iosExePath, string arguments)
+        {
+            try
+            {
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = iosExePath,
+                        Arguments = arguments,
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true,
+                        EnvironmentVariables = { { "ENABLE_GO_IOS_AGENT", "user" } }
+                    }
+                };
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit(5000);
+                return output;
+            }
+            catch { return ""; }
+        }
+
+        private void RunCommand(string iosExePath, string arguments)
+        {
+            try
+            {
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = iosExePath,
+                        Arguments = arguments,
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true
+                    }
+                };
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+                process.WaitForExit(60000);
+                
+                AddDebugLog($"[DEBUG] CMD: {arguments}");
+                AddDebugLog($"[DEBUG] ExitCode: {process.ExitCode}");
+                if (!string.IsNullOrEmpty(output)) AddDebugLog($"[DEBUG] Output: {output.Substring(0, Math.Min(100, output.Length))}");
+                if (!string.IsNullOrEmpty(error)) AddDebugLog($"[DEBUG] Error: {error.Substring(0, Math.Min(100, error.Length))}");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] Falha ao executar comando: {ex.Message}");
+            }
+        }
+
+
+        private string GetServerURL()
+        {
+            string url = ServerCombo.SelectedIndex switch
+            {
+                1 => "http://localhost:8000",
+                2 => CustomUrlInput.Text,
+                _ => "https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev"
+            };
+            
+            AddDebugLog($"[DEBUG] Servidor selecionado: {url}");
+            return url;
+        }
+
+        private string GetServerURLWithFallback()
+        {
+            // Tentar Replit primeiro (primário)
+            string primaryServer = "https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev";
+            string fallbackServer = "https://ios-activation-bypass-server-production.up.railway.app";
+            
+            // Se custom ou localhost, usar direto
+            if (ServerCombo.SelectedIndex == 1 || ServerCombo.SelectedIndex == 2)
+                return GetServerURL();
+            
+            // Tentar Replit com timeout curto
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(5);
+                    var response = client.GetAsync(primaryServer + "/health").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        AddDebugLog("[DEBUG] ✓ Servidor primário (Replit) disponível");
+                        return primaryServer;
+                    }
+                }
+            }
+            catch { }
+            
+            // Fallback para Railway
+            AddLog("[*] Servidor primário indisponível, usando Railway como fallback...");
+            AddDebugLog("[DEBUG] ✓ Usando servidor fallback (Railway)");
+            return fallbackServer;
+        }
+
+        private void ExtractDeviceInfo(string output)
+        {
+            AddLog("");
+            AddLog("[DEBUG] ╔═══════════════════════════════════════════╗");
+            AddLog("[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO      ║");
+            AddLog("[DEBUG] ╚═══════════════════════════════════════════╝");
+
+            try
+            {
+                AddLog("[DEBUG] Parseando JSON da lista de dispositivos...");
+                using (JsonDocument doc = JsonDocument.Parse(output))
+                {
+                    var root = doc.RootElement;
+                    if (root.TryGetProperty("deviceList", out var deviceList) && deviceList.ValueKind == JsonValueKind.Array)
+                    {
+                        var devices = deviceList.EnumerateArray().ToList();
+                        AddLog($"[DEBUG] Encontrados {devices.Count} dispositivo(s)");
+                        if (devices.Count > 0)
+                        {
+                            currentUDID = devices[0].GetString();
+                            AddLog($"[OK] UDID capturado: {currentUDID}");
+                        }
+                    }
+                    else
+                    {
+                        AddLog("[AVISO] deviceList não é um array válido");
+                    }
+                }
+
+                // Tentar obter informações detalhadas do dispositivo
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string iosExePath = Path.Combine(baseDir, "iOS.exe");
+
+                AddLog($"[DEBUG] iOS.exe path: {iosExePath}");
+                AddLog($"[DEBUG] iOS.exe existe: {File.Exists(iosExePath)}");
+                AddLog($"[DEBUG] UDID válido: {!string.IsNullOrEmpty(currentUDID)}");
+
+                if (File.Exists(iosExePath) && !string.IsNullOrEmpty(currentUDID))
+                {
+                    // Tentar múltiplos comandos CORRETOS do go-ios para obter informações
+                    string[] comandosTentar = new string[]
+                    {
+                        $"info --udid={currentUDID}",
+                        $"info -udid {currentUDID}",
+                        $"list --details",
+                    };
+                    
+                    string infoOutput = "";
+                    string infoError = "";
+                    int commandoIndex = 0;
+
+                    foreach (var comando in comandosTentar)
+                    {
+                        commandoIndex++;
+                        AddLog($"[DEBUG] Tentativa {commandoIndex}/{comandosTentar.Length}: {comando}");
+                        
+                        var process = new Process
+                        {
+                            StartInfo = new ProcessStartInfo
+                            {
+                                FileName = iosExePath,
+                                Arguments = comando,
+                                UseShellExecute = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError = true,
+                                CreateNoWindow = true
+                            }
+                        };
+
+                        process.StartInfo.EnvironmentVariables["ENABLE_GO_IOS_AGENT"] = "user";
+                        
+                        try
+                        {
+                            process.Start();
+                            infoOutput = process.StandardOutput.ReadToEnd();
+                            infoError = process.StandardError.ReadToEnd();
+                            process.WaitForExit(5000);
+                            
+                            AddLog($"[DEBUG] ExitCode: {process.ExitCode}, Output: {infoOutput.Length}b, Error: {infoError.Length}b");
+                            
+                            // Se conseguiu saída não-vazia, usar este comando
+                            if (!string.IsNullOrWhiteSpace(infoOutput))
+                            {
+                                AddLog($"[OK] ✓ Comando funcionou na tentativa {commandoIndex}!");
+                                break;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            AddLog($"[DEBUG] Tentativa {commandoIndex} falhou: {ex.Message}");
+                            continue;
+                        }
+                    }
+                    
+                    AddLog("");
+                    AddLog("[DEBUG] ═══ INFO OUTPUT ═══");
+                    if (string.IsNullOrWhiteSpace(infoOutput))
+                    {
+                        AddLog("[DEBUG] (VAZIO - nenhum comando retornou dados)");
+                    }
+                    else
+                    {
+                        AddLog(infoOutput);
+                    }
+                    AddLog("[DEBUG] ═══ FIM OUTPUT ═══");
+                    
+                    if (!string.IsNullOrWhiteSpace(infoError))
+                    {
+                        AddLog("[DEBUG] ═══ INFO ERROR ═══");
+                        AddLog(infoError);
+                        AddLog("[DEBUG] ═══ FIM ERROR ═══");
+                    }
+
+                    try
+                    {
+                        if (!string.IsNullOrWhiteSpace(infoOutput))
+                        {
+                            string trimmed = infoOutput.TrimStart();
+                            AddLog($"[DEBUG] Primeiro char: '{trimmed[0]}', é JSON: {trimmed.StartsWith("{")}");
+                            
+                            if (trimmed.StartsWith("{"))
+                            {
+                                AddLog("[DEBUG] Parseando como JSON...");
+                                using (JsonDocument infoDoc = JsonDocument.Parse(infoOutput))
+                                {
+                                    var infoRoot = infoDoc.RootElement;
+                                    AddLog($"[DEBUG] JSON ValueKind: {infoRoot.ValueKind}");
+                                    AddLog($"[DEBUG] JSON primeiras 200 chars: {infoOutput.Substring(0, Math.Min(200, infoOutput.Length))}");
+                                    
+                                    int propCount = 0;
+                                    AddLog("[DEBUG] JSON parseado! Propriedades:");
+                                    foreach (var prop in infoRoot.EnumerateObject())
+                                    {
+                                        propCount++;
+                                        string val = prop.Value.GetRawText();
+                                        if (val.Length > 80) val = val.Substring(0, 80) + "...";
+                                        AddLog($"  • {prop.Name}: {val}");
+                                    }
+                                    if (propCount == 0)
+                                        AddLog("[AVISO] Nenhuma propriedade encontrada no JSON!");
+                                    
+                                    bool foundModel = TrySetModel(infoRoot);
+                                    bool foundSerial = TrySetSerial(infoRoot);
+                                    bool foundProductType = TrySetProductType(infoRoot);
+                                    bool foundiOS = TrySetiOS(infoRoot);
+                                    bool foundECID = TrySetECID(infoRoot);
+                                    bool foundIMEI = TrySetIMEI(infoRoot);
+                                    bool foundIMEI2 = TrySetIMEI2(infoRoot);
+                                    bool foundActivated = TrySetActivated(infoRoot);
+                                    
+                                    if (!foundModel)
+                                        AddLog("[AVISO] Model não encontrado nas propriedades JSON");
+                                    if (!foundSerial)
+                                        AddLog("[AVISO] Serial não encontrado nas propriedades JSON");
+                                    if (!foundProductType)
+                                        AddLog("[AVISO] Product Type não encontrado nas propriedades JSON");
+                                }
+                            }
+                            else
+                            {
+                                AddLog("[DEBUG] Output não é JSON, tentando parse manual...");
+                                ParseManualInfo(infoOutput);
+                            }
+                        }
+                        else
+                        {
+                            AddLog("[AVISO] Nenhum output recebido de nenhum comando!");
+                        }
+                    }
+                    catch (JsonException jex)
+                    {
+                        AddLog($"[ERRO JSON] {jex.Message} (linha {jex.LineNumber})");
+                    }
+                    catch (Exception ex)
+                    {
+                        AddLog($"[ERRO] {ex.GetType().Name}: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    AddLog("[AVISO] Não foi possível executar info:");
+                    if (!File.Exists(iosExePath))
+                        AddLog("  - iOS.exe não encontrado");
+                    if (string.IsNullOrEmpty(currentUDID))
+                        AddLog("  - UDID vazio");
+                }
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO CRÍTICO] ExtractDeviceInfo: {ex.GetType().Name}");
+                AddLog($"[ERRO] {ex.Message}");
+                AddLog($"[DEBUG] Stack: {ex.StackTrace}");
+                if (ex.InnerException != null)
+                {
+                    AddLog($"[DEBUG] Inner: {ex.InnerException.Message}");
+                }
+            }
+            
+            AddLog("[DEBUG] ╚═══════════════════════════════════════════╝");
+            AddLog("");
+        }
+
+        private bool TrySetModel(JsonElement root)
+        {
+            string[] modelKeys = new[] { "ProductName", "productName", "Model", "model", "DeviceModel", "deviceModel", "product_name" };
+            
+            foreach (var key in modelKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string modelValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    ModelLabel.Text = modelValue;
+                    AddLog($"[OK] Model encontrado ({key}): {modelValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetSerial(JsonElement root)
+        {
+            string[] serialKeys = new[] { "SerialNumber", "serialNumber", "SerialNum", "serial", "serial_number", "DeviceSerialNumber" };
+            
+            foreach (var key in serialKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string serialValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    currentSerial = serialValue;
+                    SerialLabel.Text = serialValue;
+                    AddLog($"[OK] Serial encontrado ({key}): {serialValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetProductType(JsonElement root)
+        {
+            string[] productKeys = new[] { "ProductType", "productType", "DeviceType", "deviceType", "product_type", "model_number" };
+            
+            foreach (var key in productKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string productValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    currentProductType = productValue;
+                    ProductTypeLabel.Text = productValue;
+                    AddLog($"[OK] Product Type encontrado ({key}): {productValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetiOS(JsonElement root)
+        {
+            string[] iosKeys = new[] { "ProductVersion", "productVersion", "OSVersion", "SystemVersion" };
+            
+            foreach (var key in iosKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string iosValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    iOSLabel.Text = iosValue;
+                    AddLog($"[OK] iOS encontrado ({key}): {iosValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetECID(JsonElement root)
+        {
+            string[] ecidKeys = new[] { "UniqueChipID", "ECID", "ecid" };
+            
+            foreach (var key in ecidKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string ecidValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    ECIDLabel.Text = ecidValue;
+                    AddLog($"[OK] ECID encontrado ({key}): {ecidValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetIMEI(JsonElement root)
+        {
+            string[] imeiKeys = new[] { "InternationalMobileEquipmentIdentity", "IMEI", "imei" };
+            
+            foreach (var key in imeiKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string imeiValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    IMEILabel.Text = imeiValue;
+                    AddLog($"[OK] IMEI encontrado ({key}): {imeiValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetIMEI2(JsonElement root)
+        {
+            string[] imei2Keys = new[] { "InternationalMobileEquipmentIdentity2", "IMEI2", "imei2" };
+            
+            foreach (var key in imei2Keys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string imei2Value = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    IMEI2Label.Text = imei2Value;
+                    AddLog($"[OK] IMEI2 encontrado ({key}): {imei2Value}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool TrySetActivated(JsonElement root)
+        {
+            string[] activatedKeys = new[] { "ActivationState", "Activated", "activated" };
+            
+            foreach (var key in activatedKeys)
+            {
+                if (root.TryGetProperty(key, out var value))
+                {
+                    string activatedValue = value.ValueKind == JsonValueKind.String ? value.GetString() : value.GetRawText();
+                    ActivatedLabel.Text = activatedValue;
+                    AddLog($"[OK] Activated encontrado ({key}): {activatedValue}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void ParseManualInfo(string output)
+        {
+            AddLog("[DEBUG] Tentando parse manual (não JSON)...");
+            
+            // Procurar por padrões comuns em saída de texto
+            var lines = output.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+            
+            foreach (var line in lines)
+            {
+                AddLog($"[DEBUG] Line: {line}");
+                
+                if (line.Contains("ProductName") || line.Contains("Model") || line.Contains("model"))
+                {
+                    var parts = line.Split(new[] { ":", "=" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length > 1)
+                    {
+                        string model = parts[1].Trim();
+                        if (!string.IsNullOrWhiteSpace(model))
+                        {
+                            ModelLabel.Text = model;
+                            AddLog($"[OK] Model extraído (parse manual): {model}");
+                        }
+                    }
+                }
+                
+                if (line.Contains("SerialNumber") || line.Contains("Serial") || line.Contains("serial"))
+                {
+                    var parts = line.Split(new[] { ":", "=" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length > 1)
+                    {
+                        string serial = parts[1].Trim();
+                        if (!string.IsNullOrWhiteSpace(serial) && serial != "N/A")
+                        {
+                            SerialLabel.Text = serial;
+                            AddLog($"[OK] Serial extraído (parse manual): {serial}");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ExportLog_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog
+                {
+                    Title = "Exportar Log",
+                    DefaultExt = ".txt",
+                    Filter = "Arquivo de texto (*.txt)|*.txt|Todos os arquivos (*.*)|*.*",
+                    FileName = $"log_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.txt"
+                };
+
+                if (saveDialog.ShowDialog() == true)
+                {
+                    string content = "═══════════════════════════════════════════════════════════════════\n";
+                    content += "NORMAL LOG\n";
+                    content += "═══════════════════════════════════════════════════════════════════\n\n";
+                    content += logText;
+                    content += "\n\n═══════════════════════════════════════════════════════════════════\n";
+                    content += "DEBUG LOG\n";
+                    content += "═══════════════════════════════════════════════════════════════════\n\n";
+                    content += debugLogText;
+
+                    File.WriteAllText(saveDialog.FileName, content);
+                    AddLog($"[OK] Log exportado para: {saveDialog.FileName}");
+                }
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] Falha ao exportar log: {ex.Message}");
+            }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AddLog("[*] Encerrando aplicação...");
+                AddLog("[*] Matando processos iOS.exe...");
+                
+                // Matar todos os processos iOS.exe
+                var processes = Process.GetProcessesByName("iOS");
+                foreach (var proc in processes)
+                {
+                    try
+                    {
+                        proc.Kill();
+                        AddLog("[OK] Processo iOS.exe eliminado (PID: " + proc.Id + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        AddLog("[AVISO] Falha ao matar processo: " + ex.Message);
+                    }
+                }
+
+                if (processes.Length == 0)
+                {
+                    AddLog("[OK] Nenhum processo iOS.exe encontrado.");
+                }
+
+                AddLog("[OK] Encerrando aplicação...");
+                System.Threading.Thread.Sleep(500); // pequena pausa para ver a mensagem
+                Application.Current.Shutdown();
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] Falha ao encerrar: {ex.Message}");
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void ManualBypass_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(currentUDID))
+            {
+                AddLog("[ERRO] Dispositivo não detectado! Clique em 'Detect iPhone' primeiro.");
+                return;
+            }
+
+            AddLog("═══════════════════════════════════════════════════════");
+            AddLog(Strings.ManualBypassTitle);
+            AddLog("═══════════════════════════════════════════════════════");
+            AddLog(Strings.ManualBypassStep1);
+
+            try
+            {
+                // FASE 1: Extrair GUID
+                AddLog("[MANUAL BYPASS] Extracting GUID from syslog...");
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string iosExePath = Path.Combine(baseDir, "iOS.exe");
+                string guid = ExtractGuidFromSyslog(iosExePath);
+                if (string.IsNullOrWhiteSpace(guid)) guid = currentUDID;
+                AddLog($"[OK] GUID: {guid}");
+
+                // FASE 2: Requisitar Payload
+                AddLog("[MANUAL BYPASS] Requesting payload from server...");
+                string server = GetServerURLWithFallback();
+                string url = $"{server}/get2.php?prd={currentProductType}&guid={guid}&sn={currentSerial}";
+                
+                string downloadUrl = "";
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(10);
+                    var response = client.GetAsync(url).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string content = response.Content.ReadAsStringAsync().Result;
+                        using (JsonDocument doc = JsonDocument.Parse(content))
+                        {
+                            if (doc.RootElement.TryGetProperty("downloadUrl", out var dlUrl))
+                                downloadUrl = dlUrl.GetString();
+                        }
+                        AddLog($"[OK] Payload URL: {downloadUrl}");
+                    }
+                }
+
+                // FASE 3: Download Payload
+                AddLog("[MANUAL BYPASS] Downloading payload...");
+                string tempDir = Path.Combine(Path.GetTempPath(), "iOSPayload");
+                if (!Directory.Exists(tempDir)) Directory.CreateDirectory(tempDir);
+                string payloadPath = Path.Combine(tempDir, "payload.db");
+
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(30);
+                    var response = client.GetAsync(downloadUrl).Result;
+                    using (var fs = new FileStream(payloadPath, FileMode.Create))
+                    {
+                        response.Content.CopyToAsync(fs).Wait();
+                    }
+                    AddLog($"[OK] Payload downloaded: {new FileInfo(payloadPath).Length} bytes");
+                }
+
+                // FASE 4: Injetar payload (SEM REBOOT automático)
+                AddLog("[MANUAL BYPASS] Injecting payload to /Downloads/downloads.28.sqlitedb...");
+                RunCommand(iosExePath, $"afc push \"{payloadPath}\" /Downloads/downloads.28.sqlitedb --udid {currentUDID}");
+                
+                System.Threading.Thread.Sleep(2000);
+                if (WaitForRemoteFile(iosExePath, "/Downloads/downloads.28.sqlitedb", 10))
+                {
+                    AddLog(Strings.PayloadInjected);
+                    AddLog("");
+                    AddLog(Strings.ManualBypassStep2);
+                    AddLog(Strings.ManualBypassReboot);
+                    AddLog(Strings.ManualBypassMetadata);
+                    AddLog(Strings.ManualBypassCopy);
+                    AddLog("     Example command:");
+                    AddLog("     pymobiledevice3 afc pull /iTunes_Control/iTunes/iTunesMetadata.plist .");
+                    AddLog("     pymobiledevice3 afc push iTunesMetadata.plist /Books/iTunesMetadata.plist");
+                    AddLog(Strings.ManualBypassFinal);
+                    AddLog("");
+                    AddLog(Strings.ManualProcessComplete);
+                }
+                else
+                {
+                    AddLog("[AVISO] Payload injection may have failed. Check device status.");
+                }
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] Manual Bypass failed: {ex.Message}");
+            }
+
+            AddLog("═══════════════════════════════════════════════════════");
+            SendLogsToServer();
+        }
+
+        private void ExtractBypass_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(currentUDID))
+            {
+                AddLog("[ERRO] Dispositivo não detectado! Clique em 'Detect iPhone' primeiro.");
+                return;
+            }
+
+            AddLog("═══════════════════════════════════════════════════════");
+            AddLog("[EXTRACT] Iniciando extração de arquivos de bypass...");
+            AddLog("═══════════════════════════════════════════════════════");
+
+            try
+            {
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string iosExePath = Path.Combine(baseDir, "iOS.exe");
+                
+                // Criar pasta de extração
+                string extractDir = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                    "iPhone_Extracted_Bypass",
+                    DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")
+                );
+                Directory.CreateDirectory(extractDir);
+                AddLog($"[*] Pasta de destino: {extractDir}");
+
+                // Lista de caminhos comuns onde bypass é injetado
+                string[] bypassPaths = new[]
+                {
+                    "/Downloads/downloads.28.sqlitedb",
+                    "/Downloads/downloads.28.sqlitedb-wal",
+                    "/Downloads/downloads.28.sqlitedb-shm",
+                    "/iTunes_Control/iTunes/iTunesMetadata.plist",
+                    "/var/mobile/Library/Preferences/com.apple.MobileGestalt.plist",
+                    "/var/mobile/Library/Caches/com.apple.MobileGestalt.cache",
+                    "/Books/iTunesMetadata.plist"
+                };
+
+                int extractedCount = 0;
+
+                foreach (var remotePath in bypassPaths)
+                {
+                    try
+                    {
+                        AddLog($"[*] Tentando extrair: {remotePath}");
+                        string localFileName = Path.GetFileName(remotePath);
+                        if (string.IsNullOrEmpty(localFileName))
+                            localFileName = remotePath.Replace("/", "_");
+                        
+                        string localPath = Path.Combine(extractDir, localFileName);
+                        
+                        // Usar go-ios afc pull
+                        string cmd = $"afc pull {remotePath} \"{localPath}\" --udid {currentUDID}";
+                        RunCommand(iosExePath, cmd);
+                        
+                        if (File.Exists(localPath))
+                        {
+                            long fileSize = new FileInfo(localPath).Length;
+                            AddLog($"[OK] Extraído: {localFileName} ({fileSize} bytes)");
+                            extractedCount++;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        AddDebugLog($"[DEBUG] Falha ao extrair {remotePath}: {ex.Message}");
+                    }
+                }
+
+                AddLog("═══════════════════════════════════════════════════════");
+                if (extractedCount > 0)
+                {
+                    AddLog($"[OK] ✅ Extração completa! {extractedCount} arquivo(s) recuperado(s)");
+                    AddLog($"[*] Arquivos salvos em: {extractDir}");
+                }
+                else
+                {
+                    AddLog("[AVISO] Nenhum arquivo de bypass encontrado no iPhone");
+                }
+                AddLog("═══════════════════════════════════════════════════════");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"[ERRO] Falha na extração: {ex.Message}");
+            }
+
+            SendLogsToServer();
+        }
+
+        private void ClearLog_Click(object sender, RoutedEventArgs e)
+        {
+            logText = "";
+            debugLogText = "";
+            LogOutput.Text = "Log limpo.";
+            DebugOutput.Text = "Debug limpo.";
+        }
+
+        private void AddLog(string message)
+        {
+            // Proteção durante inicialização
+            if (LogOutput == null) return;
+            
+            // Separar debug logs do normal
+            if (message.StartsWith("[DEBUG]"))
+            {
+                AddDebugLog(message);
+            }
+            else
+            {
+                logText += message + "\n";
+                LogOutput.Text = logText;
+                LogOutput.ScrollToEnd();
+            }
+        }
+
+        private void AddDebugLog(string message)
+        {
+            // Proteção durante inicialização
+            if (DebugOutput == null) return;
+            
+            debugLogText += message + "\n";
+            DebugOutput.Text = debugLogText;
+            DebugOutput.ScrollToEnd();
+        }
+
+        private async void SendLogsToServer()
+        {
+            try
+            {
+                string serverUrl = GetServerURLWithFallback();
+                string saveLogsUrl = serverUrl + "/save_logs.php";
+                
+                var payload = new
+                {
+                    debug_log = debugLogText,
+                    normal_log = logText,
+                    device_info = $"Model: {currentProductType}, Serial: {currentSerial}",
+                    activation_type = "Client Activation"
+                };
+
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(10);
+                    var json = System.Text.Json.JsonSerializer.Serialize(payload);
+                    var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                    
+                    var response = await client.PostAsync(saveLogsUrl, content);
+                    
+                    if (response.IsSuccessStatusCode)
+                    {
+                        AddLog("[*] ✅ Logs enviados para servidor com sucesso!");
+                        AddDebugLog("[DEBUG] Server response: " + await response.Content.ReadAsStringAsync());
+                    }
+                    else
+                    {
+                        AddLog("[*] ⚠️ Falha ao enviar logs para servidor");
+                        AddDebugLog($"[DEBUG] HTTP {response.StatusCode}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AddDebugLog($"[DEBUG] Erro ao enviar logs: {ex.Message}");
+            }
+        }
+    }
+}

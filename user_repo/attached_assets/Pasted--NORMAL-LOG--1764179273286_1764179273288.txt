@@ -1,0 +1,269 @@
+═══════════════════════════════════════════════════════════════════
+NORMAL LOG
+═══════════════════════════════════════════════════════════════════
+
+Aplicação iniciada...
+═══════════════════════════════════════════════════════
+[INICIO] Detectando dispositivo...
+[OK] iOS.exe encontrado!
+
+{"deviceList":["00008030-001E613E1192802E"]}
+
+
+
+
+[OK] UDID capturado: 00008030-001E613E1192802E
+[OK] ✓ Comando funcionou na tentativa 1!
+
+{"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":524245983,"BasebandChipID":104,"BasebandKeyHashInformation":{"AKeyStatus":64,"SKeyStatus":2},"BasebandMasterKeyHash":"1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C466055803E1EF81C870","BasebandRegionSKU":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","BasebandSerialNumber":"HfuNOJuYRdMAAAAA","BasebandStatus":"BBInfoAvailable","BasebandVersion":"7.00.00","BluetoothAddress":"74:42:8b:e6:aa:0b","BoardId":6,"BootSessionID":"6A0FC165-2338-44F6-9FE0-95BB4AD037B9","BrickState":true,"BuildVersion":"23B85","CPUArchitecture":"arm64e","CarrierBundleInfoArray":[],"CertID":524245983,"ChipID":32816,"ChipSerialNo":"HfuNOJuYRdMAAAAA","DeviceClass":"iPhone","DeviceColor":"1","DeviceName":"iPhone","DieID":8551168512000046,"EthernetAddress":"74:42:8b:e8:f5:e2","FirmwareVersion":"iBoot-13822.42.2","FusingStatus":3,"HardwareModel":"D421AP","HardwarePlatform":"t8030","HasSiDP":true,"HostAttached":true,"HumanReadableProductVersionString":"26.1","InternationalMobileEquipmentIdentity":"353845104698213","InternationalMobileEquipmentIdentity2":"353845104717781","MLBSerialNumber":"F3X944502NULTPHA","MobileEquipmentIdentifier":"35384510469821","MobileSubscriberCountryCode":"","MobileSubscriberNetworkCode":"","ModelNumber":"MWC32","NonVolatileRAM":{"StartupMute":"MQ==","SystemAudioVolumeSaved":"dHJ1ZQ==","auto-boot":"dHJ1ZQ==","backlight-level":"NTk4","backlight-nits":"MHgwMDliMDAwMA==","boot-args":"","bootdelay":"MA==","fm-account-masked":"a+KAouKAouKAouKAouKAokB5YWhvby5jb20=","fm-activation-locked":"WUVT","fm-spkeys":"YnBsaXN0MDDWAQIDBAUGBxAREhMUUXZRYlFzUWlRbFFw0ggJCg9RMVEy0gsMDQ5RbFFzEAAQYNILDA0OM0HCnYO0pqEwTxAgdb5Mrib0WXIIoS1womQWoTCkgK9bHekl9d+MPz1NPSURfyhPEBCmABPjWY1Kh6buJORc1ky6TxA5BKDixpaH2y/Ii32FtJBBEQ/1bGr3b8YG55ROXxQu4WczfcQs9OW4gHi8mYsPfVyGAjxfJJSWdtj/CBUXGRsdHyEmKCovMTM1NzxFaGt+AAAAAAAAAQEAAAAAAAAAFQAAAAAAAAAAAAAAAAAAALo=","fm-spstatus":"WUVT","usbcfwflasherResult":"Tm8gZXJyb3Jz"},"PairRecordProtectionClass":4,"PartitionType":"GUID_partition_scheme","PasswordProtected":false,"PkHash":"Hz9b38WSRX/cE6qam0xEfaM6v7nHw0ZdWjTPu2WOXVU=","ProductName":"iPhone OS","ProductType":"iPhone12,3","ProductVersion":"26.1","ProductionSOC":true,"ProtocolVersion":"2","ProximitySensorCalibration":"f3oABTIAHgCvRZZB8Vm9QQAAyEJvhYFBbALfQQAAFkNvhYFBbALfQQAAFkN8nbJCWzeKweJqwERvHcNEOLrERFesxUQJOH9BErpxQbcbcUEpF4hBAAAgQuKqJ0Olir9BAABIQh6l60PA8upD3gkDRk4Zh0P4wL9dASAYEnZrm0XFC7ND9xFMRQIAAAAAAAD5","RegionInfo":"PP/A","SIMStatus":"kCTSIMSupportSIMStatusNotInserted","SIMTrayStatus":"kCTSIMSupportSIMTrayInsertedNoSIM","SerialNumber":"F17ZMD18N6Y3","SoftwareBehavior":"AQAAAAAAAAAAAAAAAAAAAA==","SoftwareBundleVersion":"","SupportedDeviceFamilies":[1],"TelephonyCapability":true,"TimeIntervalSince1970":1764178839.203047,"TimeZone":"US/Pacific","TimeZoneOffsetFromUTC":-28800,"TrustedHostAttached":true,"UniqueChipID":8551168512000046,"UniqueDeviceID":"00008030-001E613E1192802E","UntrustedHostBUID":"312194041736410406144565304","UseRaptorCerts":true,"Uses24HourClock":false,"WiFiAddress":"74:42:8b:e9:4b:c6","WirelessBoardSerialNumber":"9A2AC7E000BF","kCTPostponementStatus":"kCTPostponementStatusReady"}
+
+{"level":"error","msg":"error reading dtx connection read tcp 127.0.0.1:50170-\u003e127.0.0.1:60110: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2025-11-27T01:40:38+08:00"}
+{"channel_id":"com.apple.instruments.server.services.deviceinfo","error":"Timed out waiting for response for message:5 channel:0","level":"error","msg":"failed requesting channel","time":"2025-11-27T01:40:43+08:00"}
+{"level":"error","msg":"DeviceConnection failed writing 206 bytes, only 0 sent","time":"2025-11-27T01:40:43+08:00"}
+{"level":"error","msg":"Failed sending: write tcp 127.0.0.1:50170-\u003e127.0.0.1:60110: wsasend: An existing connection was forcibly closed by the remote host.","time":"2025-11-27T01:40:43+08:00"}
+{"channel_id":"com.apple.instruments.server.services.deviceinfo","error":"write tcp 127.0.0.1:50170-\u003e127.0.0.1:60110: wsasend: An existing connection was forcibly closed by the remote host.","level":"info","methodselector":"networkInformation","msg":"failed starting invoking method","time":"2025-11-27T01:40:43+08:00"}
+{"level":"error","msg":"DeviceConnection failed writing 207 bytes, only 0 sent","time":"2025-11-27T01:40:43+08:00"}
+{"level":"error","msg":"Failed sending: write tcp 127.0.0.1:50170-\u003e127.0.0.1:60110: use of closed network connection","time":"2025-11-27T01:40:43+08:00"}
+{"channel_id":"com.apple.instruments.server.services.deviceinfo","error":"write tcp 127.0.0.1:50170-\u003e127.0.0.1:60110: use of closed network connection","level":"info","methodselector":"hardwareInformation","msg":"failed starting invoking method","time":"2025-11-27T01:40:43+08:00"}
+
+• ActivationState: "Unactivated"
+• BasebandActivationTicketVersion: "V2"
+• BasebandCertId: 524245983
+• BasebandChipID: 104
+• BasebandKeyHashInformation: {"AKeyStatus":64,"SKeyStatus":2}
+• BasebandMasterKeyHash: "1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C46...
+• BasebandRegionSKU: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+• BasebandSerialNumber: "HfuNOJuYRdMAAAAA"
+• BasebandStatus: "BBInfoAvailable"
+• BasebandVersion: "7.00.00"
+• BluetoothAddress: "74:42:8b:e6:aa:0b"
+• BoardId: 6
+• BootSessionID: "6A0FC165-2338-44F6-9FE0-95BB4AD037B9"
+• BrickState: true
+• BuildVersion: "23B85"
+• CPUArchitecture: "arm64e"
+• CarrierBundleInfoArray: []
+• CertID: 524245983
+• ChipID: 32816
+• ChipSerialNo: "HfuNOJuYRdMAAAAA"
+• DeviceClass: "iPhone"
+• DeviceColor: "1"
+• DeviceName: "iPhone"
+• DieID: 8551168512000046
+• EthernetAddress: "74:42:8b:e8:f5:e2"
+• FirmwareVersion: "iBoot-13822.42.2"
+• FusingStatus: 3
+• HardwareModel: "D421AP"
+• HardwarePlatform: "t8030"
+• HasSiDP: true
+• HostAttached: true
+• HumanReadableProductVersionString: "26.1"
+• InternationalMobileEquipmentIdentity: "353845104698213"
+• InternationalMobileEquipmentIdentity2: "353845104717781"
+• MLBSerialNumber: "F3X944502NULTPHA"
+• MobileEquipmentIdentifier: "35384510469821"
+• MobileSubscriberCountryCode: ""
+• MobileSubscriberNetworkCode: ""
+• ModelNumber: "MWC32"
+• NonVolatileRAM: {"StartupMute":"MQ==","SystemAudioVolumeSaved":"dHJ1ZQ==","auto-boot":"dHJ1ZQ=="...
+• PairRecordProtectionClass: 4
+• PartitionType: "GUID_partition_scheme"
+• PasswordProtected: false
+• PkHash: "Hz9b38WSRX/cE6qam0xEfaM6v7nHw0ZdWjTPu2WOXVU="
+• ProductName: "iPhone OS"
+• ProductType: "iPhone12,3"
+• ProductVersion: "26.1"
+• ProductionSOC: true
+• ProtocolVersion: "2"
+• ProximitySensorCalibration: "f3oABTIAHgCvRZZB8Vm9QQAAyEJvhYFBbALfQQAAFkNvhYFBbALfQQAAFkN8nbJCWzeKweJqwERvHcN...
+• RegionInfo: "PP/A"
+• SIMStatus: "kCTSIMSupportSIMStatusNotInserted"
+• SIMTrayStatus: "kCTSIMSupportSIMTrayInsertedNoSIM"
+• SerialNumber: "F17ZMD18N6Y3"
+• SoftwareBehavior: "AQAAAAAAAAAAAAAAAAAAAA=="
+• SoftwareBundleVersion: ""
+• SupportedDeviceFamilies: [1]
+• TelephonyCapability: true
+• TimeIntervalSince1970: 1764178839.203047
+• TimeZone: "US/Pacific"
+• TimeZoneOffsetFromUTC: -28800
+• TrustedHostAttached: true
+• UniqueChipID: 8551168512000046
+• UniqueDeviceID: "00008030-001E613E1192802E"
+• UntrustedHostBUID: "312194041736410406144565304"
+• UseRaptorCerts: true
+• Uses24HourClock: false
+• WiFiAddress: "74:42:8b:e9:4b:c6"
+• WirelessBoardSerialNumber: "9A2AC7E000BF"
+• kCTPostponementStatus: "kCTPostponementStatusReady"
+[OK] Model encontrado (ProductName): iPhone OS
+[OK] Serial encontrado (SerialNumber): F17ZMD18N6Y3
+[OK] Product Type encontrado (ProductType): iPhone12,3
+[OK] iOS encontrado (ProductVersion): 26.1
+[OK] ECID encontrado (UniqueChipID): 8551168512000046
+[OK] IMEI encontrado (InternationalMobileEquipmentIdentity): 353845104698213
+[OK] IMEI2 encontrado (InternationalMobileEquipmentIdentity2): 353845104717781
+[OK] Activated encontrado (ActivationState): Unactivated
+
+[✓ OK] iPhone DETECTADO COM SUCESSO!
+═══════════════════════════════════════════════════════
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008030-001E613E1192802E
+[*] PHASE 3: Requisitando Payload do Servidor
+[OK] Payload URL: http://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/cache/stage3/d49d96d60d85fc5a/payload.png
+[*] PHASE 4: Baixando Payload
+[OK] Payload baixado: 16384 bytes
+[*] PHASE 4.5: Aguardando reconexão do dispositivo...
+[*] Aguardando... (1/15)
+[*] Aguardando... (2/15)
+[*] Aguardando... (3/15)
+[*] Aguardando... (4/15)
+[*] Aguardando... (5/15)
+[*] Aguardando... (6/15)
+[OK] Dispositivo reconectado! (tentativa 7/15)
+[*] PHASE 5: Limpando Arquivos Antigos
+[*] PHASE 6: Injetando Payload
+[OK] Payload injetado
+[*] PHASE 7: Reboot Pós-Injeção
+[*] Aguardando 30 segundos para dispositivo reconectar e processar payload...
+[*] PHASE 8: Aguardando Metadados (até 100 segundos)
+[*] Procurando: /iTunes_Control/iTunes/iTunesMetadata.plist
+[AVISO] Arquivo não encontrado após 7 tentativas e 20 segundos
+[*] Procurando: /Library/Caches/LocationKit/ReverseGeocode.cache
+[AVISO] Arquivo não encontrado após 7 tentativas e 20 segundos
+[*] Procurando: /var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/ActivationState.plist
+[AVISO] Arquivo não encontrado após 7 tentativas e 20 segundos
+[*] Procurando: /var/mobile/Media/iTunes_Control/iTunes/iTunesMetadata.plist
+[AVISO] Arquivo não encontrado após 7 tentativas e 20 segundos
+[*] Procurando: /var/Keychains/TrustStore.sqlite3
+[AVISO] Arquivo não encontrado após 7 tentativas e 20 segundos
+[!] Metadados não encontrados
+[*] Continuando mesmo assim...
+[*] PHASE 8.5: Baixando iTunesMetadata do servidor...
+[*] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/metadata.php?prd=iPhone12%2C3&guid=00008030-001E613E1192802E&sn=F17ZMD18N6Y3
+[✓] Arquivo baixado (109 bytes)
+[*] Injetando em /var/mobile/Media/Books/iTunesMetadata.plist
+[✓] iTunesMetadata injetado com sucesso!
+[*] PHASE 9: Reboot Final
+═══════════════════════════════════════════════════════
+[✓] SEQUÊNCIA CONCLUÍDA COM SUCESSO!
+═══════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════════
+DEBUG LOG
+═══════════════════════════════════════════════════════════════════
+
+Sistema inicializado
+[DEBUG] Hora: 2025-11-27 01:40:38.086
+[DEBUG] Diretório base: C:\Users\micho\Downloads\Distribuicao\Distribuicao_Final\bin\
+[DEBUG] Procurando iOS.exe em: C:\Users\micho\Downloads\Distribuicao\Distribuicao_Final\bin\iOS.exe
+[DEBUG] Criando processo...
+[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user
+[DEBUG] Iniciando processo iOS.exe list...
+[DEBUG] Processo iniciado, PID: 4300
+[DEBUG] Lendo stdout...
+[DEBUG] Stdout lido (45 bytes)
+[DEBUG] Lendo stderr...
+[DEBUG] Stderr lido (0 bytes)
+[DEBUG] Aguardando processo terminar (5s timeout)...
+[DEBUG] Processo terminou: True, Exit Code: 0
+[DEBUG] ═══ STDOUT ═══
+[DEBUG] ═══ FIM STDOUT ═══
+[DEBUG] STDERR estava vazio
+[DEBUG] Analisando saída para detectar dispositivos...
+[DEBUG] Procurando por "deviceList" no JSON...
+[DEBUG] ✓ Encontrado "deviceList"
+[DEBUG] ✓ deviceList tem conteúdo!
+[DEBUG] Extraindo informações do dispositivo...
+[DEBUG] ╔═══════════════════════════════════════════╗
+[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO ║
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] Parseando JSON da lista de dispositivos...
+[DEBUG] Encontrados 1 dispositivo(s)
+[DEBUG] iOS.exe path: C:\Users\micho\Downloads\Distribuicao\Distribuicao_Final\bin\iOS.exe
+[DEBUG] iOS.exe existe: True
+[DEBUG] UDID válido: True
+[DEBUG] Tentativa 1/3: info --udid=00008030-001E613E1192802E
+[DEBUG] ExitCode: 0, Output: 3266b, Error: 1627b
+[DEBUG] ═══ INFO OUTPUT ═══
+[DEBUG] ═══ FIM OUTPUT ═══
+[DEBUG] ═══ INFO ERROR ═══
+[DEBUG] ═══ FIM ERROR ═══
+[DEBUG] Primeiro char: '{', é JSON: True
+[DEBUG] Parseando como JSON...
+[DEBUG] JSON ValueKind: Object
+[DEBUG] JSON primeiras 200 chars: {"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":524245983,"BasebandChipID":104,"BasebandKeyHashInformation":{"AKeyStatus":64,"SKeyStatus":2},"BasebandMasterKey
+[DEBUG] JSON parseado! Propriedades:
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] CMD: reboot --udid 00008030-001E613E1192802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-27T01:42:24+08:00"}
+
+[DEBUG] ProductType: iPhone12,3
+[DEBUG] Serial: F17ZMD18N6Y3
+[DEBUG] GUID: 00008030-001E613E1192802E
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/?prd=iPhone12,3&guid=00008030-001E613E1192802E&sn=F17ZMD18N6Y3
+[DEBUG] CMD: fsync --udid 00008030-001E613E1192802E rm --path "/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T01:42:52+08:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-001E613E1192802E rm --path "/Downloads/downloads.28.sqlitedb-shm"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T01:42:52+08:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-001E613E1192802E rm --path "/Downloads/downloads.28.sqlitedb-wal"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T01:42:52+08:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008030-001E613E1192802E push --srcPath="C:\Users\micho\AppData\Local\Temp\iOSPayload\payload.db" --dstPath="/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T01:42:52+08:00","udid":"0000
+[DEBUG] CMD: reboot --udid 00008030-001E613E1192802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-27T01:42:52+08:00","udid":"0000
+[DEBUG] Tentativa 1: sem resposta
+[DEBUG] Tentativa 2: sem resposta
+[DEBUG] Tentativa 3: sem resposta
+[DEBUG] Tentativa 4: sem resposta
+[DEBUG] Tentativa 5: sem resposta
+[DEBUG] Tentativa 6: sem resposta
+[DEBUG] Tentativa 7: sem resposta
+[DEBUG] Tentativa 1: sem resposta
+[DEBUG] Tentativa 2: sem resposta
+[DEBUG] Tentativa 3: sem resposta
+[DEBUG] Tentativa 4: sem resposta
+[DEBUG] Tentativa 5: sem resposta
+[DEBUG] Tentativa 6: sem resposta
+[DEBUG] Tentativa 7: sem resposta
+[DEBUG] Tentativa 1: sem resposta
+[DEBUG] Tentativa 2: sem resposta
+[DEBUG] Tentativa 3: sem resposta
+[DEBUG] Tentativa 4: sem resposta
+[DEBUG] Tentativa 5: sem resposta
+[DEBUG] Tentativa 6: sem resposta
+[DEBUG] Tentativa 7: sem resposta
+[DEBUG] Tentativa 1: sem resposta
+[DEBUG] Tentativa 2: sem resposta
+[DEBUG] Tentativa 3: sem resposta
+[DEBUG] Tentativa 4: sem resposta
+[DEBUG] Tentativa 5: sem resposta
+[DEBUG] Tentativa 6: sem resposta
+[DEBUG] Tentativa 7: sem resposta
+[DEBUG] Tentativa 1: sem resposta
+[DEBUG] Tentativa 2: sem resposta
+[DEBUG] Tentativa 3: sem resposta
+[DEBUG] Tentativa 4: sem resposta
+[DEBUG] Tentativa 5: sem resposta
+[DEBUG] Tentativa 6: sem resposta
+[DEBUG] Tentativa 7: sem resposta
+[DEBUG] CMD: fsync --udid 00008030-001E613E1192802E push --srcPath "C:\Users\micho\AppData\Local\Temp\iTunesMetadata.plist" --dstPath "/var/mobile/Media/Books/iTunesMetadata.plist"
+[DEBUG] ExitCode: 1
+[DEBUG] Error: {"err":"open file: unexpected afc status: ObjectNotFound","level":"fatal","msg":"fsync: push failed"
+[DEBUG] CMD: reboot --udid 00008030-001E613E1192802E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-27T01:45:15+08:00"}

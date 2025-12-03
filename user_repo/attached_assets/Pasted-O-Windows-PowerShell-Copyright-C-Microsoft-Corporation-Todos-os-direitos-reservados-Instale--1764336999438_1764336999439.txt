@@ -1,0 +1,338 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Fazer commit do MainWindow.xaml.cs atualizado
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add "Cliente Windows\MainWindow.xaml.cs"
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support - tries Replit first, then Railway"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Recompilar o cliente
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Configurar remoto GitHub
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git remote add origin https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Fazer commit e push
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add "Cliente Windows\MainWindow.xaml.cs"
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support - tries Replit first, then Railway"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Remover os arquivos deletados do tracking (não precisa deles mesmo)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git rm "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+fatal: C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs: 'C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs' is outside repository at 'C:/Users/Tributos Consultoria/Videos/MITEstudo'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git rm "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+fatal: C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs: 'C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs' is outside repository at 'C:/Users/Tributos Consultoria/Videos/MITEstudo'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git rm "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+fatal: C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe: 'C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe' is outside repository at 'C:/Users/Tributos Consultoria/Videos/MITEstudo'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Agora fazer commit
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support - tries Replit first, then Railway"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Push
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Descartar as mudanças de arquivo deletado (não precisa deles)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git restore --staged .
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git restore .
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Agora add apenas o MainWindow.xaml.cs atualizado
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add "Cliente Windows\MainWindow.xaml.cs"
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Commit
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support"
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Push
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Pull primeiro para sincronizar
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git pull origin main
+remote: Enumerating objects: 288, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 288 (delta 6), reused 14 (delta 2), pack-reused 270 (from 1)
+Receiving objects: 100% (288/288), 22.49 MiB | 4.46 MiB/s, done.
+Resolving deltas: 100% (6/6), done.
+From https://github.com/MarlonSuzuki/ios-activation-bypass-server
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+error: invalid path 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs'
+error: invalid path 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\client_windows_gui.cs'
+error: invalid path 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\iOS.exe'
+error: The following untracked working tree files would be overwritten by merge:
+        .local/state/replit/agent/.agent_state_026625991fd4c537cfdba9d3a67d829ba433e71d.bin
+        .local/state/replit/agent/.agent_state_03a2fede0cf3232574561860e221e5d9c717e546.bin
+        .local/state/replit/agent/.agent_state_03af7405e8e1ce14d62d113c4bfde11b1a3f4665.bin
+        .local/state/replit/agent/.agent_state_03dda8230b58194f79bf749d5590a4793c10c104.bin
+        .local/state/replit/agent/.agent_state_041fddac704da0ba918afe2111bbf16302809c1a.bin
+        .local/state/replit/agent/.agent_state_07a0c646c4f3bb0bb091f2af6d5a4e7866c09f52.bin
+        .local/state/replit/agent/.agent_state_07b016e96a2502345554d8a82bcf39bdb114c86d.bin
+        .local/state/replit/agent/.agent_state_07d538bb1c5df408cd8ce2ab8f27167377b7f854.bin
+        .local/state/replit/agent/.agent_state_0971d6740ceb7c49ae91487e1fdefe4016c41f16.bin
+        .local/state/replit/agent/.agent_state_0a0430701e36e2fc17c11121af1d6c990c8c5fa5.bin
+        .local/state/replit/agent/.agent_state_0b523635a2c8d81e5b484eb45d9a2324b8eaeba4.bin
+        .local/state/replit/agent/.agent_state_0e2590cd861378c8d511223ccc58f6ea4ccab38a.bin
+        .local/state/replit/agent/.agent_state_0e71bd6b18be7d01041a88b9e7990d2e41553b48.bin
+        .local/state/replit/agent/.agent_state_0e813452d21147d1609ce0ad4991eeb6767bc77e.bin
+        .local/state/replit/agent/.agent_state_101606fe3d908ef4367513cb8b16b0b09fdc9c37.bin
+        .local/state/replit/agent/.agent_state_107fec2cd4e6d3b49d4011fbb443222fdabdccd5.bin
+        .local/state/replit/agent/.agent_state_1107449615af5edd1928417e04db3e96d1f81301.bin
+        .local/state/replit/agent/.agent_state_1355090e4621f93b1d814b384f00dda0dfa3e28a.bin
+        .local/state/replit/agent/.agent_state_14ee55382d66e03b62b2c62fa614d4a161ced3b3.bin
+        .local/state/replit/agent/.agent_state_1610ab2192fc313929225770bb844b5b4f870cd5.bin
+        .local/state/replit/agent/.agent_state_164fd94f1ec3bd93e56b6b5b32754f4b1e9aaeae.bin
+        .local/state/replit/agent/.agent_state_18135398350bfaad4480d8234a68098ca0fe708b.bin
+        .local/state/replit/agent/.agent_state_184ee00430d4b700bdcc2f349e57069667079b9f.bin
+        .local/state/replit/agent/.agent_state_1a10304ea5e2a1642fbd8a549dcf38e2a55a3e1f.bin
+        .local/state/replit/agent/.agent_state_1a4ac5f2ca4ac3f6f56c9d7494593dd6db50ff5e.bin
+        .local/state/replit/agent/.agent_state_1ae12648b95255d3ca08bde7a0fcee405857c945.bin
+        .local/state/replit/agent/.agent_state_1bf1a364da079b2d2f8031a3fc6e50a2a030b1ee.bin
+        .local/state/replit/agent/.agent_state_1f122555b4581b10a2af3c73d44ff94489309bd4.bin
+        .local/state/replit/agent/.agent_state_1f1266b2b268974d73eae20be31eafb4d3405434.bin
+        .local/state/replit/agent/.agent_state_1f6afc1fcc3a2add1771627b45d2dca19a8ec57d.bin
+        .local/state/replit/agent/.agent_state_20673340845962c7d959a1bff39f54bb36decf04.bin
+        .local/state/replit/agent/.agent_state_213c3975f88fa174e8dafc3170385ff646d21181.bin
+        .local/state/replit/agent/.agent_state_2209474ff0683fc16fede30a0d8ad303c32a9cfe.bin
+        .local/state/replit/agent/.agent_state_2245c7bc985be304d260dba40e07990ad9970c0e.bin
+        .local/state/replit/agent/.agent_state_22b7f638ffb47cb79ef2308e2070117425e86425.bin
+        .local/state/replit/agent/.agent_state_23615b939ff7715441c2fbc98509bc63fb1ad716.bin
+        .local/state/replit/agent/.agent_state_241b646c47de949c05e0040f9eea2e7be794c020.bin
+        .local/state/replit/agent/.agent_state_24abf5cd8d17f1e4e2d7ec10824dafb47bfd17f3.bin
+        .local/state/replit/agent/.agent_state_254b42b2ea25f0fe2a9fdc2b5f80d9db29752ae1.bin
+        .local/state/replit/agent/.agent_state_2567b97d0dd0bdfb3abe37007c83ba40439e151f.bin
+        .local/state/replit/agent/.agent_state_25e0f7bcab13a5092b4298f10d11f9e0a509a6be.bin
+        .local/state/replit/agent/.agent_state_271beade2e664695731f4c7dd83b1b7747736a75.bin
+        .local/state/replit/agent/.agent_state_2965fa2f6321bec3245f9709142c6e6c9ac21d4c.bin
+        .local/state/replit/agent/.agent_state_29f650840d0e39401f841234123b66f73bbae854.bin
+        .local/state/replit/agent/.agent_state_2a565d69565643c2b6e008eb08379f683d5bb32a.bin
+        .local/state/replit/agent/.agent_state_2af3a0e58fdcc6e21c4ffa8a4efbf74c96d51bc9.bin
+        .local/state/replit/agent/.agent_state_2bfbf83be72f8577bf3be76dd8df4ad7219bfa63.bin
+        .local/state/repli
+Aborting
+error: invalid path 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs'
+error: invalid path 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\client_windows_gui.cs'
+error: invalid path 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\iOS.exe'
+Merge with strategy ort failed.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Agora push
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Deletar git corrompido
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item -Recurse -Force .git
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Limpar pastas auxiliares
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item -Recurse -Force .local -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item -Recurse -Force C__ -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Reinicializar Git
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git init
+Initialized empty Git repository in C:/Users/Tributos Consultoria/Videos/MITEstudo/.git/
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git remote add origin https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Add apenas arquivos válidos
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add *.php *.json *.txt *.bat *.md "public/*" "config/*" "assets/*" "cache/*" "logs/*" "Cliente Windows/*"
+fatal: pathspec '*.json' did not match any files
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Commit
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Full project sync with Railway fallback support"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .env.example
+        .gitignore
+        .replit
+        BAIXAR_E_COMPILAR.ps1
+        BAIXAR_E_COMPILAR_V2.ps1
+        BAIXAR_PHP.ps1
+        COMO_DISTRIBUIR.md
+        COMPILAR_AGORA.ps1
+        COMPILAR_CLIENTE.bat
+        COMPILAR_CLIENTE_BIN.bat
+        COMPILAR_SEM_PHP.ps1
+        COMPILAR_TUDO.bat
+        COMPILAR_TUDO.ps1
+        CRIAR_ATALHO.bat
+        CRIAR_INSTALADOR_NSIS.nsi
+        Cliente Windows/
+        Distribuicao/
+        Distribuicao_Final/
+        GUIA_ICONE_E_INSTALADOR.md
+        INICIO_RAPIDO.md
+        LOCALHOST_GUIA_COMPLETO.md
+        PROJETO_FINALIZADO.md
+        Procfile
+        README.md
+        REORGANIZAR_E_COMPILAR.ps1
+        SERVIDOR_STANDALONE.md
+        assets/
+        attached_assets/
+        cache/
+        config/
+        cron/
+        docs/
+        logs/
+        public/
+        replit.md
+        templates/
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Force push (cuidado!)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main --force
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Deletar Git corrompido
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item -Recurse -Force .git -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item -Recurse -Force .local -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item -Recurse -Force C__ -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Reinicializar limpo
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git init
+Initialized empty Git repository in C:/Users/Tributos Consultoria/Videos/MITEstudo/.git/
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git remote add origin https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add *.php *.json *.txt *.bat *.md Procfile public/ config/ assets/ cache/ logs/ "Cliente Windows/"
+fatal: pathspec '*.json' did not match any files
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Full project sync with Railway fallback support"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .env.example
+        .gitignore
+        .replit
+        BAIXAR_E_COMPILAR.ps1
+        BAIXAR_E_COMPILAR_V2.ps1
+        BAIXAR_PHP.ps1
+        COMO_DISTRIBUIR.md
+        COMPILAR_AGORA.ps1
+        COMPILAR_CLIENTE.bat
+        COMPILAR_CLIENTE_BIN.bat
+        COMPILAR_SEM_PHP.ps1
+        COMPILAR_TUDO.bat
+        COMPILAR_TUDO.ps1
+        CRIAR_ATALHO.bat
+        CRIAR_INSTALADOR_NSIS.nsi
+        Cliente Windows/
+        Distribuicao/
+        Distribuicao_Final/
+        GUIA_ICONE_E_INSTALADOR.md
+        INICIO_RAPIDO.md
+        LOCALHOST_GUIA_COMPLETO.md
+        PROJETO_FINALIZADO.md
+        Procfile
+        README.md
+        REORGANIZAR_E_COMPILAR.ps1
+        SERVIDOR_STANDALONE.md
+        assets/
+        attached_assets/
+        cache/
+        config/
+        cron/
+        docs/
+        logs/
+        public/
+        replit.md
+        templates/
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main --force
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Depois recompila
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> .\COMPILAR_CLIENTE.bat

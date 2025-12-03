@@ -1,0 +1,37 @@
+ create mode 100644 Distribuicao_Final/bin/Release/net10.0-windows/win-x64/zh-Hant/WindowsBase.resources.dll
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> git branch -M main
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> git remote add origin https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> git push -u origin main
+Enumerating objects: 2458, done.
+Counting objects: 100% (2458/2458), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2281/2281), done.
+Writing objects: 100% (2458/2458), 237.67 MiB | 5.14 MiB/s, done.
+Total 2458 (delta 1389), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1389/1389), done.
+remote: error: Trace: 13921a8bce449e0f2c17177f7d25cc27598c6807a147eaa8c363d5bff2ea86d2
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File Distribuicao.zip is 126.07 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> git branch -M main
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> git remote add origin https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+error: remote origin already exists.
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> git push -u origin main
+Enumerating objects: 2458, done.
+Counting objects: 100% (2458/2458), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2281/2281), done.
+Writing objects: 100% (2458/2458), 237.66 MiB | 4.89 MiB/s, done.
+Total 2458 (delta 1391), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1391/1391), done.
+remote: error: Trace: c26d9898aaaa2b01701ff44a69826a144159d6f83fbe3769a3d8cb81790a001a
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File Distribuicao.zip is 126.07 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo>

@@ -1,0 +1,36 @@
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add Dockerfile
+warning: in the working copy of 'Dockerfile', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add PHP extensions (zip, sqlite3) to Dockerfile for Railway"
+[main 171f4a5] Add PHP extensions (zip, sqlite3) to Dockerfile for Railway
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 524 bytes | 524.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+   b92f9b9..171f4a5  main -> main
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+>> git commit -m "Update Dockerfile with force rebuild label"
+>> git add .
+Everything up-to-date
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Dockerfile
+
+no changes added to commit (use "git add" and/or "git commit -a")
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Dockerfile', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'railway.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'replit.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'start.sh', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>

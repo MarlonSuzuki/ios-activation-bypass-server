@@ -1,0 +1,87 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows"
+>> dotnet new console --force
+>> Copy-Item client_windows.cs Program.cs -Force
+>> dotnet build
+O modelo "Aplicativo do Console" foi criado com êxito.
+
+Processando ações pós-criação...
+Restaurando C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Cliente Windows.csproj:
+A restauração foi bem-sucedida.
+
+
+Restauração concluída (0,3s)
+  Cliente Windows net10.0 falhou com 28 erro(s) (3,7s)
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(15,18): error CS0101: O namespace "GoIosBypassSuite" já contém uma definição para "GoIosDevice"
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(26,11): error CS0101: O namespace "GoIosBypassSuite" já contém uma definição para "Program"
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(425,18): error CS0101: O namespace "GoIosBypassSuite" já contém uma definição para "Log"
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(427,28): error CS0111: Tipo "Log" já define um membro chamado "Info" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(428,28): error CS0111: Tipo "Log" já define um membro chamado "Success" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(429,28): error CS0111: Tipo "Log" já define um membro chamado "Warn" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(430,28): error CS0111: Tipo "Log" já define um membro chamado "Error" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(431,28): error CS0111: Tipo "Log" já define um membro chamado "Header" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(432,28): error CS0111: Tipo "Log" já define um membro chamado "Detail" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(434,29): error CS0111: Tipo "Log" já define um membro chamado "Write" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(42,27): error CS0111: Tipo "Program" já define um membro chamado "Main" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(78,35): error CS0111: Tipo "Program" já define um membro chamado "RunSequence" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(158,29): error CS0111: Tipo "Program" já define um membro chamado "StartTunnelDaemon" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(190,29): error CS0111: Tipo "Program" já define um membro chamado "CleanupTunnel" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(198,31): error CS0111: Tipo "Program" já define um membro chamado "RunGoIosCommand" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(231,29): error CS0111: Tipo "Program" já define um membro chamado "PushFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(238,29): error CS0111: Tipo "Program" já define um membro chamado "RemoveRemoteFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(245,41): error CS0111: Tipo "Program" já define um membro chamado "WaitForRemoteFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(263,35): error CS0111: Tipo "Program" já define um membro chamado "WaitForRemoteFileDisappearance" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(277,43): error CS0111: Tipo "Program" já define um membro chamado "ExtractGuidFromSyslog" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(328,48): error CS0111: Tipo "Program" já define um membro chamado "WaitForDevice" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(368,35): error CS0111: Tipo "Program" já define um membro chamado "WaitForDeviceReconnection" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(376,43): error CS0111: Tipo "Program" já define um membro chamado "GetPayloadUrl" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(383,35): error CS0111: Tipo "Program" já define um membro chamado "DownloadFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(389,31): error CS0111: Tipo "Program" já define um membro chamado "GetSerialNumber" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(400,29): error CS0111: Tipo "Program" já define um membro chamado "CheckEnvironment" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(408,29): error CS0111: Tipo "Program" já define um membro chamado "PrintDeviceInfo" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(414,29): error CS0111: Tipo "Program" já define um membro chamado "PrintBanner" com os mesmos tipos de parâmetro
+
+Construir falhou com 28 erro(s) em 4,4s
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> Remove-Item "Cliente Windows.csproj"
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> Remove-Item Program.cs
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> dotnet new console --force
+O modelo "Aplicativo do Console" foi criado com êxito.
+
+Processando ações pós-criação...
+Restaurando C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Cliente Windows.csproj:
+A restauração foi bem-sucedida.
+
+
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> Remove-Item Program.cs
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> Rename-Item client_windows.cs Program.cs
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,3s)
+  Cliente Windows net10.0 êxito(s) com 20 aviso(s) (1,2s) → bin\Release\net10.0\Cliente Windows.dll
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(17,23): warning CS8618: O propriedade não anulável 'Udid' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o propriedade como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(18,23): warning CS8618: O propriedade não anulável 'DeviceName' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o propriedade como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(19,23): warning CS8618: O propriedade não anulável 'ProductVersion' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o propriedade como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(20,23): warning CS8618: O propriedade não anulável 'ProductType' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o propriedade como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(21,23): warning CS8618: O propriedade não anulável 'HardwareModel' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o propriedade como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(23,43): warning CS8618: O propriedade não anulável 'DeviceValues' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o propriedade como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(174,34): warning CS8601: Possível atribuição de referência nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(177,21): warning CS8602: Desreferência de uma referência possivelmente nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(216,33): warning CS8602: Desreferência de uma referência possivelmente nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(297,17): warning CS4014: Como esta chamada não é aguardada, a execução do método atual continua antes da conclusão da chamada. Considere aplicar o operador 'await' ao resultado da chamada.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(294,36): warning CS8600: Conversão de literal nula ou possível valor nulo em tipo não anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(300,42): warning CS8602: Desreferência de uma referência possivelmente nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(300,36): warning CS8600: Conversão de literal nula ou possível valor nulo em tipo não anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(317,23): warning CS8602: Desreferência de uma referência possivelmente nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(355,37): warning CS8601: Possível atribuição de referência nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(356,43): warning CS8601: Possível atribuição de referência nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(357,44): warning CS8601: Possível atribuição de referência nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(393,24): warning CS8603: Possível retorno de referência nula.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(39,36): warning CS8618: O campo não anulável '_targetDevice' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o campo como anulável.
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(40,32): warning CS8618: O campo não anulável '_tunnelProcess' precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar o campo como anulável.
+
+Construir êxito(s) com 20 aviso(s) em 2,0s
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows>

@@ -1,0 +1,51 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>
+Get-Process : Não é possível localizar um parâmetro posicional que aceite o argumento
+'Consultoria\Pictures\MITEstudo\Cliente'.
+No linha:1 caractere:1
++ PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+PS C:\WINDOWS\system32> PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> # Remove arquivos desnecessários
+Get-Process : Não é possível localizar um parâmetro posicional que aceite o argumento
+'Consultoria\Pictures\MITEstudo\Cliente'.
+No linha:1 caractere:1
++ PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+PS C:\WINDOWS\system32> PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Remove-Item "*.pdb" -Force
+Get-Process : Não é possível localizar um parâmetro posicional que aceite o argumento
+'Consultoria\Pictures\MITEstudo\Cliente'.
+No linha:1 caractere:1
++ PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+PS C:\WINDOWS\system32> PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Remove-Item "*.ucs" -Force
+Get-Process : Não é possível localizar um parâmetro posicional que aceite o argumento
+'Consultoria\Pictures\MITEstudo\Cliente'.
+No linha:1 caractere:1
++ PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+PS C:\WINDOWS\system32> PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Remove-Item "Program*.cs" -Force
+Get-Process : Não é possível localizar um parâmetro posicional que aceite o argumento
+'Consultoria\Pictures\MITEstudo\Cliente'.
+No linha:1 caractere:1
++ PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCommand
+
+PS C:\WINDOWS\system32> PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> cd

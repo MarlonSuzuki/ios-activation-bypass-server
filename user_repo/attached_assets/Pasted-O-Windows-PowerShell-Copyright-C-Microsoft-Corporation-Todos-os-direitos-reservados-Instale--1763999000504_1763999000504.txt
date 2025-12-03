@@ -1,0 +1,37 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> dotnet clean
+  Cliente Windowsnet10.0-windowswin-x64êxito(s) com 1 aviso(s) (0,1s)
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+
+Construir êxito(s) com 1 aviso(s) em 0,4s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,9s)
+  Cliente Windowsnet10.0-windowswin-x64êxito(s) com 1 aviso(s) (2,0s) → bin\Release\net10.0-windows\win-x64\ClienteWindows.dll
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+
+Construir êxito(s) com 1 aviso(s) em 4,1s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\ClienteWindows.exe" "..\Distribuicao\"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\ClienteWindows.dll" "..\Distribuicao\"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\*.deps.json" "..\Distribuicao\"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\*.runtimeconfig.json" "..\Distribuicao\"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Remove-Item -Recurse -Force bin
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Remove-Item -Recurse -Force obj
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> dotnet restore
+Restauração concluída (0,5s)
+
+Construir êxito em 0,8s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> dotnet build -c Release -p:SelfContained=true -p:RuntimeIdentifier=win-x64
+Restauração concluída (0,3s)
+  Cliente Windowsnet10.0-windowswin-x64êxito(s) com 1 aviso(s) (2,0s) → bin\Release\net10.0-windows\win-x64\ClienteWindows.dll
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+
+Construir êxito(s) com 1 aviso(s) em 2,8s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\ClienteWindows.exe" "..\Distribuicao\" -Force
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\ClienteWindows.dll" "..\Distribuicao\" -Force
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>

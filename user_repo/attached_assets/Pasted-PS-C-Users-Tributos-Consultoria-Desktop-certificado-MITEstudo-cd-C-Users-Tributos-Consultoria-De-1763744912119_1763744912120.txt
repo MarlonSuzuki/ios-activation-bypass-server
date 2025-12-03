@@ -1,0 +1,45 @@
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> mkdir "Cliente Windows"
+
+
+    Diretório: C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        21/11/2025     14:07                Cliente Windows
+
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Copy-Item ..\attached_assets\client_windows_gui.cs .
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Copy-Item ..\attached_assets\ios_1763734094974.exe iOS.exe
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet new console --force
+O modelo "Aplicativo do Console" foi criado com êxito.
+
+Processando ações pós-criação...
+Restaurando C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Cliente Windows.csproj:
+A restauração foi bem-sucedida.
+
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Remove-Item Program.cs
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Rename-Item client_windows_gui.cs Program.cs
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,4s)
+  Cliente Windows net10.0 falhou com 7 erro(s) (3,0s)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(11,22): error CS0234: O nome de tipo ou namespace "Forms" não existe no namespace "System.Windows" (você está sem uma referência de assembly?)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(26,39): error CS0246: O nome do tipo ou do namespace "Form" não pode ser encontrado (está faltando uma diretiva using ou uma referência de assembly?)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(37,17): error CS0246: O nome do tipo ou do namespace "TextBox" não pode ser encontrado (está faltando uma diretiva using ou uma referência de assembly?)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(38,17): error CS0246: O nome do tipo ou do namespace "Button" não pode ser encontrado (está faltando uma diretiva using ou uma referência de assembly?)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(39,17): error CS0246: O nome do tipo ou do namespace "Button" não pode ser encontrado (está faltando uma diretiva using ou uma referência de assembly?)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(40,17): error CS0246: O nome do tipo ou do namespace "ComboBox" não pode ser encontrado (está faltando uma diretiva using ou uma referência de assembly?)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(41,17): error CS0246: O nome do tipo ou do namespace "TextBox" não pode ser encontrado (está faltando uma diretiva using ou uma referência de assembly?)
+
+Construir falhou com 7 erro(s) em 3,9s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Add-Content -Path "Cliente Windows.csproj" -Value '  <ItemGroup>' -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Add-Content -Path "Cliente Windows.csproj" -Value '    <Reference Include="System.Windows.Forms" />' -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Add-Content -Path "Cliente Windows.csproj" -Value '  </ItemGroup>' -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Cliente Windows.csproj(12,4): error MSB4025: Não foi possível carregar o arquivo de projeto. There are multiple root elements. Line 12, position 4.
+
+Restaurar falhou com 1 erro(s) em 0,0s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>

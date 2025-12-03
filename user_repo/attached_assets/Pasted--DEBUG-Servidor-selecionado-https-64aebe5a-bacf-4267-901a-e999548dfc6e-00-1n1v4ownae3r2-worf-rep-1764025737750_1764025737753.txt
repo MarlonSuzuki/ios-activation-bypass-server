@@ -1,0 +1,45 @@
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL completa: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/?prd=iPhone14,5&guid=00008101-001E40313EC0001E&sn=ABC123DEF456
+[DEBUG] Conectando ao servidor...
+[DEBUG] Requisição iniciada para: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/?prd=iPhone14,5&guid=00008101-001E40313EC0001E&sn=ABC123DEF456
+[DEBUG] HTTP Status: 200
+[DEBUG] Conteúdo recebido (203 bytes)
+[DEBUG] Hora: 2025-11-24 20:08:25.463
+[DEBUG] Diretório base: C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\
+[DEBUG] Procurando iOS.exe em: C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\iOS.exe
+[DEBUG] Criando processo...
+[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user
+[DEBUG] Iniciando processo iOS.exe list...
+[DEBUG] Processo iniciado, PID: 3132
+[DEBUG] Lendo stdout...
+[DEBUG] Stdout lido (45 bytes)
+[DEBUG] Lendo stderr...
+[DEBUG] Stderr lido (0 bytes)
+[DEBUG] Aguardando processo terminar (5s timeout)...
+[DEBUG] Processo terminou: True, Exit Code: 0
+[DEBUG] ═══ STDOUT ═══
+[DEBUG] ═══ FIM STDOUT ═══
+[DEBUG] STDERR estava vazio
+[DEBUG] Analisando saída para detectar dispositivos...
+[DEBUG] Procurando por "deviceList" no JSON...
+[DEBUG] ✓ Encontrado "deviceList"
+[DEBUG] ✓ deviceList tem conteúdo!
+[DEBUG] Extraindo informações do dispositivo...
+[DEBUG] ╔═══════════════════════════════════════════╗
+[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO      ║
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] Parseando JSON da lista de dispositivos...
+[DEBUG] Encontrados 1 dispositivo(s)
+[DEBUG] iOS.exe path: C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\iOS.exe
+[DEBUG] iOS.exe existe: True
+[DEBUG] UDID válido: True
+[DEBUG] Tentativa 1/6: info -udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 1, Output: 0b, Error: 3715b
+[DEBUG] Tentativa 2/6: info --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0, Output: 4064b, Error: 0b
+[DEBUG] ═══ INFO OUTPUT ═══
+[DEBUG] ═══ FIM OUTPUT ═══
+[DEBUG] Primeiro char: '{', é JSON: True
+[DEBUG] Parseando como JSON...
+[DEBUG] JSON parseado! Propriedades:
+[DEBUG] ╚═══════════════════════════════════════════╝

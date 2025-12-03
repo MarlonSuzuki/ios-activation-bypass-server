@@ -1,0 +1,35 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Fazer commit do MainWindow.xaml.cs atualizado
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add "Cliente Windows\MainWindow.xaml.cs"
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support - tries Replit first, then Railway"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Recompilar o cliente
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo\Cliente Windows> .\COMPILAR_CLIENTE.bat

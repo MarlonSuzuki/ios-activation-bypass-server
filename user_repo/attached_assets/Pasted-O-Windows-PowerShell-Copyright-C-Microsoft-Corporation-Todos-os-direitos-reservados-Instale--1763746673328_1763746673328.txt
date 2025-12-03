@@ -1,0 +1,39 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> dotnet build -c Release
+MSBUILD : error MSB1003: Especifique um arquivo de solução ou de projeto. O diretório de trabalho atual não contém um arquivo de solução ou de projeto.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd bin\Release\net10.0
+cd : Não é possível localizar o caminho 'C:\Users\Tributos
+Consultoria\Desktop\certificado\MITEstudo\bin\Release\net10.0' porque ele não existe.
+No linha:1 caractere:1
++ cd bin\Release\net10.0
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...Release\net10.0:String) [Set-Location], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> dotnet "Cliente Windows.dll"
+Não foi possível executar porque o comando ou arquivo especificado não foi encontrado.
+Os possíveis motivos para isso incluem:
+  * Você digitou incorretamente um comando dotnet interno.
+  * Você pretendia executar um programa .NET, mas dotnet-Cliente Windows.dll não existe.
+  * Você pretendia executar uma ferramenta global, mas não foi possível encontrar um executável com prefixo dotnet com esse nome no PATH.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "cliente windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows> dotnet build -c Release
+Restauração concluída (0,4s)
+  Cliente Windows net10.0 falhou com 1 erro(s) (0,9s)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\Program.cs(32,25): error CS8210: Uma tupla não pode conter um valor do tipo 'void'.
+
+Construir falhou com 1 erro(s) em 1,8s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows> cd bin\Release\net10.0
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\bin\Release\net10.0> dotnet "Cliente Windows.dll"
+Não foi possível executar porque o comando ou arquivo especificado não foi encontrado.
+Os possíveis motivos para isso incluem:
+  * Você digitou incorretamente um comando dotnet interno.
+  * Você pretendia executar um programa .NET, mas dotnet-Cliente Windows.dll não existe.
+  * Você pretendia executar uma ferramenta global, mas não foi possível encontrar um executável com prefixo dotnet com esse nome no PATH.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\bin\Release\net10.0>

@@ -1,0 +1,52 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> rm -Recurse "Cliente Windows" -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> mkdir "Cliente Windows"
+
+
+    Diretório: C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        21/11/2025     14:22                Cliente Windows
+
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> <Project Sdk="Microsoft.NET.Sdk">
+>>   <PropertyGroup>
+>>     <OutputType>Exe</OutputType>
+>>     <TargetFramework>net10.0</TargetFramework>
+>>   </PropertyGroup>
+>> </Project>
+>> '@ | Out-File "Cliente Windows.csproj" -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> using System;
+>> class Program { static void Main() { Console.WriteLine("iOS Bypass Client"); } }
+>> '@ | Out-File "Program.cs" -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> ls
+
+
+    Diretório: C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        21/11/2025     14:22            166 Cliente Windows.csproj
+-a----        21/11/2025     14:22             99 Program.cs
+
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,6s)
+  Cliente Windows net10.0 êxito (3,0s) → bin\Release\net10.0\Cliente Windows.dll
+
+Construir êxito em 4,2s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>

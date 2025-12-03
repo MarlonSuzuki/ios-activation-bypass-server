@@ -1,0 +1,30 @@
+╔═══════════════════════════════════════════════════════╗
+║       CLIENTE DE ATIVAÇÃO iOS - INSTRUÇÕES             ║
+╚═══════════════════════════════════════════════════════╝
+
+REQUISITOS:
+✓ Windows 7 ou superior
+✓ iPhone conectado via USB
+✓ iTunes instalado (reconhecimento USB)
+
+COMO USAR:
+
+1. Extrair todos os arquivos dessa pasta
+
+2. Conectar iPhone ao PC via USB
+
+3. Clicar em ClienteWindows.exe
+
+4. Selecionar: "Remote Server" (padrão)
+
+5. Clicar em "INICIAR ATIVAÇÃO"
+
+6. Seguir as instruções do programa
+
+SERVIDOR:
+URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+
+SUPORTE:
+Se algo der erro, salvar o LOG e enviar.
+
+═══════════════════════════════════════════════════════

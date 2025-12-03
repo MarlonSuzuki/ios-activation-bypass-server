@@ -1,0 +1,31 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> dotnet build -c Release
+MSBUILD : error MSB1003: Especifique um arquivo de solução ou de projeto. O diretório de trabalho atual não contém um arquivo de solução ou de projeto.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "cliente windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows> dotnet build -c Release
+Restauração concluída (0,6s)
+  Cliente Windows net10.0-windows êxito(s) com 1 aviso(s) (4,0s) → bin\Release\net10.0-windows\ClienteWindows.dll
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+
+Construir êxito(s) com 1 aviso(s) em 5,5s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows> .\EXECUTAR_CLIENTE.bat.\EXECUTAR_CLIENTE.bat
+.\EXECUTAR_CLIENTE.bat.\EXECUTAR_CLIENTE.bat : O termo '.\EXECUTAR_CLIENTE.bat.\EXECUTAR_CLIENTE.bat' não é
+reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, se um
+caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
++ .\EXECUTAR_CLIENTE.bat.\EXECUTAR_CLIENTE.bat
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\EXECUTAR_CLIE...TAR_CLIENTE.bat:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows> .\EXECUTAR_CLIENTE.bat
+Iniciando Cliente iOS Bypass...
+
+
+Erro ao executar: -532462766
+Pressione qualquer tecla para continuar. . .

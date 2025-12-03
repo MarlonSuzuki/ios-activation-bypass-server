@@ -1,0 +1,26 @@
+<Window x:Class="ClienteWindows.ToolboxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Toolbox" Height="500" Width="500"
+        Background="#1E1E1E" Foreground="#E0E0E0"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <StackPanel Margin="20" VerticalAlignment="Top">
+        <TextBlock Text="Select an Operation:" FontSize="16" FontWeight="Bold" Foreground="#4EC9B0" Margin="0,0,0,20"/>
+        
+        <!-- Page 1 Buttons -->
+        <Button x:Name="RebootBtn" Content="Reboot Device" Click="Reboot_Click" 
+                Background="#0E639C" Foreground="White" Padding="15,12" Margin="0,0,0,10" Cursor="Hand" FontSize="12" FontWeight="Bold"/>
+        <Button x:Name="EraseBtn" Content="Erase Device (WIPE)" Click="Erase_Click" 
+                Background="#D9534F" Foreground="White" Padding="15,12" Margin="0,0,0,10" Cursor="Hand" FontSize="12" FontWeight="Bold"/>
+        <Button x:Name="DevModeBtn" Content="Enable Developer Mode" Click="DevMode_Click" 
+                Background="#28A745" Foreground="White" Padding="15,12" Margin="0,0,0,10" Cursor="Hand" FontSize="12" FontWeight="Bold"/>
+        <Button x:Name="HelloNoDeactivateBtn" Content="Return to Hello (Without Deactivate)" Click="HelloNoDeactivate_Click" 
+                Background="#17A2B8" Foreground="White" Padding="15,12" Margin="0,0,0,10" Cursor="Hand" FontSize="12" FontWeight="Bold"/>
+        <Button x:Name="HelloDeactivateBtn" Content="Return to Hello (Deactivate)" Click="HelloDeactivate_Click" 
+                Background="#FFC107" Foreground="Black" Padding="15,12" Margin="0,0,0,20" Cursor="Hand" FontSize="12" FontWeight="Bold"/>
+        
+        <Button x:Name="CancelBtn" Content="Cancel" Click="Cancel_Click" 
+                Background="#6C757D" Foreground="White" Padding="15,12" Cursor="Hand" FontSize="12" FontWeight="Bold"/>
+    </StackPanel>
+</Window>

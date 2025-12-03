@@ -1,0 +1,412 @@
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> tar -xzf ios-server-clean.tar.gz
+tar.exe: Error opening archive: Failed to open 'ios-server-clean.tar.gz'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> dir
+
+
+    Diretório: C:\Users\Tributos Consultoria\Videos\MITEstudo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        27/11/2025     18:49                .git
+d-----        27/11/2025     18:49                .local
+d-----        27/11/2025     18:49                assets
+d-----        27/11/2025     18:49                attached_assets
+d-----        27/11/2025     18:49                cache
+d-----        27/11/2025     18:49                Cliente Windows
+d-----        27/11/2025     18:49                config
+d-----        27/11/2025     18:49                cron
+d-----        27/11/2025     18:49                C__
+d-----        27/11/2025     18:49                Distribuicao
+d-----        27/11/2025     18:49                Distribuicao_Final
+d-----        27/11/2025     18:49                docs
+d-----        27/11/2025     18:49                logs
+d-----        27/11/2025     18:49                public
+d-----        27/11/2025     18:49                templates
+------        21/11/2025     14:30           1073 .env.example
+------        21/11/2025     14:30            376 .gitignore
+------        27/11/2025     21:32            638 .replit
+------        24/11/2025     19:53           4145 BAIXAR_E_COMPILAR.ps1
+------        24/11/2025     19:57           3924 BAIXAR_E_COMPILAR_V2.ps1
+------        24/11/2025     19:57           1821 BAIXAR_PHP.ps1
+------        24/11/2025     19:51           2803 COMO_DISTRIBUIR.md
+------        24/11/2025     20:03           2371 COMPILAR_AGORA.ps1
+------        25/11/2025     14:33           2811 COMPILAR_CLIENTE.bat
+------        25/11/2025     13:59           1276 COMPILAR_CLIENTE_BIN.bat
+------        24/11/2025     19:57           2330 COMPILAR_SEM_PHP.ps1
+------        24/11/2025     19:50            237 COMPILAR_TUDO.bat
+------        24/11/2025     19:51           5143 COMPILAR_TUDO.ps1
+------        25/11/2025     14:38            764 CRIAR_ATALHO.bat
+------        24/11/2025     20:25           2066 CRIAR_INSTALADOR_NSIS.nsi
+------        24/11/2025     20:25           1855 GUIA_ICONE_E_INSTALADOR.md
+------        21/11/2025     14:31           5046 INICIO_RAPIDO.md
+------        21/11/2025     17:45           7838 LOCALHOST_GUIA_COMPLETO.md
+------        21/11/2025     15:07           4576 PROJETO_FINALIZADO.md
+------        21/11/2025     17:36           9683 README.md
+------        24/11/2025     20:02           3916 REORGANIZAR_E_COMPILAR.ps1
+------        27/11/2025     12:19           7275 replit.md
+------        24/11/2025     19:48           2447 SERVIDOR_STANDALONE.md
+
+
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

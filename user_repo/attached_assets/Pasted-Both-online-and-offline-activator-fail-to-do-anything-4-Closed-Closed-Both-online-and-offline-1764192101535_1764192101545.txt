@@ -1,0 +1,1404 @@
+Both online and offline activator fail to do anything... #4
+Closed
+Closed
+Both online and offline activator fail to do anything...
+#4
+@randomlol90
+Description
+randomlol90
+opened há 5 dias · edited by randomlol90
+▶ Verifying System Requirements...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] AFC Transfer Mode: pymobiledevice3
+╰─▶ Local Server running at http://1x2.1x8.1.8:xxxx (Root: /var/folders/jk/sjnk8jj90f5f16fjg205kmxc0000gn/T/ios_activation_bz9n_mx3)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Detecting Device...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Device: iPhone12,8 (iOS 26.0.1)
+UDID: xxxxxxxx-xxxxxxxxxxxxxx
+Press Enter to start...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Rebooting device...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Extracting System Logs...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[⚠] Archive failed, trying live watch...
+[✗] Could not find GUID in logs.
+
+I have tried opening the books app and have followed all the guides
+
+Activity
+gliddd4
+gliddd4 commented há 5 dias
+gliddd4
+há 5 dias
+same issue
+
+chiheb122
+chiheb122 commented há 5 dias
+chiheb122
+há 5 dias
+Same issue why you don’t use only UDID
+
+Rust505
+Rust505 commented há 5 dias
+Rust505
+há 5 dias
+Contributor
+same problem
+
+rhcp011235
+rhcp011235 commented há 5 dias
+rhcp011235
+há 5 dias
+Owner
+Skill issue or help debug it.
+
+rhcp011235
+rhcp011235 commented há 5 dias
+rhcp011235
+há 5 dias
+Owner
+Same issue why you don’t use only UDID
+
+if you think its an issue, fix it and file a pull request
+
+heartss4avii
+heartss4avii commented há 4 dias
+heartss4avii
+há 4 dias
+Has anyone found a solve for this yet ?
+
+gliddd4
+gliddd4 commented há 4 dias
+gliddd4
+há 4 dias
+Working on a fix
+
+gliddd4
+gliddd4 commented há 3 dias
+gliddd4
+há 3 dias
+wip but it fixes guid extraction
+
+gliddd4
+gliddd4 commented há 3 dias
+gliddd4
+há 3 dias
+i wont make a pull request until the rest is working
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@randomlol90 I changed the "activator.py" to stop getting the error. it was near the bottom of the document. My problem now is I'm getting a server error.
+
+"# 2. Get GUID
+self.guid = self.get_guid()"
+to
+" # 2. Get GUID
+self.guid = self.device_info['UniqueDeviceID']"
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@NickTurner4 Whats the error ?
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@SheLuvsTripp It gets to the "Requesting Payload..." step and then says "[X] Server Error:" I could be adding the link in wrong. I don't know anything about any of this, but I've been working on it the last two days. lol I want to get the right.
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@NickTurner4 you got discord ?
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@SheLuvsTripp no. I found out about all this on twitter. Im surprised any of this exists. lol
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@SheLuvsTripp Do you have any tips on the server stuff?
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@NickTurner4 ima do some testing and ill get back to you
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@SheLuvsTripp I used pythons web server thingy through terminal, now I'm getting "DB Gen Error: table asset has 44 columns but 43 values were supplied
+[✗] Payload generation failed."
+
+Just another update.
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+self._run_cmd(["pymobiledevice3", "diagnostics", "restart"])
+
+pymobiledevice3 diagnostics restart
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+hmm my phone isnt rebooting so maybe its my usb connection
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+changed usbs and still nothing @rhcp011235 any advice ?
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@hearts4avii I used the same tweak in the previous comment. it goes in the same place.
+
+"# 2. Get GUID
+self.guid = self.get_guid()"
+to
+" # 2. Get GUID
+self.guid = self.device_info['UniqueDeviceID']"
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+@hearts4avii I used the same tweak in the previous comment. it goes in the same place.
+
+"# 2. Get GUID self.guid = self.get_guid()" to " # 2. Get GUID self.guid = self.device_info['UniqueDeviceID']"
+
+This is wrong, it needs to the GUID of the book NOT the phone.
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+changed usbs and still nothing @rhcp011235 any advice ?
+
+reboot it manually?
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@hearts4avii I used the same tweak in the previous comment. it goes in the same place.
+"# 2. Get GUID self.guid = self.get_guid()" to " # 2. Get GUID self.guid = self.device_info['UniqueDeviceID']"
+
+This is wrong, it needs to the GUID of the book NOT the phone.
+
+Ohh. Im so sorry, I'm still learning. May you help me with the error below?
+
+@SheLuvsTripp I used pythons web server thingy through terminal, now I'm getting "DB Gen Error: table asset has 44 columns but 43 values were supplied [✗] Payload generation failed."
+
+Just another update.
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+@hearts4avii I used the same tweak in the previous comment. it goes in the same place.
+"# 2. Get GUID self.guid = self.get_guid()" to " # 2. Get GUID self.guid = self.device_info['UniqueDeviceID']"
+
+This is wrong, it needs to the GUID of the book NOT the phone.
+
+Ohh. Im so sorry, I'm still learning. May you help me with the error below?
+
+@SheLuvsTripp I used pythons web server thingy through terminal, now I'm getting "DB Gen Error: table asset has 44 columns but 43 values were supplied [✗] Payload generation failed."
+Just another update.
+
+I Just did help, I told you, you were wrong to change that.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+
+log.rtf
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@hearts4avii I used the same tweak in the previous comment. it goes in the same place.
+"# 2. Get GUID self.guid = self.get_guid()" to " # 2. Get GUID self.guid = self.device_info['UniqueDeviceID']"
+
+This is wrong, it needs to the GUID of the book NOT the phone.
+
+Ohh. Im so sorry, I'm still learning. May you help me with the error below?
+
+@SheLuvsTripp I used pythons web server thingy through terminal, now I'm getting "DB Gen Error: table asset has 44 columns but 43 values were supplied [✗] Payload generation failed."
+Just another update.
+
+I Just did help, I told you, you were wrong to change that.
+
+I think @hearts4avii was taking about a different issue from what I posted. I thought they were still on the System logs part.
+
+I did not change anything relating to the line of code you referenced. My issue is from the "Generating Payload..." step. It says "DB Gen Error: table asset has 44 columns but 43 values were supplied
+[✗] Payload generation failed."
+
+gliddd4
+gliddd4 commented há 3 dias
+gliddd4
+há 3 dias · edited by gliddd4
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+My fork reboots the phone
+
+randomlol90
+randomlol90 commented há 3 dias
+randomlol90
+há 3 dias
+Author
+should i mark this as solved or keep it open until someone makes a pull request
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+My fork reboots the phone
+
+You can look at the different versions too: the .CS versions (C#) and such, its more direct then the python. I made this -- this way so people are forced to work together to make something work vs dropping an exe.
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+My fork reboots the phone
+
+I tried your fork. It gave me the error:
+
+[✗] Could not find GUID in logs.
+[✗] Could not find GUID in logs.
+
+I was wondering if I need to do the swap thingy "# 2. Get GUID
+self.guid = self.get_guid()"
+to
+" # 2. Get GUID
+self.guid = self.device_info['UniqueDeviceID']"
+
+to get it to work.
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+My fork reboots the phone
+
+I tried your fork. It gave me the error:
+
+[✗] Could not find GUID in logs. [✗] Could not find GUID in logs.
+
+I was wondering if I need to do the swap thingy "# 2. Get GUID self.guid = self.get_guid()" to " # 2. Get GUID self.guid = self.device_info['UniqueDeviceID']"
+
+to get it to work.
+
+ive told you now twice, you need the GUID of the book NOT the phone.
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@gliddd4 didnt reboot on linux
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+@NickTurner4 question do you know how to fix the offline_bypass.py so that It reboots my phone ? i mightve found a fix..
+
+My fork reboots the phone
+
+I tried your fork. It gave me the error:
+[✗] Could not find GUID in logs. [✗] Could not find GUID in logs.
+I was wondering if I need to do the swap thingy "# 2. Get GUID self.guid = self.get_guid()" to " # 2. Get GUID self.guid = self.device_info['UniqueDeviceID']"
+to get it to work.
+
+ive told you now twice, you need the GUID of the book NOT the phone.
+
+I looked through the MD files and I don't see anything called book. Should I be pulling it form a Log file? The logs never generate.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+
+log.rtf
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+
+log.rtf
+
+The files from bl_sbx are not meant to work as a bypass, they are meant to add functions for other stuff.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+log.rtf
+
+The files from bl_sbx are not meant to work as a bypass, they are meant to add functions for other stuff.
+
+Got it, but where can I get the correct files?
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@Zer0xDev can we see your offline_bypass.py?
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+@Zer0xDev can we see your offline_bypass.py?
+
+offline_bypass.py
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+@Zer0xDev can we see your offline_bypass.py?
+
+offline_bypass.py
+
+I removed the restart function because after the reboot the GUID changed, I also specified my GUID.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+By the way, I ran the script on macOS Big Sur
+
+@Zer0xDev can we see your offline_bypass.py?
+
+offline_bypass.py
+
+I removed the restart function because after the reboot the GUID changed, I also specified my GUID.
+
+By the way, I ran the script on macOS Big Sur
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+log.rtf
+
+The files from bl_sbx are not meant to work as a bypass, they are meant to add functions for other stuff.
+
+Got it, but where can I get the correct files?
+
+added
+
+heartss4avii
+heartss4avii commented há 3 dias
+heartss4avii
+há 3 dias
+@rhcp011235 can u update the code to go with the files ?
+
+rhcp011235
+rhcp011235 commented 3 days ago
+rhcp011235
+3 days ago
+Owner
+@rhcp011235 can u update the code to go with the files ?
+
+this is meant to be a group project, not a "I upload a exe and you all have fun"
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias · edited by NickTurner4
+@Zer0xDev can we see your offline_bypass.py?
+
+offline_bypass.py
+
+I removed the restart function because after the reboot the GUID changed, I also specified my GUID.
+
+*How did you specify your GUID?
+
+So sorry for the typo.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+@Zer0xDev can we see your offline_bypass.py?
+
+offline_bypass.py
+
+I removed the restart function because after the reboot the GUID changed, I also specified my GUID.
+
+Hoe did you specify your GUID?
+
+I used a fork of gliddd4, it has a working method for getting GUID
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+@Zer0xDev can we see your offline_bypass.py?
+
+offline_bypass.py
+
+I removed the restart function because after the reboot the GUID changed, I also specified my GUID.
+
+Hoe did you specify your GUID?
+
+I used a fork of gliddd4, it has a working method for getting GUID
+
+I ran his online script, got the GUID, and then in offline bypass.py I just pointed it out
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+so far @gliddd4 seems to be doing the best. mixed with @Zer0xDev ;)
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+so far @gliddd4 seems to be doing the best. mixed with @Zer0xDev ;)
+
+I'm already flashing my iPhone, I'll test it now.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+so far @gliddd4 seems to be doing the best. mixed with @Zer0xDev ;)
+
+@rhcp011235 We need a sqlite file, not a sql file.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+so far @gliddd4 seems to be doing the best. mixed with @Zer0xDev ;)
+
+@rhcp011235 We need a sqlite file, not a sql file.
+
+Do you have it?
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+so far @gliddd4 seems to be doing the best. mixed with @Zer0xDev ;)
+
+@rhcp011235 We need a sqlite file, not a sql file.
+
+Do you have it?
+
+just rename, its the same thing.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+so far @gliddd4 seems to be doing the best. mixed with @Zer0xDev ;)
+
+@rhcp011235 We need a sqlite file, not a sql file.
+
+Do you have it?
+
+just rename, its the same thing.
+
+okay
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+@gliddd4 if you want to reach out to me on telegram my handle is rhcp011235 — I’ll send you something
+
+gliddd4
+gliddd4 commented há 3 dias
+gliddd4
+há 3 dias
+@gliddd4 didnt reboot on linux
+
+I ran it on a MacBook with a iPhone 14 Pro Max.
+
+gliddd4
+gliddd4 commented há 3 dias
+gliddd4
+há 3 dias
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+
+log.rtf
+
+Can you make a fork with these changes?
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+log.rtf
+
+Can you make a fork with these changes?
+
+The downloads.28.sqlitedb file is corrupted, and I don't know what to do yet.
+
+xcybermanx
+xcybermanx commented há 3 dias
+xcybermanx
+há 3 dias
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+log.rtf
+
+Can you make a fork with these changes?
+
+The downloads.28.sqlitedb file is corrupted, and I don't know what to do yet.
+
+i make ton of modification but still no activation i dont know what the problem :/
+
+Image
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+I respect @gliddd4 for not making a pull request until he figures out exactly what is going on and cleans it up vs just pushing junk on. just wait, the ones who know will fix what needs to be fixed. I know it works as is. due to some other stuff. the png files that you see above? are sqllite db's
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+log.rtf
+
+Can you make a fork with these changes?
+
+The downloads.28.sqlitedb file is corrupted, and I don't know what to do yet.
+
+i make ton of modification but still no activation i dont know what the problem :/
+
+Image
+That PNG file it made, is a sqlite database, add debugging to the code to tell what files are being pushed to the phone. if its pushung a PNG, it wont work. like I said a 100 times, I dont have a test device and this was put together by various leaks. and info I have. I cannot test anything but put togther what I know works, Hacktivatior has gotten this to work as is. so I know it works
+
+rhcp011235
+rhcp011235 commented há 3 dias
+rhcp011235
+há 3 dias
+Owner
+Hi guys! I'm sorry for my English, I'm using a translator. I was able to fix all the problems you were having. I used a fork of this repository from gliddd4. Through his code, I got the GUID, then inserted it into offline_bypass.py . Then I got an error related to missing some files (BLDatabaseManager and downloads.28.sqlitedb). I took them from the bl_sbx repository, then wrote a function in the code that copies these files. After that, everything worked, the script does not give any errors, but the device does not activate. Here are the logs from my terminal.
+log.rtf
+
+Can you make a fork with these changes?
+
+The downloads.28.sqlitedb file is corrupted, and I don't know what to do yet.
+
+i make ton of modification but still no activation i dont know what the problem :/
+Image
+
+That PNG file it made, is a sqlite database, add debugging to the code to tell what files are being pushed to the phone. if its pushung a PNG, it wont work. like I said a 100 times, I dont have a test device and this was put together by various leaks. and info I have. I cannot test anything but put togther what I know works, Hacktivatior has gotten this to work as is. so I know it works
+
+Here is the orignal get.php which is named index.php on mine.
+
+get.php
+
+alisakkaf
+alisakkaf commented há 3 dias
+alisakkaf
+há 3 dias
+am doing all thing to edit still can't get GUID
+
+gliddd4
+gliddd4 commented há 3 dias
+gliddd4
+há 3 dias
+am doing all thing to edit still can't get GUID
+
+Did my fork not work for you?
+
+NickTurner4
+NickTurner4 commented há 3 dias
+NickTurner4
+há 3 dias
+am doing all thing to edit still can't get GUID
+
+Did my fork not work for you?
+
+It didn't work for me.
+
+Zer0xDev
+Zer0xDev commented há 3 dias
+Zer0xDev
+há 3 dias
+am doing all thing to edit still can't get GUID
+
+Did my fork not work for you?
+
+@gliddd4 Do you have a Discord? Message me on Discord: zeroxdev_39420, or on Telegram: @Zeroxxdev
+
+rhcp011235
+rhcp011235 commented anteontem
+rhcp011235
+anteontem
+Owner
+Sorry Guys, I was not thinking when I did the offline version, it WONT work.
+
+You need to have a remote server OR you can setup a local server for this to work.
+
+rhcp011235
+rhcp011235 commented anteontem
+rhcp011235
+anteontem
+Owner
+The remote or local web server MUST have working php
+
+heartss4avii
+heartss4avii commented anteontem
+heartss4avii
+anteontem
+Sorry Guys, I was not thinking when I did the offline version, it WONT work.
+
+You need to have a remote server OR you can setup a local server for this to work.
+
+I suppose your not updating it n we gotta figure it out ourselves?
+
+0xEren2E
+0xEren2E commented anteontem
+0xEren2E
+anteontem
+Srry am i just dumb? how do you extract the GUID from books ? i mean how do u open the books app while in the home screen to begin with ?
+@rhcp011235
+
+Rust505
+Rust505 commented anteontem
+Rust505
+anteontem
+Contributor
+You don’t need the book’s GUID — you need the database GUID. https://hanakim3945.github.io/posts/download28_sbx_escape/ Read from this repository
+
+rhcp011235
+rhcp011235 commented anteontem
+rhcp011235
+anteontem
+Owner
+Sorry Guys, I was not thinking when I did the offline version, it WONT work.
+You need to have a remote server OR you can setup a local server for this to work.
+
+I suppose your not updating it n we gotta figure it out ourselves?
+
+Nothing to update, it cannot work offline without running a web server on your LOCAL PC or having a server to run the files.
+
+rhcp011235
+rhcp011235 commented anteontem
+rhcp011235
+anteontem
+Owner
+You don’t need the book’s GUID — you need the database GUID. https://hanakim3945.github.io/posts/download28_sbx_escape/ Read from this repository
+
+Best write up on this ive seen so far
+
+gliddd4
+gliddd4 commented anteontem
+gliddd4
+anteontem
+https://github.com/gliddd4/R1nderpest
+
+New update is available!
+
+Rust505
+Rust505 commented anteontem
+Rust505
+anteontem · edited by Rust505
+Contributor
+Report on iOS Activation Server Setup
+I finished modifying the original server get.php and adapted the client activator.py to work with it. As a result, I successfully achieved 100% functionality for the entire system.
+
+The activation process consists of two clear stages:
+
+✅ Stage 1: Initial Activation
+
+The server-client setup is initiated.
+
+After the first reboot, the system creates a valid downloads.28.sqlitedb database, which persists after all subsequent reboots.
+
+Additionally, the iTunesMetadata.plist file appears at the path /var/mobile/Media/iTunes_Control/iTunes/.
+
+The creation of these files confirms that the first stage has been successfully completed.
+
+🔄 Intermediate Manual Action
+After the first stage, you must manually copy the iTunesMetadata.plist file to the target folder:
+/var/mobile/Media/Books/iTunesMetadata.plist
+
+✅ Stage 2: Final Activation & Book Generation
+
+After copying the file and performing a second reboot, the final activation stage occurs.
+
+The target asset.epub file appears in the system—this is our final book.
+
+The iTunesMetadata.plist file may be deleted by the system as it is no longer needed.
+
+The downloads.28.sqlitedb database interacts with the server, which provides it with data from the fixedfile. As I understand it, the fixedfile contains plist keys for mobilegestalt, which are then written into the database to finalize the book's unlocking process.
+
+Conclusion: The entire process is now fine-tuned, the server runs stably, and the final result is a fully functional asset.epub book in the system. The only way to enter a GUID manually is to read how to get it here: https://hanakim3945.github.io/posts/download28_sbx_escape/ I think the project is 80 percent complete. I'll send you my fork soon
+
+rhcp011235
+rhcp011235 commented anteontem
+rhcp011235
+anteontem
+Owner
+Report on iOS Activation Server Setup I finished modifying the original server get.php and adapted the client activator.py to work with it. As a result, I successfully achieved 100% functionality for the entire system.
+
+The activation process consists of two clear stages:
+
+✅ Stage 1: Initial Activation
+
+The server-client setup is initiated.
+
+After the first reboot, the system creates a valid downloads.28.sqlitedb database, which persists after all subsequent reboots.
+
+Additionally, the iTunesMetadata.plist file appears at the path /var/mobile/Media/iTunes_Control/iTunes/.
+
+The creation of these files confirms that the first stage has been successfully completed.
+
+🔄 Intermediate Manual Action After the first stage, you must manually copy the iTunesMetadata.plist file to the target folder: /var/mobile/Media/Books/iTunesMetadata.plist
+
+✅ Stage 2: Final Activation & Book Generation
+
+After copying the file and performing a second reboot, the final activation stage occurs.
+
+The target asset.epub file appears in the system—this is our final book.
+
+The iTunesMetadata.plist file may be deleted by the system as it is no longer needed.
+
+The downloads.28.sqlitedb database interacts with the server, which provides it with data from the fixedfile. As I understand it, the fixedfile contains plist keys for mobilegestalt, which are then written into the database to finalize the book's unlocking process.
+
+Conclusion: The entire process is now fine-tuned, the server runs stably, and the final result is a fully functional asset.epub book in the system. The only way to enter a GUID manually is to read how to get it here: https://hanakim3945.github.io/posts/download28_sbx_escape/
+
+Quite nice. I don’t have a test device so I did my best to throw together what I have.
+
+Can you make a pull request with the proper fixes?
+
+Rust505
+Rust505 commented anteontem
+Rust505
+anteontem
+Contributor
+I got to the stage of receiving the book, but after rebooting the device did not activate. But it seems to me that I understood a lot
+
+rhaulh
+rhaulh commented anteontem
+rhaulh
+anteontem
+Same issue why you don’t use only UDID
+
+Cause you need a specific GUID in your device BLDatabaseManager. Read the exploit POC
+
+gliddd4
+gliddd4 commented anteontem
+gliddd4
+anteontem
+I got to the stage of receiving the book, but after rebooting the device did not activate. But it seems to me that I understood a lot
+
+Yeah it just doesn’t trigger the asset.epub
+
+rhaulh
+rhaulh commented anteontem
+rhaulh
+anteontem · edited by rhaulh
+I got to the stage of receiving the book, but after rebooting the device did not activate. But it seems to me that I understood a lot
+
+Yeah it just doesn’t trigger the asset.epub
+
+I did a beta working version in my repo, but i didnt upload the server side cause it should work with some others too. Just one endpoint is needed, the ones that returns the customized sqlitedb file.
+
+If the epub downloads ok but still not activates most of the times is related to a bad iTunesMetadata.plist
+
+Rust505
+Rust505 commented anteontem
+Rust505
+anteontem
+Contributor
+my fork https://github.com/Rust505/A12_Bypass_OSS
+
+🚀 A12 Bypass Setup & Operation Guide
+📋 Initial Setup
+
+Server Configuration:
+bash
+
+Get your computer's network IP address
+ipconfig getifaddr en1
+
+Start the server (replace 192.168.0.103 with your actual IP)
+cd server/
+php -S 192.168.0.103:8000 -t public
+2. File Configuration:
+
+Open downloads.28.png in a text editor
+
+Find and replace all paths to badfile.plist with your server IP
+
+Example: http://192.168.0.103:8000/badfile.plist
+
+🔄 Activation Process (3 Stages)
+🔄 Stage 1 - Initial Activation:
+
+The generator program automatically sends downloads.28.sqlitedb
+
+The device will reboot after this stage
+
+Important: Periodically delete downloads.28.sqlitedb-shm and downloads.28.sqlitedb-val files in the downloads folder before reboot
+
+🔄 Stage 2 - Metadata Transfer:
+
+After first reboot, the server creates iTunesMetadata.plist
+
+Manually copy this file to /var/mobile/Media/Books/ folder
+
+Reboot iPhone - asset.epub will appear after this
+
+🔄 Stage 3 - Data Population:
+
+Server receives requests like: 192.168.0.105:52588 [200]: GET /firststp/8dc56bf27aa8b527/fixedfile
+
+The asset.epub book gets populated with data from these requests
+
+Do not stop the server until the process fully completes!
+
+💡 Important Notes
+GUID for Generation:
+
+Get it manually from: https://hanakim3945.github.io/posts/download28_sbx_escape/
+
+Critical Reminders:
+
+✅ Server must run continuously until the final reboot
+
+✅ Don't interrupt the process after launching activator.py
+
+✅ Monitor server logs to track progress
+
+✅ Keep the server active throughout all stages
+
+rhcp011235
+rhcp011235 commented anteontem
+rhcp011235
+anteontem
+Owner
+my fork https://github.com/Rust505/A12_Bypass_OSS
+
+🚀 A12 Bypass Setup & Operation Guide 📋 Initial Setup
+
+Server Configuration:
+bash
+
+Get your computer's network IP address
+ipconfig getifaddr en1
+
+Start the server (replace 192.168.0.103 with your actual IP)
+cd server/ php -S 192.168.0.103:8000 -t public 2. File Configuration:
+
+Open downloads.28.png in a text editor
+
+Find and replace all paths to badfile.plist with your server IP
+
+Example: http://192.168.0.103:8000/badfile.plist
+
+🔄 Activation Process (3 Stages) 🔄 Stage 1 - Initial Activation:
+
+The generator program automatically sends downloads.28.sqlitedb
+
+The device will reboot after this stage
+
+Important: Periodically delete downloads.28.sqlitedb-shm and downloads.28.sqlitedb-val files in the downloads folder before reboot
+
+🔄 Stage 2 - Metadata Transfer:
+
+After first reboot, the server creates iTunesMetadata.plist
+
+Manually copy this file to /var/mobile/Media/Books/ folder
+
+Reboot iPhone - asset.epub will appear after this
+
+🔄 Stage 3 - Data Population:
+
+Server receives requests like: 192.168.0.105:52588 [200]: GET /firststp/8dc56bf27aa8b527/fixedfile
+
+The asset.epub book gets populated with data from these requests
+
+Do not stop the server until the process fully completes!
+
+💡 Important Notes GUID for Generation:
+
+Get it manually from: https://hanakim3945.github.io/posts/download28_sbx_escape/
+
+Critical Reminders:
+
+✅ Server must run continuously until the final reboot
+
+✅ Don't interrupt the process after launching activator.py
+
+✅ Monitor server logs to track progress
+
+✅ Keep the server active throughout all stages
+
+@Rust505 if your fork actually works why don’t you open a pull request instead of spamming here.
+
+csoftware-arigpt
+csoftware-arigpt commented ontem
+csoftware-arigpt
+ontem · edited by csoftware-arigpt
+@Rust505 your fork didn't work for me, iPhone 16e, iOS 26.1, same error with GUID extract
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem · edited by Rust505
+Contributor
+@csoftware-arigpt Automatic input is not working. GUID must be retrieved manually.
+
+Modify the downloads.28.sqlitedb database with the correct path to BLDatabaseManager. We need to find the correct UUID here for the path. This can be obtained by fetching the device logarchive with command pymobiledevice3 syslog collect logs.logarchive. The resulting file can be opened in the Console.app on mac and we can find the path easily by searching for “BLDatabase”. info 2025-10-20 22:43:29.111433 +0200 bookassetd [Database]: Store is at file:///private/var/containers/Shared/SystemGroup/<UUID_HERE>/ Documents/BLDatabaseManager/BLDatabaseManager.sqlite When found, replace the path in the database with the correct one. https://hanakim3945.github.io/posts/download28_sbx_escape/ My manual video of the entire exploit process: https://drive.google.com/file/d/165U6Qnt4nE0hBkCx868-RmSnJJrHLOaH/view?usp=sharing
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem
+Contributor
+@rhcp011235 No, this is not spam. I have reached the point of obtaining the epub file with the mobilegestalt cache.
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem
+Contributor
+@rhcp011235 Here are the command line logs from my activator.py project:
+iOS Activation Tool - Professional Edition
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Verifying System Requirements...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] AFC Transfer Mode: pymobiledevice3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Detecting Device...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Device: iPhone12,5 (iOS 26.1)
+UDID: 00008030-001E3466228A802E
+
+GUID Detection Options:
+
+Auto-detect from device logs
+Manual input
+➤ Choose option (1/2): 2
+
+⚠ GUID Input Required
+Format: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+Example: 2A22A82B-C342-444D-972F-5270FB5080DF
+
+➤ Enter SystemGroup GUID: 86428B2E-F3C7-48A2-895C-65B7CA5803A9
+[✓] Using GUID: 86428B2E-F3C7-48A2-895C-65B7CA5803A9
+
+Press Enter to deploy payload with this GUID...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Performing initial reboot...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] Reboot command sent, waiting 30 seconds...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Requesting All Payload Stages from Server...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+╰─▶ Requesting all URLs from server: http://192.168.0.103:8000/get2.php?prd=iPhone12,5&guid=86428B2E-F3C7-48A2-895C-65B7CA5803A9&sn=FCHZT0FTN70T
+╰─▶ Stage1 URL: http://192.168.0.103:8000/firststp/8dc56bf27aa8b527/fixedfile
+╰─▶ Stage2 URL: http://192.168.0.103:8000/2ndd/cc71a4fba7eaf17a/belliloveu.png
+╰─▶ Stage3 URL: http://192.168.0.103:8000/last/bcc353c700d5d43d/apllefuckedhhh.png
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Pre-loading all payload stages...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+╰─▶ Pre-loading: stage1...
+[✓] Successfully pre-loaded stage1
+╰─▶ Pre-loading: stage2...
+[✓] Successfully pre-loaded stage2
+╰─▶ Pre-loading: stage3...
+[✓] Successfully pre-loaded stage3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Downloading final payload...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] Downloading from: http://192.168.0.103:8000/last/bcc353c700d5d43d/apllefuckedhhh.png...
+╰─▶ Validating payload database...
+[✓] Database validation passed - 4 records found
+╰─▶ Record 1234567890: http://192.168.0.103:8000/2ndd/cc71a4fba7eaf17a/belliloveu.png -> /private/var/containers/Shared/SystemGroup/86428B2E-F3C7-48A2-895C-65B7CA5803A9/Documents/BLDatabaseManager/BLDatabaseManager.sqlite
+╰─▶ Record 1234567891: http://192.168.0.103:8000/badfile.plist -> /private/var/containers/Shared/SystemGroup/86428B2E-F3C7-48A2-895C-65B7CA5803A9/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-shm
+╰─▶ Record 1234567892: http://192.168.0.103:8000/badfile.plist -> /private/var/containers/Shared/SystemGroup/86428B2E-F3C7-48A2-895C-65B7CA5803A9/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-wal
+╰─▶ Record 1234567893: http://192.168.0.103:8000/badfile.plist -> /private/var/mobile/Media/iTunes_Control/iTunes/iTunesMetadata.plist
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Uploading Payload via AFC...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] Uploaded via pymobiledevice3
+[✓ SUCCESS] ✅ Payload Deployed Successfully
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Rebooting device to trigger activation...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[✓] Reboot command sent.
+
+Process Complete.
+→ Device will process payload on boot.
+→ Monitor logs with: idevicesyslog | grep -E 'itunesstored|bookassetd'
+→ Used GUID: 86428B2E-F3C7-48A2-895C-65B7CA5803A9
+→ All stages pre-loaded: stage1, stage2, stage3
+rustam@Rustams-MacBook-Pro project %
+
+History restored
+and server logs:
+
+rustam@Rustams-MacBook-Pro server % php -S 192.168.0.103:8000 -t public
+[Tue Nov 25 06:54:49 2025] PHP 8.4.10 Development Server (http://192.168.0.103:8000) started
+[Tue Nov 25 06:56:00 2025] 192.168.0.103:49675 Accepted
+[Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] === STARTING PAYLOAD GENERATION ===
+[Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] Trying plist: /Users/rustam/Desktop/project/server/public/Maker/iPhone12-5/com.apple.MobileGestalt.plist
+[Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] ✅ Using plist: /Users/rustam/Desktop/project/server/public/Maker/iPhone12-5/com.apple.MobileGestalt.plist (size: 10809 bytes)
+[Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] ✅ fixedfile created: /Users/rustam/Desktop/project/server/public/firststp/8dc56bf27aa8b527/fixedfile
+[Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] ✅ All stages generated.
+[Tue Nov 25 06:56:00 2025] 192.168.0.103:49675 [200]: GET /get2.php?prd=iPhone12,5&guid=86428B2E-F3C7-48A2-895C-65B7CA5803A9&sn=FCHZT0FTN70T
+[Tue Nov 25 06:56:00 2025] 192.168.0.103:49675 Closing
+[Tue Nov 25 06:56:00 2025] 192.168.0.103:49676 Accepted
+[Tue Nov 25 06:56:00 2025] 192.168.0.103:49676 [200]: GET /firststp/8dc56bf27aa8b527/fixedfile
+[Tue Nov 25 06:56:00 2025] 192.168.0.103:49676 Closing
+[Tue Nov 25 06:56:01 2025] 192.168.0.103:49679 Accepted
+[Tue Nov 25 06:56:01 2025] 192.168.0.103:49679 [200]: GET /2ndd/cc71a4fba7eaf17a/belliloveu.png
+[Tue Nov 25 06:56:01 2025] 192.168.0.103:49679 Closing
+[Tue Nov 25 06:56:02 2025] 192.168.0.103:49681 Accepted
+[Tue Nov 25 06:56:02 2025] 192.168.0.103:49681 [200]: GET /last/bcc353c700d5d43d/apllefuckedhhh.png
+[Tue Nov 25 06:56:02 2025] 192.168.0.103:49681 Closing
+[Tue Nov 25 06:56:03 2025] 192.168.0.103:49683 Accepted
+[Tue Nov 25 06:56:03 2025] 192.168.0.103:49683 [200]: GET /last/bcc353c700d5d43d/apllefuckedhhh.png
+[Tue Nov 25 06:56:03 2025] 192.168.0.103:49683 Closing
+[Tue Nov 25 06:58:49 2025] 192.168.0.105:63469 Accepted
+[Tue Nov 25 06:58:49 2025] 192.168.0.105:63470 Accepted
+[Tue Nov 25 06:58:49 2025] 192.168.0.105:63469 [200]: GET /badfile.plist
+[Tue Nov 25 06:58:49 2025] 192.168.0.105:63470 [200]: GET /2ndd/cc71a4fba7eaf17a/belliloveu.png
+[Tue Nov 25 06:58:49 2025] 192.168.0.105:63469 Closing
+[Tue Nov 25 06:58:49 2025] 192.168.0.105:63470 Closing
+[Tue Nov 25 06:59:05 2025] 192.168.0.105:63472 Accepted
+[Tue Nov 25 06:59:05 2025] 192.168.0.105:63473 Accepted
+[Tue Nov 25 06:59:06 2025] 192.168.0.105:63472 [200]: GET /badfile.plist
+[Tue Nov 25 06:59:06 2025] 192.168.0.105:63473 [200]: GET /badfile.plist
+[Tue Nov 25 06:59:06 2025] 192.168.0.105:63472 Closing
+[Tue Nov 25 06:59:06 2025] 192.168.0.105:63473 Closing
+[Tue Nov 25 07:01:20 2025] 192.168.0.105:52588 Accepted
+[Tue Nov 25 07:01:20 2025] 192.168.0.105:52588 [200]: GET /firststp/8dc56bf27aa8b527/fixedfile
+[Tue Nov 25 07:01:20 2025] 192.168.0.105:52588 Closing
+^C%
+
+xcybermanx
+xcybermanx commented ontem
+xcybermanx
+ontem
+@rhcp011235 Here are the command line logs from my activator.py project: iOS Activation Tool - Professional Edition
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Verifying System Requirements... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [✓] AFC Transfer Mode: pymobiledevice3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Detecting Device... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Device: iPhone12,5 (iOS 26.1) UDID: 00008030-001E3466228A802E
+
+GUID Detection Options:
+
+Auto-detect from device logs
+Manual input
+➤ Choose option (1/2): 2
+
+⚠ GUID Input Required Format: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX Example: 2A22A82B-C342-444D-972F-5270FB5080DF
+
+➤ Enter SystemGroup GUID: 86428B2E-F3C7-48A2-895C-65B7CA5803A9 [✓] Using GUID: 86428B2E-F3C7-48A2-895C-65B7CA5803A9
+
+Press Enter to deploy payload with this GUID...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Performing initial reboot... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [✓] Reboot command sent, waiting 30 seconds...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Requesting All Payload Stages from Server... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ╰─▶ Requesting all URLs from server: http://192.168.0.103:8000/get2.php?prd=iPhone12,5&guid=86428B2E-F3C7-48A2-895C-65B7CA5803A9&sn=FCHZT0FTN70T ╰─▶ Stage1 URL: http://192.168.0.103:8000/firststp/8dc56bf27aa8b527/fixedfile ╰─▶ Stage2 URL: http://192.168.0.103:8000/2ndd/cc71a4fba7eaf17a/belliloveu.png ╰─▶ Stage3 URL: http://192.168.0.103:8000/last/bcc353c700d5d43d/apllefuckedhhh.png
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Pre-loading all payload stages... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ╰─▶ Pre-loading: stage1... [✓] Successfully pre-loaded stage1 ╰─▶ Pre-loading: stage2... [✓] Successfully pre-loaded stage2 ╰─▶ Pre-loading: stage3... [✓] Successfully pre-loaded stage3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Downloading final payload... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [✓] Downloading from: http://192.168.0.103:8000/last/bcc353c700d5d43d/apllefuckedhhh.png... ╰─▶ Validating payload database... [✓] Database validation passed - 4 records found ╰─▶ Record 1234567890: http://192.168.0.103:8000/2ndd/cc71a4fba7eaf17a/belliloveu.png -> /private/var/containers/Shared/SystemGroup/86428B2E-F3C7-48A2-895C-65B7CA5803A9/Documents/BLDatabaseManager/BLDatabaseManager.sqlite ╰─▶ Record 1234567891: http://192.168.0.103:8000/badfile.plist -> /private/var/containers/Shared/SystemGroup/86428B2E-F3C7-48A2-895C-65B7CA5803A9/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-shm ╰─▶ Record 1234567892: http://192.168.0.103:8000/badfile.plist -> /private/var/containers/Shared/SystemGroup/86428B2E-F3C7-48A2-895C-65B7CA5803A9/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-wal ╰─▶ Record 1234567893: http://192.168.0.103:8000/badfile.plist -> /private/var/mobile/Media/iTunes_Control/iTunes/iTunesMetadata.plist
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Uploading Payload via AFC... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [✓] Uploaded via pymobiledevice3 [✓ SUCCESS] ✅ Payload Deployed Successfully
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ▶ Rebooting device to trigger activation... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [✓] Reboot command sent.
+
+Process Complete. → Device will process payload on boot. → Monitor logs with: idevicesyslog | grep -E 'itunesstored|bookassetd' → Used GUID: 86428B2E-F3C7-48A2-895C-65B7CA5803A9 → All stages pre-loaded: stage1, stage2, stage3 rustam@Rustams-MacBook-Pro project %
+
+History restored
+and server logs:
+
+rustam@Rustams-MacBook-Pro server % php -S 192.168.0.103:8000 -t public [Tue Nov 25 06:54:49 2025] PHP 8.4.10 Development Server (http://192.168.0.103:8000) started [Tue Nov 25 06:56:00 2025] 192.168.0.103:49675 Accepted [Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] === STARTING PAYLOAD GENERATION === [Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] Trying plist: /Users/rustam/Desktop/project/server/public/Maker/iPhone12-5/com.apple.MobileGestalt.plist [Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] ✅ Using plist: /Users/rustam/Desktop/project/server/public/Maker/iPhone12-5/com.apple.MobileGestalt.plist (size: 10809 bytes) [Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] ✅ fixedfile created: /Users/rustam/Desktop/project/server/public/firststp/8dc56bf27aa8b527/fixedfile [Tue Nov 25 06:56:00 2025] [2025-11-25 04:56:00] [INFO] ✅ All stages generated. [Tue Nov 25 06:56:00 2025] 192.168.0.103:49675 [200]: GET /get2.php?prd=iPhone12,5&guid=86428B2E-F3C7-48A2-895C-65B7CA5803A9&sn=FCHZT0FTN70T [Tue Nov 25 06:56:00 2025] 192.168.0.103:49675 Closing [Tue Nov 25 06:56:00 2025] 192.168.0.103:49676 Accepted [Tue Nov 25 06:56:00 2025] 192.168.0.103:49676 [200]: GET /firststp/8dc56bf27aa8b527/fixedfile [Tue Nov 25 06:56:00 2025] 192.168.0.103:49676 Closing [Tue Nov 25 06:56:01 2025] 192.168.0.103:49679 Accepted [Tue Nov 25 06:56:01 2025] 192.168.0.103:49679 [200]: GET /2ndd/cc71a4fba7eaf17a/belliloveu.png [Tue Nov 25 06:56:01 2025] 192.168.0.103:49679 Closing [Tue Nov 25 06:56:02 2025] 192.168.0.103:49681 Accepted [Tue Nov 25 06:56:02 2025] 192.168.0.103:49681 [200]: GET /last/bcc353c700d5d43d/apllefuckedhhh.png [Tue Nov 25 06:56:02 2025] 192.168.0.103:49681 Closing [Tue Nov 25 06:56:03 2025] 192.168.0.103:49683 Accepted [Tue Nov 25 06:56:03 2025] 192.168.0.103:49683 [200]: GET /last/bcc353c700d5d43d/apllefuckedhhh.png [Tue Nov 25 06:56:03 2025] 192.168.0.103:49683 Closing [Tue Nov 25 06:58:49 2025] 192.168.0.105:63469 Accepted [Tue Nov 25 06:58:49 2025] 192.168.0.105:63470 Accepted [Tue Nov 25 06:58:49 2025] 192.168.0.105:63469 [200]: GET /badfile.plist [Tue Nov 25 06:58:49 2025] 192.168.0.105:63470 [200]: GET /2ndd/cc71a4fba7eaf17a/belliloveu.png [Tue Nov 25 06:58:49 2025] 192.168.0.105:63469 Closing [Tue Nov 25 06:58:49 2025] 192.168.0.105:63470 Closing [Tue Nov 25 06:59:05 2025] 192.168.0.105:63472 Accepted [Tue Nov 25 06:59:05 2025] 192.168.0.105:63473 Accepted [Tue Nov 25 06:59:06 2025] 192.168.0.105:63472 [200]: GET /badfile.plist [Tue Nov 25 06:59:06 2025] 192.168.0.105:63473 [200]: GET /badfile.plist [Tue Nov 25 06:59:06 2025] 192.168.0.105:63472 Closing [Tue Nov 25 06:59:06 2025] 192.168.0.105:63473 Closing [Tue Nov 25 07:01:20 2025] 192.168.0.105:52588 Accepted [Tue Nov 25 07:01:20 2025] 192.168.0.105:52588 [200]: GET /firststp/8dc56bf27aa8b527/fixedfile [Tue Nov 25 07:01:20 2025] 192.168.0.105:52588 Closing ^C%
+
+you have bypassed the device !!
+for me i try to revers some software to learn how generate the files in server side .
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem
+Contributor
+@xcybermanx Yes, I’ve reached the stage of obtaining the book via the exploit, but the device still hasn’t activated. Apparently, I’ve missed something—though I hope someone will review my fork and help us complete this effort. Perhaps the issue lies in the data, or maybe I overlooked a critical step.
+
+By the way, to reliably obtain the GUID, it’s best to restore the iPhone to a clean iOS firmware first. After that, run the command:
+pymobiledevice3 syslog collect logs.logarchive
+
+Before running the command, reboot the iPhone manually. Then, open the logs.logarchive file in the Console.app on macOS and search for BLDatabaseManager—this will reveal the GUID. Note that the GUID remains constant across reboots and only changes after a full restore/re-flash. If the guid is not found, repeat this several times.
+
+xcybermanx
+xcybermanx commented ontem
+xcybermanx
+ontem
+@xcybermanx Yes, I’ve reached the stage of obtaining the book via the exploit, but the device still hasn’t activated. Apparently, I’ve missed something—though I hope someone will review my fork and help us complete this effort. Perhaps the issue lies in the data, or maybe I overlooked a critical step.
+
+By the way, to reliably obtain the GUID, it’s best to restore the iPhone to a clean iOS firmware first. After that, run the command: pymobiledevice3 syslog collect logs.logarchive
+
+Before running the command, reboot the iPhone manually. Then, open the logs.logarchive file in the Console.app on macOS and search for BLDatabaseManager—this will reveal the GUID. Note that the GUID remains constant across reboots and only changes after a full restore/re-flash. If the guid is not found, repeat this several times.
+
+have you update downloads.28.sqlitedb before send to device ?
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem
+Contributor
+@xcybermanx The issue is that the file downloads.28.sqlitedb is automatically generated by a PHP-based server, with the initial data embedded in the file downloads.28.png.
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem
+Contributor
+Good news! The automatic GUID extraction is now working. Will be pushing an update to the repo shortly!
+
+xcybermanx
+xcybermanx commented ontem
+xcybermanx
+ontem
+@xcybermanx The issue is that the file downloads.28.sqlitedb is automatically generated by a PHP-based server, with the initial data embedded in the file downloads.28.png.
+
+check the file downloads.28.sqlitedb after generated from your server & check if :
+ecid
+guid
+product_type
+
+has the real info of your device
+
+csoftware-arigpt
+csoftware-arigpt commented ontem
+csoftware-arigpt
+ontem · edited by csoftware-arigpt
+@Rust505 i cant find in logs, searching using linux and grep - looking for BLDatabaseManager, but i didn't find uuid, reboot my iPhone in about 15 times
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem · edited by Rust505
+Contributor
+@csoftware-arigpt It's better to use macOS. The automatic GUID extraction is now working in my fork! If it doesn't work on the first try, restart your iPhone manually and try again. I'll wait for your answer whether it worked or not.
+
+Rust505
+Rust505 commented ontem
+Rust505
+ontem
+Contributor
+@csoftware-arigpt Your iPhone must be connected to a Wi-Fi network throughout the entire process.
+
+gliddd4
+gliddd4 commented ontem
+gliddd4
+ontem
+Ok I released a new stable update for R1nderpest, local doesn't work yet but it might in the future.
+
+Rust505
+Rust505 commented há 9 horas
+Rust505
+há 9 horas
+Contributor
+I just activated my iPhone!!! Update coming soon!!!
+
+Rust505
+Rust505 commented há 8 horas
+Rust505
+há 8 horas
+Contributor
+Image After activation, my iPhone 11 Pro Max became an 16 Plus. And the activation was successful.
+
+Rust505
+Rust505 commented há 8 horas
+Rust505
+há 8 horas
+Contributor
+This happened because I was using a different mobilegestalt plist file.
+
+xcybermanx
+xcybermanx commented há 7 horas
+xcybermanx
+há 7 horas
+This happened because I was using a different mobilegestalt plist file.
+
+great & happy for you pull the fork :)
+
+Rust505
+Rust505 commented há 7 horas
+Rust505
+há 7 horas
+Contributor
+I haven't updated my fork yet. PLEASE WAIT.
+
+xcybermanx
+xcybermanx commented há 7 horas
+xcybermanx
+há 7 horas
+I haven't updated my fork yet. PLEASE WAIT.
+
+what the issue before you fix it
+
+Rust505
+Rust505 commented há 7 horas
+Rust505
+há 7 horas
+Contributor
+Image
+
+xcybermanx
+xcybermanx commented há 7 horas
+xcybermanx
+há 7 horas · edited by xcybermanx
+Image
+
+i have this issue before i test my code
+
+if you have data or you want backup it update to 26.2 beta3 & backup all your data
+
+after you need to restore it to 26.1
+
+this only way to get it back
+
+if no data restore it
+
+randomlol90
+randomlol90 commented há 5 horas
+randomlol90
+há 5 horas
+Author
+I haven't updated my fork yet. PLEASE WAIT.
+
+lmk when you do
+
+Rust505
+Rust505 commented há 5 horas
+Rust505
+há 5 horas
+Contributor
+Image Activation successful! SIM card not working, camera errors, Face ID, etc.
+
+rhcp011235
+rhcp011235 commented há 5 horas
+rhcp011235
+há 5 horas
+Owner
+Image Activation successful! SIM card not working, camera errors, Face ID, etc.
+
+Let me know if I can merge what you sent.
+
+also, thats all I have to share in terms of getting stuff working, FaceID and the rest is more stuff. I dont have it currently. its for sale ~100-300 (I have no interest) I just open sourced what I had
+
+Rust505
+Rust505 commented há 5 horas
+Rust505
+há 5 horas
+Contributor
+I found all the information for free.
+
+Rust505
+Rust505 commented há 5 horas
+Rust505
+há 5 horas
+Contributor
+@rhcp011235 Do you have a telegram?
+
+Rust505
+Rust505 commented há 5 horas
+Rust505
+há 5 horas
+Contributor
+I improved your project using your data, and now everything works.
+
+rhcp011235
+rhcp011235 commented há 5 horas
+rhcp011235
+há 5 horas
+Owner
+@rhcp011235 Do you have a telegram?
+
+Yea, rhcp011235
+
+rhcp011235
+rhcp011235 commented há 4 horas
+rhcp011235
+há 4 horas
+Owner
+Will close this now

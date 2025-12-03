@@ -1,0 +1,127 @@
+Aplicação iniciada...
+═══════════════════════════════════════════════════════
+[INICIO] Detectando dispositivo...
+[OK] iOS.exe encontrado!
+
+{"deviceList":["00008101-001E40313EC0001E"]}
+
+2025/11/24 22:07:03 INFO Go-iOS Agent not running, starting it on port port=60105
+2025/11/24 22:07:03 INFO Waiting for go-ios agent to be ready...
+{"level":"warning","msg":"go-ios agent is not running. You might need to start it with 'ios tunnel start' for ios17+. Use ENABLE_GO_IOS_AGENT=user for userspace tunnel or ENABLE_GO_IOS_AGENT=kernel for kernel tunnel for the experimental daemon mode.","time":"2025-11-24T22:07:03-03:00"}
+
+
+
+
+[OK] UDID capturado: 00008101-001E40313EC0001E
+[OK] ✓ Comando funcionou na tentativa 2!
+
+{"ActivationState":"Activated","ActivationStateAcknowledged":true,"BasebandActivationTicketVersion":"V2","BasebandCertId":3095201109,"BasebandChipID":938209,"BasebandKeyHashInformation":{"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyStatus":0},"BasebandMasterKeyHash":"1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C466055803E1EF81C870","BasebandRegionSKU":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","BasebandSerialNumber":"9lO0rg==","BasebandStatus":"BBInfoAvailable","BasebandVersion":"6.02.03","BluetoothAddress":"f8:10:93:81:52:7a","BoardId":12,"BootSessionID":"D0368CC3-F0F2-4F1B-B6B7-590348DDCD56","BrickState":false,"BuildVersion":"23A355","CPUArchitecture":"arm64e","CarrierBundleInfoArray":[],"CertID":3095201109,"ChipID":33025,"ChipSerialNo":"9lO0rg==","DeviceClass":"iPhone","DeviceColor":"1","DeviceName":"iPhone","DieID":8514829551665182,"EthernetAddress":"f8:10:93:90:4f:c4","FirmwareVersion":"iBoot-13822.2.13","FusingStatus":3,"HardwareModel":"D53gAP","HardwarePlatform":"t8101","HasSiDP":true,"HostAttached":true,"HumanReadableProductVersionString":"26.0.1","InternationalMobileEquipmentIdentity":"353050112065097","InternationalMobileEquipmentIdentity2":"353050112099005","MLBSerialNumber":"FG1041102AXP5577L","MobileEquipmentIdentifier":"35305011206509","MobileSubscriberCountryCode":"","MobileSubscriberNetworkCode":"","ModelNumber":"MGHN3","NonVolatileRAM":{"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","backlight-level":"NTk4","backlight-nits":"MHgwMDUwMDAwMA==","boot-args":"","bootdelay":"MA==","fm-account-masked":"","fm-activation-locked":"Tk8=","fm-spkeys":"YnBsaXN0MDDWAQIDBAUGBwgJCgsUUXBRc1FiUWlRdlFsTxA5BPvBKjIbi8XM2aA2IOLr6lNl6OOz29aD2Rtl1ZAhaz+LFcdl9jFU5QPtnaBMul1pt6Rw5pAbpxp0TxAgvyfpCxeQCn6YD2IJAtM061Ji3ZtkN9Ls9I/EGdkFBM8zQcdlLtaHtDURAw3SDA0OE1ExUTLSDxARElFzUWwQYBAA0g8QERJPEBAKRTY7zr5HWbcHxvslyW9oCBUXGRsdHyFdgImMkZOVmpyeoKKnAAAAAAAAAQEAAAAAAAAAFQAAAAAAAAAAAAAAAAAAALo=","fm-spstatus":"WUVT","panicmedic-telemetry":"EQEAAAAAAAAQz/0bfUIGABDP/Rt9QgYAQQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","panicmedic-timestamps":"MDo2NDI3ZDFiZmY5ZTZk","usbcfwflasherResult":"Tm8gZXJyb3Jz"},"PairRecordProtectionClass":4,"PartitionType":"GUID_partition_scheme","PasswordProtected":false,"PkHash":"uH0FVUsJlKhEmD05YurBSpF46D+trNajs+X4F7a6CGTl4f/iRcwbiJB9YouFNk62","ProductName":"iPhone OS","ProductType":"iPhone13,2","ProductVersion":"26.0.1","ProductionSOC":true,"ProtocolVersion":"2","RegionInfo":"J/A","SIMStatus":"kCTSIMSupportSIMStatusNotInserted","SIMTrayStatus":"kCTSIMSupportSIMTrayInsertedNoSIM","SerialNumber":"FFMDJ0ES0F00","SoftwareBehavior":"GQAAAAAAAAAAAAAAAAAAAA==","SoftwareBundleVersion":"","SupportedDeviceFamilies":[1],"TelephonyCapability":true,"TimeIntervalSince1970":1764032824.057627,"TimeZone":"America/Sao_Paulo","TimeZoneOffsetFromUTC":-10800,"TrustedHostAttached":true,"UniqueChipID":8514829551665182,"UniqueDeviceID":"00008101-001E40313EC0001E","UseRaptorCerts":true,"Uses24HourClock":true,"WiFiAddress":"f8:10:93:89:0d:24","WirelessBoardSerialNumber":"0383369A1602","kCTPostponementInfoServiceProvisioningState":false,"kCTPostponementStatus":"kCTPostponementStatusReady"}
+
+{"level":"warning","msg":"failed to get tunnel info","time":"2025-11-24T22:07:03-03:00","udid":"00008101-001E40313EC0001E"}
+
+  • ActivationState: "Activated"
+  • ActivationStateAcknowledged: true
+  • BasebandActivationTicketVersion: "V2"
+  • BasebandCertId: 3095201109
+  • BasebandChipID: 938209
+  • BasebandKeyHashInformation: {"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyS...
+  • BasebandMasterKeyHash: "1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C46...
+  • BasebandRegionSKU: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+  • BasebandSerialNumber: "9lO0rg=="
+  • BasebandStatus: "BBInfoAvailable"
+  • BasebandVersion: "6.02.03"
+  • BluetoothAddress: "f8:10:93:81:52:7a"
+  • BoardId: 12
+  • BootSessionID: "D0368CC3-F0F2-4F1B-B6B7-590348DDCD56"
+  • BrickState: false
+  • BuildVersion: "23A355"
+  • CPUArchitecture: "arm64e"
+  • CarrierBundleInfoArray: []
+  • CertID: 3095201109
+  • ChipID: 33025
+  • ChipSerialNo: "9lO0rg=="
+  • DeviceClass: "iPhone"
+  • DeviceColor: "1"
+  • DeviceName: "iPhone"
+  • DieID: 8514829551665182
+  • EthernetAddress: "f8:10:93:90:4f:c4"
+  • FirmwareVersion: "iBoot-13822.2.13"
+  • FusingStatus: 3
+  • HardwareModel: "D53gAP"
+  • HardwarePlatform: "t8101"
+  • HasSiDP: true
+  • HostAttached: true
+  • HumanReadableProductVersionString: "26.0.1"
+  • InternationalMobileEquipmentIdentity: "353050112065097"
+  • InternationalMobileEquipmentIdentity2: "353050112099005"
+  • MLBSerialNumber: "FG1041102AXP5577L"
+  • MobileEquipmentIdentifier: "35305011206509"
+  • MobileSubscriberCountryCode: ""
+  • MobileSubscriberNetworkCode: ""
+  • ModelNumber: "MGHN3"
+  • NonVolatileRAM: {"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","ba...
+  • PairRecordProtectionClass: 4
+  • PartitionType: "GUID_partition_scheme"
+  • PasswordProtected: false
+  • PkHash: "uH0FVUsJlKhEmD05YurBSpF46D+trNajs+X4F7a6CGTl4f/iRcwbiJB9YouFNk62"
+  • ProductName: "iPhone OS"
+  • ProductType: "iPhone13,2"
+  • ProductVersion: "26.0.1"
+  • ProductionSOC: true
+  • ProtocolVersion: "2"
+  • RegionInfo: "J/A"
+  • SIMStatus: "kCTSIMSupportSIMStatusNotInserted"
+  • SIMTrayStatus: "kCTSIMSupportSIMTrayInsertedNoSIM"
+  • SerialNumber: "FFMDJ0ES0F00"
+  • SoftwareBehavior: "GQAAAAAAAAAAAAAAAAAAAA=="
+  • SoftwareBundleVersion: ""
+  • SupportedDeviceFamilies: [1]
+  • TelephonyCapability: true
+  • TimeIntervalSince1970: 1764032824.057627
+  • TimeZone: "America/Sao_Paulo"
+  • TimeZoneOffsetFromUTC: -10800
+  • TrustedHostAttached: true
+  • UniqueChipID: 8514829551665182
+  • UniqueDeviceID: "00008101-001E40313EC0001E"
+  • UseRaptorCerts: true
+  • Uses24HourClock: true
+  • WiFiAddress: "f8:10:93:89:0d:24"
+  • WirelessBoardSerialNumber: "0383369A1602"
+  • kCTPostponementInfoServiceProvisioningState: false
+  • kCTPostponementStatus: "kCTPostponementStatusReady"
+[OK] Model encontrado (ProductName): iPhone OS
+[OK] Serial encontrado (SerialNumber): FFMDJ0ES0F00
+[OK] Product Type encontrado (ProductType): iPhone13,2
+[OK] iOS encontrado (ProductVersion): 26.0.1
+[OK] ECID encontrado (UniqueChipID): 8514829551665182
+[OK] IMEI encontrado (InternationalMobileEquipmentIdentity): 353050112065097
+[OK] IMEI2 encontrado (InternationalMobileEquipmentIdentity2): 353050112099005
+[OK] Activated encontrado (ActivationState): Activated
+
+[✓ OK] iPhone DETECTADO COM SUCESSO!
+═══════════════════════════════════════════════════════
+[*] Gerando payload Hello Activation...
+[*] Chamando API: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[OK] Resposta recebida! Status: OK
+[✓] Conexão bem-sucedida!
+[OK] Payload gerado!
+[*] URL: http://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev//cache/stage3/bb7b350ee359074f/payload.png
+[*] Injetando no dispositivo...
+[*] Baixando arquivo de payload...
+[OK] Payload baixado! Tamanho: 16384 bytes
+[*] Injetando payload no dispositivo...
+[AVISO] iOS.exe retornou ExitCode: 1
+[STDERR] Usage:
+    ios --version | version [options]
+  ios -h | --help
+  ios activate [options]
+  ios apps [--system] [--all] [--list] [--filesharing] [options]
+  ios assistivetouch (enable | disable | toggle | get) [--force] [options]
+  ios ax [--font=<fontSize>] [options]
+  ios batterycheck [options]
+  ios batteryregistry [options]
+  ios crash cp <srcpattern> <target> [options]
+  ios crash ls [<pattern>] [options]
+  ios crash rm <cwd> <pattern> [options]
+  ios date [options]
+  ios debug [options] [--s

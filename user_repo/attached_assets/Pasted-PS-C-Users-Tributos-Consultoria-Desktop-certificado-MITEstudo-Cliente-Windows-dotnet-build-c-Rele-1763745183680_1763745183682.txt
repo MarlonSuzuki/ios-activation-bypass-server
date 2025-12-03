@@ -1,0 +1,56 @@
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,5s)
+  Cliente Windows net10.0 falhou com 1 erro(s) (0,8s)
+    CSC : error CS5001: Programa não contém um método "Main" estático adequado para um ponto de entrada
+
+Construir falhou com 1 erro(s) em 1,8s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> & "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\attached_assets\COMPILE.ps1"
+& : O termo 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\attached_assets\COMPILE.ps1' não é
+reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, se um
+caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:3
++ & "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\attach ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...ets\COMPILE.ps1:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> & "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\attached_assets\COMPILE.ps1"
+& : O termo 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\attached_assets\COMPILE.ps1' não é
+reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, se um
+caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:3
++ & "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\attach ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...ets\COMPILE.ps1:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Remove-Item Program.cs -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Remove-Item "Cliente Windows.csproj" -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> <Project Sdk="Microsoft.NET.Sdk">
+>>   <PropertyGroup>
+>>     <OutputType>Exe</OutputType>
+>>     <TargetFramework>net10.0</TargetFramework>
+>>   </PropertyGroup>
+>> </Project>
+>> '@ | Out-File "Cliente Windows.csproj"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> Invoke-WebRequest -Uri "https://raw.githubusercontent.com/rhcp011235/A12_Bypass_OSS/refs/heads/main/attached_assets/client_windows_console_v2.cs" -OutFile Program.cs
+Invoke-WebRequest : 404: Not Found
+No linha:1 caractere:1
++ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/rhcp011235/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,4s)
+  Cliente Windows net10.0 falhou com 1 erro(s) (4,5s)
+    CSC : error CS5001: Programa não contém um método "Main" estático adequado para um ponto de entrada
+
+Construir falhou com 1 erro(s) em 5,5s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>

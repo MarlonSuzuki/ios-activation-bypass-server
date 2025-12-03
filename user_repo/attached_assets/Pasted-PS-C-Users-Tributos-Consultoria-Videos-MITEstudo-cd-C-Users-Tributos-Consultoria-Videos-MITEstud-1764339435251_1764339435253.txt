@@ -1,0 +1,77 @@
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Force push (sobrescreve GitHub com seu histórico local)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main --force
+Enumerating objects: 2141, done.
+Counting objects: 100% (2141/2141), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (1968/1968), done.
+Writing objects: 100% (2141/2141), 57.26 MiB | 981.00 KiB/s, done.
+Total 2141 (delta 1267), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1267/1267), done.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ + 6fa9c4e...adf7fbd main -> main (forced update)
+branch 'main' set up to track 'origin/main'.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Remove Procfile (conflita com railway.toml)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item Procfile
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Sync com GitHub
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add -A
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'replit.md', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Remove Procfile - use railway.toml for PHP installation"
+[main 340d4cd] Remove Procfile - use railway.toml for PHP installation
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 Procfile
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 271 bytes | 271.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+   adf7fbd..340d4cd  main -> main
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Remove railway.toml (conflita com Caddy)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> Remove-Item railway.toml
+Remove-Item : Não é possível localizar o caminho 'C:\Users\Tributos Consultoria\Videos\MITEstudo\railway.toml' porque
+ele não existe.
+No linha:1 caractere:1
++ Remove-Item railway.toml
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...do\railway.toml:String) [Remove-Item], ItemNotFoundEx
+   ception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Cria Procfile correto
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> @"
+>> web: php -S 0.0.0.0:`$PORT -t public
+>> "@ | Out-File -Encoding UTF8 Procfile
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Push para Railway redeploy
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add .
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'replit.md', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Fix Railway: use Procfile instead of railway.toml"
+[main 462d9f6] Fix Railway: use Procfile instead of railway.toml
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Procfile
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+   340d4cd..462d9f6  main -> main
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>

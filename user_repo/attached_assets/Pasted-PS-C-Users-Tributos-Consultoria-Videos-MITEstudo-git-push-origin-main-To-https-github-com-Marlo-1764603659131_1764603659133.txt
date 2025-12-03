@@ -1,0 +1,37 @@
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git pull origin main --rebase
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main --force
+Enumerating objects: 823, done.
+Counting objects: 100% (823/823), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (742/742), done.
+Writing objects: 100% (798/798), 159.76 MiB | 3.85 MiB/s, done.
+Total 798 (delta 308), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (308/308), completed with 18 local objects.
+remote: error: Trace: 4742dacabe32a0c7996c8efa55747a5977eb718d2e8889137d3b1c6d5ade180f
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File Distribuicao.zip is 126.07 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>

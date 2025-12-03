@@ -1,0 +1,50 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd
+PS C:\WINDOWS\system32> cd C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows
+Set-Location : Não é possível localizar um parâmetro posicional que aceite o argumento
+'Consultoria\Desktop\MITEstudo\Cliente'.
+No linha:1 caractere:1
++ cd C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> dotnet new console -n Build
+
+Bem-vindo(a) ao .NET 10.0.
+---------------------
+Versão do SDK: 10.0.100
+
+Telemetria
+---------
+As ferramentas do .NET coletam dados de uso para ajudar-nos a aprimorar sua experiência. Eles são coletados pela Microsoft e compartilhados com a comunidade. Você pode recusar a telemetria definindo a variável de ambiente DOTNET_CLI_TELEMETRY_OPTOUT como '1' ou 'true' usando seu shell favorito.
+
+Leia mais sobre a telemetria das Ferramentas da CLI do .NET: https://aka.ms/dotnet-cli-telemetry
+
+----------------
+Instalou um certificado de desenvolvimento ASP.NET Core HTTPS.
+Para confiar no certificado, execute 'dotnet dev-certs https --trust'
+Saiba mais HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Escreva seu primeiro aplicativo: https://aka.ms/dotnet-hello-world
+Descubra o que há de novo: https://aka.ms/dotnet-whats-new
+Explorar a documentação: https://aka.ms/dotnet-docs
+Relate problemas e encontre a fonte no GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' para ver os comandos disponíveis ou visite: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+O modelo "Aplicativo do Console" foi criado com êxito.
+
+Processando ações pós-criação...
+Restaurando C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Build\Build.csproj:
+A restauração foi bem-sucedida.
+
+
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> cd Build
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Build> cd ..
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> dotnet build

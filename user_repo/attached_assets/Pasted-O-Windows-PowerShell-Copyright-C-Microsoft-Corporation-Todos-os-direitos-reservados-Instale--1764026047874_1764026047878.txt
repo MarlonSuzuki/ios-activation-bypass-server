@@ -1,0 +1,34 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> dotnet publish -c Release --self-contained
+Restauração concluída (1,6s)
+  Cliente Windowsnet10.0-windowswin-x64falhou com1 erros e 1 avisos (92,7s) → bin\Release\net10.0-windows\win-x64\ClienteWindows.dll
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets(1132,5): error MSB4018:
+      Falha inesperada da tarefa "GenerateBundle".
+      System.InvalidOperationException: It is forbidden to change Manifest state after it was written or BundleId was ob
+      tained.
+         at Microsoft.NET.HostModel.Bundle.Manifest.AddEntry(FileType type, FileStream fileContent, String relativePath,
+       Int64 offset, Int64 compressedSize, UInt32 bundleMajorVersion)
+         at Microsoft.NET.HostModel.Bundle.Bundler.GenerateBundle(IReadOnlyList`1 fileSpecs)
+         at Microsoft.NET.Build.Tasks.GenerateBundle.<>c__DisplayClass56_0.<ExecuteWithRetry>b__0()
+         at Microsoft.NET.Build.Tasks.GenerateBundle.DoWithRetry(Action action)
+         at Microsoft.NET.Build.Tasks.GenerateBundle.ExecuteWithRetry()
+         at Microsoft.NET.Build.Tasks.GenerateBundle.ExecuteCore()
+         at Microsoft.NET.Build.Tasks.TaskBase.Execute()
+         at Microsoft.Build.BackEnd.TaskBuilder.ExecuteInstantiatedTask(TaskExecutionHost taskExecutionHost, TaskLogging
+      Context taskLoggingContext, TaskHost taskHost, ItemBucket bucket, TaskExecutionMode howToExecuteTask)
+
+Construir falhou com1 erros e 1 avisos em 95,1s
+Unhandled exception. System.ObjectDisposedException: Cannot write to a closed TextWriter.
+Object name: 'StreamWriter'.
+   at System.IO.StreamWriter.<ThrowIfDisposed>g__ThrowObjectDisposedException|80_0()
+   at System.IO.StreamWriter.WriteLine(String value)
+   at Microsoft.DotNet.Cli.Installer.Windows.TimestampedFileLogger.Dispose(Boolean disposing)
+   at Microsoft.DotNet.Cli.Installer.Windows.TimestampedFileLogger.Dispose()
+   at Microsoft.DotNet.Cli.Commands.Workload.Install.NetSdkMsiInstallerClient.OnProcessExit(Object sender, EventArgs e)
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>

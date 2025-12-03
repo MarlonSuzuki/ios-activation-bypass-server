@@ -1,0 +1,50 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows"
+>> dotnet new console --force
+>> Copy-Item client_windows.cs Program.cs -Force
+>> dotnet build
+O modelo "Aplicativo do Console" foi criado com êxito.
+
+Processando ações pós-criação...
+Restaurando C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Cliente Windows.csproj:
+A restauração foi bem-sucedida.
+
+
+Restauração concluída (0,3s)
+  Cliente Windows net10.0 falhou com 28 erro(s) (3,7s)
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(15,18): error CS0101: O namespace "GoIosBypassSuite" já contém uma definição para "GoIosDevice"
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(26,11): error CS0101: O namespace "GoIosBypassSuite" já contém uma definição para "Program"
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(425,18): error CS0101: O namespace "GoIosBypassSuite" já contém uma definição para "Log"
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(427,28): error CS0111: Tipo "Log" já define um membro chamado "Info" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(428,28): error CS0111: Tipo "Log" já define um membro chamado "Success" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(429,28): error CS0111: Tipo "Log" já define um membro chamado "Warn" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(430,28): error CS0111: Tipo "Log" já define um membro chamado "Error" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(431,28): error CS0111: Tipo "Log" já define um membro chamado "Header" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(432,28): error CS0111: Tipo "Log" já define um membro chamado "Detail" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(434,29): error CS0111: Tipo "Log" já define um membro chamado "Write" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(42,27): error CS0111: Tipo "Program" já define um membro chamado "Main" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(78,35): error CS0111: Tipo "Program" já define um membro chamado "RunSequence" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(158,29): error CS0111: Tipo "Program" já define um membro chamado "StartTunnelDaemon" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(190,29): error CS0111: Tipo "Program" já define um membro chamado "CleanupTunnel" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(198,31): error CS0111: Tipo "Program" já define um membro chamado "RunGoIosCommand" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(231,29): error CS0111: Tipo "Program" já define um membro chamado "PushFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(238,29): error CS0111: Tipo "Program" já define um membro chamado "RemoveRemoteFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(245,41): error CS0111: Tipo "Program" já define um membro chamado "WaitForRemoteFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(263,35): error CS0111: Tipo "Program" já define um membro chamado "WaitForRemoteFileDisappearance" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(277,43): error CS0111: Tipo "Program" já define um membro chamado "ExtractGuidFromSyslog" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(328,48): error CS0111: Tipo "Program" já define um membro chamado "WaitForDevice" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(368,35): error CS0111: Tipo "Program" já define um membro chamado "WaitForDeviceReconnection" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(376,43): error CS0111: Tipo "Program" já define um membro chamado "GetPayloadUrl" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(383,35): error CS0111: Tipo "Program" já define um membro chamado "DownloadFile" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(389,31): error CS0111: Tipo "Program" já define um membro chamado "GetSerialNumber" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(400,29): error CS0111: Tipo "Program" já define um membro chamado "CheckEnvironment" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(408,29): error CS0111: Tipo "Program" já define um membro chamado "PrintDeviceInfo" com os mesmos tipos de parâmetro
+    C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows\Program.cs(414,29): error CS0111: Tipo "Program" já define um membro chamado "PrintBanner" com os mesmos tipos de parâmetro
+
+Construir falhou com 28 erro(s) em 4,4s
+PS C:\Users\Tributos Consultoria\Desktop\MITEstudo\Cliente Windows>

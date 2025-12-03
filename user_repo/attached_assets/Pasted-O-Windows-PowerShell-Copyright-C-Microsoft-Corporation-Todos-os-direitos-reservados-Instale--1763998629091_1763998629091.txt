@@ -1,0 +1,25 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"; dotnet build -c Release
+Restauração concluída (0,4s)
+  Cliente Windows net10.0-windows êxito(s) com 1 aviso(s) (1,3s) → bin\Release\net10.0-windows\ClienteWindows.dll
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+
+Construir êxito(s) com 1 aviso(s) em 2,2s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\ClienteWindows.exe" "..\Distribuicao\"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\ClienteWindows.dll" "..\Distribuicao\"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"; dotnet clean; dotnet build -c Release
+  Cliente Windowsnet10.0-windowswin-x64falhou com1 erros e 1 avisos (0,1s)
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1047: O arquivo de ativos 'C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows\obj\project.assets.json' não tem um destino para 'net10.0-windows/win-x64'. Verifique se a restauração foi executada e se você incluiu 'net10.0-windows' no TargetFrameworks do projeto. Talvez você também precise incluir 'win-x64' no RuntimeIdentifiers do projeto.
+
+Construir falhou com1 erros e 1 avisos em 0,4s
+Restauração concluída (16,7s)
+  Cliente Windowsnet10.0-windowswin-x64êxito(s) com 1 aviso(s) (3,9s) → bin\Release\net10.0-windows\win-x64\ClienteWindows.dll
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+
+Construir êxito(s) com 1 aviso(s) em 21,2s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows>

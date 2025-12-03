@@ -1,0 +1,44 @@
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008120-0005045C3A33401E
+[*] PHASE 3: Requisitando Payload do Servidor
+[OK] Payload URL: http://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/cache/stage3/d2d8f5f1bfaf28ff/payload.png
+[*] PHASE 4: Baixando Payload
+[OK] Payload baixado: 16384 bytes
+[*] PHASE 4.5: Aguardando reconexão do dispositivo...
+[*] Aguardando... (1/15)
+[*] Aguardando... (2/15)
+[*] Aguardando... (3/15)
+[OK] Dispositivo reconectado! (tentativa 4/15)
+[*] PHASE 5: Limpando Arquivos Antigos
+[*] PHASE 6: Injetando Payload
+[OK] Payload injetado
+[*] PHASE 7: Reboot Pós-Injeção
+[*] Aguardando 30 segundos para dispositivo reconectar e processar payload...
+[*] PHASE 8: Aguardando Metadados (até 100 segundos)
+[*] Procurando: /iTunes_Control/iTunes/iTunesMetadata.plist
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /Library/Caches/LocationKit/ReverseGeocode.cache
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/ActivationState.plist
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /var/mobile/Media/iTunes_Control/iTunes/iTunesMetadata.plist
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[*] Procurando: /var/Keychains/TrustStore.sqlite3
+[AVISO] Arquivo não encontrado após 6 tentativas e 20 segundos
+[!] Metadados não encontrados
+[*] Continuando mesmo assim...
+[*] PHASE 8.5: Baixando iTunesMetadata do servidor...
+[*] URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev/metadata.php?prd=iPhone15%2C3&guid=00008120-0005045C3A33401E&sn=MM934H4LJY
+[✓] Arquivo baixado (686 bytes)
+[*] Injetando em /var/mobile/Media/Books/iTunesMetadata.plist
+[✓] iTunesMetadata injetado com sucesso!
+[*] PHASE 9: Reboot Final
+═══════════════════════════════════════════════════════
+[✓] SEQUÊNCIA CONCLUÍDA COM SUCESSO!
+══════════════════════════════════════════════════════

@@ -1,0 +1,68 @@
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Remover os arquivos deletados do tracking (não precisa deles mesmo)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git rm "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+fatal: C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs: 'C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs' is outside repository at 'C:/Users/Tributos Consultoria/Videos/MITEstudo'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git rm "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+fatal: C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs: 'C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs' is outside repository at 'C:/Users/Tributos Consultoria/Videos/MITEstudo'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git rm "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+fatal: C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe: 'C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe' is outside repository at 'C:/Users/Tributos Consultoria/Videos/MITEstudo'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Agora fazer commit
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support - tries Replit first, then Railway"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\Program.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\client_windows_gui.cs"
+        deleted:    "C:\\Users\\Tributos Consultoria\\Desktop\\certificado\\MITEstudo\\Cliente Windows\\iOS.exe"
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Push
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> cd "C:\Users\Tributos Consultoria\Videos\MITEstudo"
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Descartar as mudanças de arquivo deletado (não precisa deles)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git restore --staged .
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git restore .
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Agora add apenas o MainWindow.xaml.cs atualizado
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git add "Cliente Windows\MainWindow.xaml.cs"
+warning: in the working copy of 'Cliente Windows/MainWindow.xaml.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Commit
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Add Railway fallback support"
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .local/
+        C__/
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> # Push
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push -u origin main
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>

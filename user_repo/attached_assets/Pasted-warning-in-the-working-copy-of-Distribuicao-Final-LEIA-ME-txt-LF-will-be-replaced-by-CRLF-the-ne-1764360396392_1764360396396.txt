@@ -1,0 +1,27 @@
+warning: in the working copy of 'Distribuicao_Final/LEIA-ME.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'railway.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'replit.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'start.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Cliente Windows/Strings.cs', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git commit -m "Client updated: auto log sending + UI fixes"
+[main cb0c9e4] Client updated: auto log sending + UI fixes
+ 6 files changed, 282 insertions(+), 7 deletions(-)
+ create mode 100644 Cliente Windows/Strings.cs
+ create mode 100644 Distribuicao_Final.zip
+ create mode 100644 Distribuicao_Final/ClienteWindows.exe - Atalho.lnk
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo> git push origin main
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 125.30 MiB | 1.96 MiB/s, done.
+Total 10 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+remote: error: Trace: 823d9eb81ec26f4dd1df88f75a37de4f21829e8141252f5a5159f51db8b63a8e
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File Distribuicao_Final.zip is 126.06 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To https://github.com/MarlonSuzuki/ios-activation-bypass-server.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/MarlonSuzuki/ios-activation-bypass-server.git'
+PS C:\Users\Tributos Consultoria\Videos\MITEstudo>

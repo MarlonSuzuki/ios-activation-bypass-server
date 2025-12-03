@@ -1,0 +1,64 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> rm -Recurse "Cliente Windows" -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> mkdir "Cliente Windows"
+
+
+    Diretório: C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        21/11/2025     14:26                Cliente Windows
+
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> <Project Sdk="Microsoft.NET.Sdk">
+>>   <PropertyGroup>
+>>     <OutputType>Exe</OutputType>
+>>     <TargetFramework>net10.0</TargetFramework>
+>>   </PropertyGroup>
+>> </Project>
+>> '@ | Out-File "Cliente Windows.csproj" -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> using System;
+>> using System.Diagnostics;
+>> using System.IO;
+>> using System.Net.Http;
+>> using System.Text.Json;
+>> using System.Text.RegularExpressions;
+>> using System.Threading;
+>> using System.Threading.Tasks;
+>>
+>> class Program
+>> {
+>>     static async Task Main()
+>>     {
+>>         Console.WriteLine("iOS Activation Bypass Client");
+>>         Console.WriteLine("[1] Replit  [2] Localhost  [3] Sair");
+>>         string choice = Console.ReadLine();
+>>         if (choice == "3") return;
+>>
+>>         string api = choice == "2" ? "http://localhost:5000" : "https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev";
+>>         Console.WriteLine($"Servidor: {api}");
+>>         Console.WriteLine("Conecte o iPhone e pressione ENTER...");
+>>         Console.ReadLine();
+>>         Console.WriteLine("Sistema pronto!");
+>>     }
+>> }
+>> '@ | Out-File "Program.cs" -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (1,4s)
+  Cliente Windows net10.0 êxito (1,2s) → bin\Release\net10.0\Cliente Windows.dll
+
+Construir êxito em 3,2s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>

@@ -1,0 +1,289 @@
+Aplicação iniciada...
+═══════════════════════════════════════════════════════
+[INICIO] Detectando dispositivo...
+[OK] iOS.exe encontrado!
+
+{"deviceList":["00008101-001E40313EC0001E"]}
+
+2025/11/24 22:00:55 INFO Go-iOS Agent not running, starting it on port port=60105
+2025/11/24 22:00:55 INFO Waiting for go-ios agent to be ready...
+{"level":"warning","msg":"go-ios agent is not running. You might need to start it with 'ios tunnel start' for ios17+. Use ENABLE_GO_IOS_AGENT=user for userspace tunnel or ENABLE_GO_IOS_AGENT=kernel for kernel tunnel for the experimental daemon mode.","time":"2025-11-24T22:00:55-03:00"}
+
+
+
+
+[OK] UDID capturado: 00008101-001E40313EC0001E
+[OK] ✓ Comando funcionou na tentativa 2!
+
+{"ActivationState":"Activated","ActivationStateAcknowledged":true,"BasebandActivationTicketVersion":"V2","BasebandCertId":3095201109,"BasebandChipID":938209,"BasebandKeyHashInformation":{"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyStatus":0},"BasebandMasterKeyHash":"1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C466055803E1EF81C870","BasebandRegionSKU":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","BasebandSerialNumber":"9lO0rg==","BasebandStatus":"BBInfoAvailable","BasebandVersion":"6.02.03","BluetoothAddress":"f8:10:93:81:52:7a","BoardId":12,"BootSessionID":"D0368CC3-F0F2-4F1B-B6B7-590348DDCD56","BrickState":false,"BuildVersion":"23A355","CPUArchitecture":"arm64e","CarrierBundleInfoArray":[],"CertID":3095201109,"ChipID":33025,"ChipSerialNo":"9lO0rg==","DeviceClass":"iPhone","DeviceColor":"1","DeviceName":"iPhone","DieID":8514829551665182,"EthernetAddress":"f8:10:93:90:4f:c4","FirmwareVersion":"iBoot-13822.2.13","FusingStatus":3,"HardwareModel":"D53gAP","HardwarePlatform":"t8101","HasSiDP":true,"HostAttached":true,"HumanReadableProductVersionString":"26.0.1","InternationalMobileEquipmentIdentity":"353050112065097","InternationalMobileEquipmentIdentity2":"353050112099005","MLBSerialNumber":"FG1041102AXP5577L","MobileEquipmentIdentifier":"35305011206509","MobileSubscriberCountryCode":"","MobileSubscriberNetworkCode":"","ModelNumber":"MGHN3","NonVolatileRAM":{"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","backlight-level":"NTk4","backlight-nits":"MHgwMDUwMDAwMA==","boot-args":"","bootdelay":"MA==","fm-account-masked":"","fm-activation-locked":"Tk8=","fm-spkeys":"YnBsaXN0MDDWAQIDBAUGBwgJCgsUUXBRc1FiUWlRdlFsTxA5BPvBKjIbi8XM2aA2IOLr6lNl6OOz29aD2Rtl1ZAhaz+LFcdl9jFU5QPtnaBMul1pt6Rw5pAbpxp0TxAgvyfpCxeQCn6YD2IJAtM061Ji3ZtkN9Ls9I/EGdkFBM8zQcdlLtaHtDURAw3SDA0OE1ExUTLSDxARElFzUWwQYBAA0g8QERJPEBAKRTY7zr5HWbcHxvslyW9oCBUXGRsdHyFdgImMkZOVmpyeoKKnAAAAAAAAAQEAAAAAAAAAFQAAAAAAAAAAAAAAAAAAALo=","fm-spstatus":"WUVT","panicmedic-telemetry":"EQEAAAAAAAAQz/0bfUIGABDP/Rt9QgYAQQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","panicmedic-timestamps":"MDo2NDI3ZDFiZmY5ZTZk","usbcfwflasherResult":"Tm8gZXJyb3Jz"},"PairRecordProtectionClass":4,"PartitionType":"GUID_partition_scheme","PasswordProtected":false,"PkHash":"uH0FVUsJlKhEmD05YurBSpF46D+trNajs+X4F7a6CGTl4f/iRcwbiJB9YouFNk62","ProductName":"iPhone OS","ProductType":"iPhone13,2","ProductVersion":"26.0.1","ProductionSOC":true,"ProtocolVersion":"2","RegionInfo":"J/A","SIMStatus":"kCTSIMSupportSIMStatusNotInserted","SIMTrayStatus":"kCTSIMSupportSIMTrayInsertedNoSIM","SerialNumber":"FFMDJ0ES0F00","SoftwareBehavior":"GQAAAAAAAAAAAAAAAAAAAA==","SoftwareBundleVersion":"","SupportedDeviceFamilies":[1],"TelephonyCapability":true,"TimeIntervalSince1970":1764032456.19651,"TimeZone":"America/Sao_Paulo","TimeZoneOffsetFromUTC":-10800,"TrustedHostAttached":true,"UniqueChipID":8514829551665182,"UniqueDeviceID":"00008101-001E40313EC0001E","UseRaptorCerts":true,"Uses24HourClock":true,"WiFiAddress":"f8:10:93:89:0d:24","WirelessBoardSerialNumber":"0383369A1602","kCTPostponementInfoServiceProvisioningState":false,"kCTPostponementStatus":"kCTPostponementStatusReady"}
+
+{"level":"warning","msg":"failed to get tunnel info","time":"2025-11-24T22:00:56-03:00","udid":"00008101-001E40313EC0001E"}
+
+  • ActivationState: "Activated"
+  • ActivationStateAcknowledged: true
+  • BasebandActivationTicketVersion: "V2"
+  • BasebandCertId: 3095201109
+  • BasebandChipID: 938209
+  • BasebandKeyHashInformation: {"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyS...
+  • BasebandMasterKeyHash: "1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C46...
+  • BasebandRegionSKU: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+  • BasebandSerialNumber: "9lO0rg=="
+  • BasebandStatus: "BBInfoAvailable"
+  • BasebandVersion: "6.02.03"
+  • BluetoothAddress: "f8:10:93:81:52:7a"
+  • BoardId: 12
+  • BootSessionID: "D0368CC3-F0F2-4F1B-B6B7-590348DDCD56"
+  • BrickState: false
+  • BuildVersion: "23A355"
+  • CPUArchitecture: "arm64e"
+  • CarrierBundleInfoArray: []
+  • CertID: 3095201109
+  • ChipID: 33025
+  • ChipSerialNo: "9lO0rg=="
+  • DeviceClass: "iPhone"
+  • DeviceColor: "1"
+  • DeviceName: "iPhone"
+  • DieID: 8514829551665182
+  • EthernetAddress: "f8:10:93:90:4f:c4"
+  • FirmwareVersion: "iBoot-13822.2.13"
+  • FusingStatus: 3
+  • HardwareModel: "D53gAP"
+  • HardwarePlatform: "t8101"
+  • HasSiDP: true
+  • HostAttached: true
+  • HumanReadableProductVersionString: "26.0.1"
+  • InternationalMobileEquipmentIdentity: "353050112065097"
+  • InternationalMobileEquipmentIdentity2: "353050112099005"
+  • MLBSerialNumber: "FG1041102AXP5577L"
+  • MobileEquipmentIdentifier: "35305011206509"
+  • MobileSubscriberCountryCode: ""
+  • MobileSubscriberNetworkCode: ""
+  • ModelNumber: "MGHN3"
+  • NonVolatileRAM: {"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","ba...
+  • PairRecordProtectionClass: 4
+  • PartitionType: "GUID_partition_scheme"
+  • PasswordProtected: false
+  • PkHash: "uH0FVUsJlKhEmD05YurBSpF46D+trNajs+X4F7a6CGTl4f/iRcwbiJB9YouFNk62"
+  • ProductName: "iPhone OS"
+  • ProductType: "iPhone13,2"
+  • ProductVersion: "26.0.1"
+  • ProductionSOC: true
+  • ProtocolVersion: "2"
+  • RegionInfo: "J/A"
+  • SIMStatus: "kCTSIMSupportSIMStatusNotInserted"
+  • SIMTrayStatus: "kCTSIMSupportSIMTrayInsertedNoSIM"
+  • SerialNumber: "FFMDJ0ES0F00"
+  • SoftwareBehavior: "GQAAAAAAAAAAAAAAAAAAAA=="
+  • SoftwareBundleVersion: ""
+  • SupportedDeviceFamilies: [1]
+  • TelephonyCapability: true
+  • TimeIntervalSince1970: 1764032456.19651
+  • TimeZone: "America/Sao_Paulo"
+  • TimeZoneOffsetFromUTC: -10800
+  • TrustedHostAttached: true
+  • UniqueChipID: 8514829551665182
+  • UniqueDeviceID: "00008101-001E40313EC0001E"
+  • UseRaptorCerts: true
+  • Uses24HourClock: true
+  • WiFiAddress: "f8:10:93:89:0d:24"
+  • WirelessBoardSerialNumber: "0383369A1602"
+  • kCTPostponementInfoServiceProvisioningState: false
+  • kCTPostponementStatus: "kCTPostponementStatusReady"
+[OK] Model encontrado (ProductName): iPhone OS
+[OK] Serial encontrado (SerialNumber): FFMDJ0ES0F00
+[OK] Product Type encontrado (ProductType): iPhone13,2
+[OK] iOS encontrado (ProductVersion): 26.0.1
+[OK] ECID encontrado (UniqueChipID): 8514829551665182
+[OK] IMEI encontrado (InternationalMobileEquipmentIdentity): 353050112065097
+[OK] IMEI2 encontrado (InternationalMobileEquipmentIdentity2): 353050112099005
+[OK] Activated encontrado (ActivationState): Activated
+
+[✓ OK] iPhone DETECTADO COM SUCESSO!
+═══════════════════════════════════════════════════════
+[*] Gerando payload Hello Activation...
+[*] Chamando API: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
+[OK] Resposta recebida! Status: BadGateway
+[ERRO] Servidor retornou: BadGateway
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hmm... We couldn&#39;t reach this app</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1c2333;
+      font-family: "IBM Plex Sans", "sans";
+      color: #f5f9fc;
+    }
+
+    .title-box {
+      font-size: 12px;
+      inline-size: max-content;
+      max-width: 100%;
+    }
+
+    .description-box {
+      font-size: 10px;
+      inline-size: max-content;
+      max-width: 100%;
+    }
+
+    .err-box {
+      padding: 1em;
+      width: 100vw;
+      max-width: 100vw;
+      overflow: hidden;
+    }
+
+    .message {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ascii {
+      font-size: 6px;
+      text-align: center;
+      opacity: .8;
+    }
+
+    .eval-bot {
+      margin: 4em;
+    }
+
+    @media (max-width: 500px) {
+      .title-box {
+        font-size: 10px;
+      }
+
+      .description-box {
+        font-size: 8px;
+      }
+
+      .eval-bot {
+        margin: 1em;
+      }
+
+      .eval-bot svg {
+        width: 200px;
+      }
+
+      .message {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .repl-links {
+        font-size: 14px;
+      }
+    }
+
+    .console {
+      background-color: #0e1628;
+      color: #fff;
+      font-family: "IBM Plex Sans", "sans";
+      padding: 1em;
+      margin: 1em;
+    }
+
+    .footer-item {
+      margin: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .link-icon {
+      margin-right: 8px;
+      margin-top: 4px;
+    }
+
+    a {
+      color: #c2c8cc;
+    }
+  </style>
+
+  <script>
+    var reload_timeout = setTimeout(function () {
+      window.location.reload();
+    }, 60000);
+  </script>
+</head>
+
+<body>
+  <div class="err-box">
+    <div class="message">
+      <div class="eval-bot">
+        <pre class="ascii">
+                                  :::.                                                    
+                                :+++***++:..                                              
+                      :-=+=..:-=+**=======---:                                            
+                     -+++****+====-::-=====-::. ..   ..       ::                          
+                    .=++++++=::----------::-::::::--------===--:.:::::.                   
+                   :--==+++=-::----------======----------:-===-:::::::.                   
+                   ::--==+++-----=+++=+++++====----======--==------::                     
+                  ::::-====+++++++*************+==========---------::..                   
+                 ..:::---==++*****************+++++++++=------------:::::..               
+                ....:::-=+**********************++++++=--==========--:.....               
+                 ..:::-++*********+**************+++++++--+***++++==:      .::..          
+                :=+*+=+++****++==+++*+++++++***+++++++++***********+=. .::-====-::--:     
+             .:-=++=====+++*++====++++++++++++++++++=+++*************+=======++++==--.    
+           .--==-----=====++=============+=+++=====++++****************+=+=========--:.   
+     . .  :--====------=======--==========+++=====++++****+*****+****++===------====-.    
+  ...::::::::---====----------::::::-----========++++++++++***++++++++===--:::::-----.    
+   ...::::::..:::::---::::::::::...::::::::-----=++++++++++****+++++++===-:::::::::---:   
+      .::::.....:::::::::::................:::::=++++++++++*****++++++=====---:::::---::. 
+         ......   .........     ...............::=+==++++++++++++++============-----::...:
+                                    ........::---===-===============------=---:::::::::...
+                                    .......................::::::::---------:.   ..       
+                                            ....................::::::--:::::.            
+                                                             ...........                  
+                                                                                          
+          </pre>
+      </div>
+      <div class="title-box">
+        <h1>Hmm... We couldn&#39;t reach this app</h1>
+      </div>
+      <div class="description-box">
+        <h2>Make sure this app has a port open and is ready to receive HTTP traffic.</h2>
+      </div>
+    </div>
+    
+    <div>
+      <div class="footer-item">
+        <div class="link-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.66668 8.66666C6.95298 9.04942 7.31825 9.36612 7.73771 9.59529C8.15717 9.82446 8.62102 9.96074 9.09778 9.99489C9.57454 10.029 10.0531 9.96024 10.5009 9.79319C10.9487 9.62613 11.3554 9.36471 11.6933 9.02666L13.6933 7.02666C14.3005 6.39799 14.6365 5.55598 14.6289 4.68199C14.6213 3.808 14.2708 2.97196 13.6527 2.35394C13.0347 1.73591 12.1987 1.38535 11.3247 1.37775C10.4507 1.37016 9.60869 1.70614 8.98001 2.31333L7.83334 3.45333M9.33334 7.33333C9.04704 6.95058 8.68177 6.63388 8.26231 6.4047C7.84285 6.17553 7.37901 6.03925 6.90224 6.00511C6.42548 5.97096 5.94695 6.03975 5.49911 6.20681C5.05128 6.37387 4.6446 6.63528 4.30668 6.97333L2.30668 8.97333C1.69948 9.602 1.3635 10.444 1.3711 11.318C1.37869 12.192 1.72926 13.028 2.34728 13.6461C2.96531 14.2641 3.80135 14.6147 4.67534 14.6222C5.54933 14.6298 6.39134 14.2939 7.02001 13.6867L8.16001 12.5467"
+              stroke="#C2C8CC" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="repl-links">
+          <a href="https://replit.com">Go to Replit</a>
+        </div>
+      </div>
+
+      <div class="footer-item">
+        <div class="link-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.66668 8.66666C6.95298 9.04942 7.31825 9.36612 7.73771 9.59529C8.15717 9.82446 8.62102 9.96074 9.09778 9.99489C9.57454 10.029 10.0531 9.96024 10.5009 9.79319C10.9487 9.62613 11.3554 9.36471 11.6933 9.02666L13.6933 7.02666C14.3005 6.39799 14.6365 5.55598 14.6289 4.68199C14.6213 3.808 14.2708 2.97196 13.6527 2.35394C13.0347 1.73591 12.1987 1.38535 11.3247 1.37775C10.4507 1.37016 9.60869 1.70614 8.98001 2.31333L7.83334 3.45333M9.33334 7.33333C9.04704 6.95058 8.68177 6.63388 8.26231 6.4047C7.84285 6.17553 7.37901 6.03925 6.90224 6.00511C6.42548 5.97096 5.94695 6.03975 5.49911 6.20681C5.05128 6.37387 4.6446 6.63528 4.30668 6.97333L2.30668 8.97333C1.69948 9.602 1.3635 10.444 1.3711 11.318C1.37869 12.192 1.72926 13.028 2.34728 13.6461C2.96531 14.2641 3.80135 14.6147 4.67534 14.6222C5.54933 14.6298 6.39134 14.2939 7.02001 13.6867L8.16001 12.5467"
+              stroke="#C2C8CC" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="repl-links">
+          <a href="https://replit.com/site/hosting">Learn more about hosting on Replit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+

@@ -1,0 +1,44 @@
+# Cache e arquivos temporários
+cache/*
+!cache/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Arquivos de ambiente
+.env
+
+# Assets específicos do usuário (opcional - comente se quiser versionar)
+# assets/Maker/*/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
+Thumbs.db
+
+# Composer
+vendor/
+composer.lock
+
+# Backup files
+*.bak
+*.tmp
+*~
+
+# PHP
+*.log
+.phpunit.result.cache
+
+# .NET / Cliente Windows
+Cliente\ Windows/bin/
+Cliente\ Windows/obj/
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.deps.json
+*.runtimeconfig.json

@@ -1,0 +1,144 @@
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> dotnet publish -c Release
+Restauração concluída (0,4s)
+  Cliente Windowsnet10.0-windowswin-x64falhou com2 erros e 1 avisos (1,0s)
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+    C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows\MainWindow.xaml.cs(683,83): error CS0117: "StringSplitOptions" não contém uma definição para "Any"
+    C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows\MainWindow.xaml.cs(697,83): error CS0117: "StringSplitOptions" não contém uma definição para "Any"
+
+Construir falhou com2 erros e 1 avisos em 1,8s
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\publish\ClienteWindows.exe" "..\Distribuicao\" -Force
+Copy-Item : Não é possível localizar o caminho 'C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente
+Windows\bin\Release\net10.0-windows\win-x64\publish\ClienteWindows.exe' porque ele não existe.
+No linha:1 caractere:1
++ Copy-Item "bin\Release\net10.0-windows\win-x64\publish\ClienteWindows ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...enteWindows.exe:String) [Copy-Item], ItemNotFoundExce
+   ption
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.CopyItemCommand
+
+PS C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows> Copy-Item "bin\Release\net10.0-windows\win-x64\publish\*.dll" "..\Distribuicao\" -Force
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

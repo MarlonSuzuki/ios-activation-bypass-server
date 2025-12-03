@@ -1,0 +1,142 @@
+Aplicação iniciada...
+═══════════════════════════════════════════════════════
+[INICIO] Detectando dispositivo...
+[OK] iOS.exe encontrado!
+
+{"deviceList":["00008110-000A491926D1801E"]}
+
+2025/11/25 23:18:14 INFO Go-iOS Agent not running, starting it on port port=60105
+2025/11/25 23:18:14 INFO Waiting for go-ios agent to be ready...
+{"level":"warning","msg":"go-ios agent is not running. You might need to start it with 'ios tunnel start' for ios17+. Use ENABLE_GO_IOS_AGENT=user for userspace tunnel or ENABLE_GO_IOS_AGENT=kernel for kernel tunnel for the experimental daemon mode.","time":"2025-11-25T23:18:14+01:00"}
+
+
+
+
+[OK] UDID capturado: 00008110-000A491926D1801E
+[OK] ✓ Comando funcionou na tentativa 1!
+
+{"ActivationState":"Unactivated","BasebandActivationTicketVersion":"V2","BasebandCertId":495958265,"BasebandChipID":1327329,"BasebandKeyHashInformation":{"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyStatus":0},"BasebandMasterKeyHash":"1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C466055803E1EF81C870","BasebandRegionSKU":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","BasebandSerialNumber":"xuo+iw==","BasebandStatus":"BBInfoAvailable","BasebandVersion":"5.02.02","BluetoothAddress":"dc:53:92:32:e8:a4","BoardId":14,"BootSessionID":"E2423445-F078-439C-90F9-782091D3B5A0","BrickState":true,"BuildVersion":"23B85","CPUArchitecture":"arm64e","CarrierBundleInfoArray":[],"CertID":495958265,"ChipID":33040,"ChipSerialNo":"xuo+iw==","DeviceClass":"iPhone","DeviceColor":"1","DeviceName":"iPhone","DieID":2895122141380638,"EthernetAddress":"dc:53:92:35:d1:c2","FirmwareVersion":"iBoot-13822.42.2","FusingStatus":3,"HardwareModel":"D64AP","HardwarePlatform":"t8110","HasSiDP":true,"HostAttached":true,"HumanReadableProductVersionString":"26.1","InternationalMobileEquipmentIdentity":"355325327619195","InternationalMobileEquipmentIdentity2":"355325327532497","MLBSerialNumber":"F3X1493265J0XDMC","MobileEquipmentIdentifier":"35532532761919","MobileSubscriberCountryCode":"","MobileSubscriberNetworkCode":"","ModelNumber":"MLLK3","NonVolatileRAM":{"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","backlight-level":"NDI4","backlight-nits":"MHgwMDUwMDAwMA==","boot-args":"","bootdelay":"MA==","fm-account-masked":"c+KAouKAouKAouKAouKAokBi4oCi4oCi4oCi4oCi4oCiLmNo","fm-activation-locked":"WUVT","fm-spkeys":"YnBsaXN0MDDWAQIDBAUGBxAREhMUUXZRaVFiUWxRcFFz0ggJCg9RMVEy0gsMDQ5RbFFzEAAQYNILDA0OEAEzQcPoVoYK50dPEBD6XSTjiCJN/JAzwWyKDUYqTxA5BK0I6Ogs0/HjpImlm6edCROw1+2VFy34rcUIvzHzFxWL54n0R1gHyeWZLAIMyMopl56H5CNkhao9TxAgJfGyvCDfuANnx1nRE+kDdZP3ft+pKHrY0AWSdA3GXf8IFRcZGx0fISYoKi8xMzU3PD5HWpYAAAAAAAABAQAAAAAAAAAVAAAAAAAAAAAAAAAAAAAAuQ==","fm-spstatus":"WUVT","obliteration":"RUFDUyBEb25lIEAxNzYzNDUyNDgwLCBDYWxsZXI6IE4vQSwgUmVhc29uOiBVc2VyLVJlcXVlc3RlZCBFcmFzZSBbZ0Y6IDB4MDAwMDAwMDAwMDAwMDAwMF0=","panicmedic-telemetry":"EQIAAAAAAADAX2I9vHEAAKNkZTq8cQAAQAEyQQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","panicmedic-timestamps":"MDo3MWJjM2Q2NDE2YWU=","usbcfwflasherResult":"Tm8gZXJyb3Jz"},"PairRecordProtectionClass":4,"PartitionType":"GUID_partition_scheme","PasswordProtected":false,"PkHash":"HY+4+Q5Sgetk+XkvJPC+JveogdZ8izPATsnFgb+QlPt8WpAdvR5vXg7j+ABJdwkn","ProductName":"iPhone OS","ProductType":"iPhone14,3","ProductVersion":"26.1","ProductionSOC":true,"ProtocolVersion":"2","ProximitySensorCalibration":"f3oABTIAHgDANilBn6FtQgAAyEK56PBAAZmEQgAAFkO56PBAAZmEQgAAFkMZuHxC+3GIv9B9u0QUfLtE7gO8ROmwu0SMSdxB3EbZQYh14kH+iupBAAAgQpdqEkNBmRZCAABIQnz7xUMHZMVDG4kJRjqgZkOckKhhASMYGoq8m0VrvphDa11qRQIAAAAAAACU","RegionInfo":"ZD/A","SIMStatus":"kCTSIMSupportSIMStatusNotInserted","SIMTrayStatus":"kCTSIMSupportSIMTrayInsertedNoSIM","SerialNumber":"YTWV95LFQ9","SoftwareBehavior":"BQQAAAAAAAAAAAAAAAAAAA==","SoftwareBundleVersion":"","SupportedDeviceFamilies":[1],"TelephonyCapability":true,"TimeIntervalSince1970":1764109095.132476,"TimeZone":"Europe/Belgrade","TimeZoneOffsetFromUTC":3600,"TrustedHostAttached":true,"UniqueChipID":2895122141380638,"UniqueDeviceID":"00008110-000A491926D1801E","UntrustedHostBUID":"AC07BFC6-E44C-65C4-C6F2-E5D4C13234A0","UseRaptorCerts":true,"Uses24HourClock":false,"WiFiAddress":"dc:53:92:31:52:01","WirelessBoardSerialNumber":"1A5DCA800354","kCTPostponementStatus":"kCTPostponementStatusReady"}
+
+{"level":"warning","msg":"failed to get tunnel info","time":"2025-11-25T23:18:14+01:00","udid":"00008110-000A491926D1801E"}
+
+• ActivationState: "Unactivated"
+• BasebandActivationTicketVersion: "V2"
+• BasebandCertId: 495958265
+• BasebandChipID: 1327329
+• BasebandKeyHashInformation: {"AKeyStatus":2,"SKeyHash":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","SKeyS...
+• BasebandMasterKeyHash: "1B41607650EBF11C6B39F41CB267DC64C121A9BCF44DBA5D28F55ACC86361BBA366554CD57B4C46...
+• BasebandRegionSKU: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...
+• BasebandSerialNumber: "xuo+iw=="
+• BasebandStatus: "BBInfoAvailable"
+• BasebandVersion: "5.02.02"
+• BluetoothAddress: "dc:53:92:32:e8:a4"
+• BoardId: 14
+• BootSessionID: "E2423445-F078-439C-90F9-782091D3B5A0"
+• BrickState: true
+• BuildVersion: "23B85"
+• CPUArchitecture: "arm64e"
+• CarrierBundleInfoArray: []
+• CertID: 495958265
+• ChipID: 33040
+• ChipSerialNo: "xuo+iw=="
+• DeviceClass: "iPhone"
+• DeviceColor: "1"
+• DeviceName: "iPhone"
+• DieID: 2895122141380638
+• EthernetAddress: "dc:53:92:35:d1:c2"
+• FirmwareVersion: "iBoot-13822.42.2"
+• FusingStatus: 3
+• HardwareModel: "D64AP"
+• HardwarePlatform: "t8110"
+• HasSiDP: true
+• HostAttached: true
+• HumanReadableProductVersionString: "26.1"
+• InternationalMobileEquipmentIdentity: "355325327619195"
+• InternationalMobileEquipmentIdentity2: "355325327532497"
+• MLBSerialNumber: "F3X1493265J0XDMC"
+• MobileEquipmentIdentifier: "35532532761919"
+• MobileSubscriberCountryCode: ""
+• MobileSubscriberNetworkCode: ""
+• ModelNumber: "MLLK3"
+• NonVolatileRAM: {"StartupMute":"MQ==","SystemAudioVolumeSaved":"MQ==","auto-boot":"dHJ1ZQ==","ba...
+• PairRecordProtectionClass: 4
+• PartitionType: "GUID_partition_scheme"
+• PasswordProtected: false
+• PkHash: "HY+4+Q5Sgetk+XkvJPC+JveogdZ8izPATsnFgb+QlPt8WpAdvR5vXg7j+ABJdwkn"
+• ProductName: "iPhone OS"
+• ProductType: "iPhone14,3"
+• ProductVersion: "26.1"
+• ProductionSOC: true
+• ProtocolVersion: "2"
+• ProximitySensorCalibration: "f3oABTIAHgDANilBn6FtQgAAyEK56PBAAZmEQgAAFkO56PBAAZmEQgAAFkMZuHxC+3GIv9B9u0QUfLt...
+• RegionInfo: "ZD/A"
+• SIMStatus: "kCTSIMSupportSIMStatusNotInserted"
+• SIMTrayStatus: "kCTSIMSupportSIMTrayInsertedNoSIM"
+• SerialNumber: "YTWV95LFQ9"
+• SoftwareBehavior: "BQQAAAAAAAAAAAAAAAAAAA=="
+• SoftwareBundleVersion: ""
+• SupportedDeviceFamilies: [1]
+• TelephonyCapability: true
+• TimeIntervalSince1970: 1764109095.132476
+• TimeZone: "Europe/Belgrade"
+• TimeZoneOffsetFromUTC: 3600
+• TrustedHostAttached: true
+• UniqueChipID: 2895122141380638
+• UniqueDeviceID: "00008110-000A491926D1801E"
+• UntrustedHostBUID: "AC07BFC6-E44C-65C4-C6F2-E5D4C13234A0"
+• UseRaptorCerts: true
+• Uses24HourClock: false
+• WiFiAddress: "dc:53:92:31:52:01"
+• WirelessBoardSerialNumber: "1A5DCA800354"
+• kCTPostponementStatus: "kCTPostponementStatusReady"
+[OK] Model encontrado (ProductName): iPhone OS
+[OK] Serial encontrado (SerialNumber): YTWV95LFQ9
+[OK] Product Type encontrado (ProductType): iPhone14,3
+[OK] iOS encontrado (ProductVersion): 26.1
+[OK] ECID encontrado (UniqueChipID): 2895122141380638
+[OK] IMEI encontrado (InternationalMobileEquipmentIdentity): 355325327619195
+[OK] IMEI2 encontrado (InternationalMobileEquipmentIdentity2): 355325327532497
+[OK] Activated encontrado (ActivationState): Unactivated
+
+[✓ OK] iPhone DETECTADO COM SUCESSO!
+═══════════════════════════════════════════════════════
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008110-000A491926D1801E
+[*] PHASE 3: Requisitando Payload do Servidor
+[ERRO] Servidor retornou ServiceUnavailable
+[*] Gerando payload Passcode Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008110-000A491926D1801E
+[*] PHASE 3: Requisitando Payload do Servidor
+[ERRO] Servidor retornou ServiceUnavailable
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008110-000A491926D1801E
+[*] PHASE 3: Requisitando Payload do Servidor
+[ERRO] Servidor retornou ServiceUnavailable
+[*] Gerando payload Hello Activation...
+═══════════════════════════════════════════════════════
+[INIT] SEQUÊNCIA DE ATIVAÇÃO INICIADA
+═══════════════════════════════════════════════════════
+[*] PHASE 1: Reboot Inicial
+[*] PHASE 2: Extraindo GUID do Syslog
+[AVISO] GUID não encontrado, usando UDID como fallback
+[OK] GUID: 00008110-000A491926D1801E
+[*] PHASE 3: Requisitando Payload do Servidor
+[ERRO] Servidor retornou ServiceUnavailable

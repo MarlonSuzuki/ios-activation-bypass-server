@@ -1,0 +1,218 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> CD "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows"
+cd : Não é possível localizar o caminho 'C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows'
+porque ele não existe.
+No linha:1 caractere:1
++ cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Clien ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...Cliente Windows:String) [Set-Location], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> dotnet build -c Release
+MSBUILD : error MSB1003: Especifique um arquivo de solução ou de projeto. O diretório de trabalho atual não contém um arquivo de solução ou de projeto.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd bin\Release\net10.0
+cd : Não é possível localizar o caminho 'C:\Users\Tributos
+Consultoria\Desktop\certificado\MITEstudo\bin\Release\net10.0' porque ele não existe.
+No linha:1 caractere:1
++ cd bin\Release\net10.0
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Tribut...Release\net10.0:String) [Set-Location], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> dotnet "Cliente Windows.dll"
+Não foi possível executar porque o comando ou arquivo especificado não foi encontrado.
+Os possíveis motivos para isso incluem:
+  * Você digitou incorretamente um comando dotnet interno.
+  * Você pretendia executar um programa .NET, mas dotnet-Cliente Windows.dll não existe.
+  * Você pretendia executar uma ferramenta global, mas não foi possível encontrar um executável com prefixo dotnet com esse nome no PATH.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> rm -Recurse "Cliente Windows" -ErrorAction SilentlyContinue
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> mkdir "Cliente Windows"
+
+
+    Diretório: C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        21/11/2025     14:35                Cliente Windows
+
+
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "Cliente Windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> <Project Sdk="Microsoft.NET.Sdk">
+>>   <PropertyGroup>
+>>     <OutputType>Exe</OutputType>
+>>     <TargetFramework>net10.0</TargetFramework>
+>>   </PropertyGroup>
+>> </Project>
+>> '@ | Out-File "Cliente Windows.csproj" -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> @'
+>> using System;
+>> using System.Diagnostics;
+>> using System.IO;
+>> using System.Text.RegularExpressions;
+>> using System.Threading;
+>> using System.Threading.Tasks;
+>>
+>> class Program
+>> {
+>>     static async Task Main()
+>>     {
+>>         while (true)
+>>         {
+>>             Console.Clear();
+>>             Console.WriteLine("");
+>>             Console.WriteLine("   iOS Activation Bypass - Cliente      ");
+>>             Console.WriteLine("\n");
+>>             Console.WriteLine("Selecione o servidor:");
+>>             Console.WriteLine("[1] Replit (Cloud)");
+>>             Console.WriteLine("[2] Localhost (Local)");
+>>             Console.WriteLine("[3] URL Customizada");
+>>             Console.WriteLine("[4] Sair\n");
+>>             Console.Write("Escolha: ");
+>>
+>>             string choice = Console.ReadLine();
+>>             if (choice == "4") return;
+>>
+>>             string api = choice switch
+>>             {
+>>                 "1" => "https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev",
+>>                 "2" => "http://localhost:5000",
+>>                 "3" => (Console.Write("\nDigite a URL: "), Console.ReadLine()),
+>>                 _ => null
+>>             };
+>>
+>>             if (api == null)
+>>             {
+>>                 Console.WriteLine("\n[-] Opção inválida!");
+>>                 await Task.Delay(2000);
+>>                 continue;
+>>             }
+>>
+>>             await RunBypass(api);
+>>         }
+>>     }
+>>
+>>     static async Task RunBypass(string api)
+>>     {
+>>         try
+>>         {
+>>             if (!File.Exists("iOS.exe"))
+>>             {
+>>                 Console.WriteLine("\n[-] ERRO: iOS.exe não encontrado na pasta!");
+>>                 Console.WriteLine("[*] Pressione ENTER para voltar...");
+>>                 Console.ReadLine();
+>>                 return;
+>>             }
+>>
+>>             Console.WriteLine($"\n Servidor: {api}");
+>>             Console.WriteLine("[*] Procurando dispositivo iOS (30 segundos)...\n");
+>>
+>>             string device = await DetectDevice();
+>>
+>>             if (device == null)
+>>             {
+>>                 Console.ForegroundColor = ConsoleColor.Red;
+>>                 Console.WriteLine("\n[-]   iPhone NÃO DETECTADO!");
+>>                 Console.ResetColor();
+>>                 Console.WriteLine("\nVerifique:");
+>>                 Console.WriteLine("   O iPhone está conectado via USB?");
+>>                 Console.WriteLine("   O iTunes/Finder está aberto?");
+>>                 Console.WriteLine("   Você permitiu a confiança no computador?");
+>>                 Console.WriteLine("\n[*] Pressione ENTER para tentar novamente...");
+>>                 Console.ReadLine();
+>>                 return;
+>>             }
+>>
+>>             Console.ForegroundColor = ConsoleColor.Green;
+>>             Console.WriteLine($"\n[] iPhone detectado: {device}");
+>>             Console.ResetColor();
+>>
+>>             Console.WriteLine("\n[!] Pressione ENTER para iniciar o bypass...");
+>>             Console.ReadLine();
+>>
+>>             Console.WriteLine("\n Iniciando sequência de bypass...");
+>>             await Task.Delay(2000);
+>>             Console.WriteLine("[] Sistema pronto!");
+>>
+>>             Console.WriteLine("\n[*] Pressione ENTER para voltar...");
+>>             Console.ReadLine();
+>>         }
+>>         catch (Exception ex)
+>>         {
+>>             Console.ForegroundColor = ConsoleColor.Red;
+>>             Console.WriteLine($"\n[-] ERRO: {ex.Message}");
+>>             Console.ResetColor();
+>>             Console.WriteLine("\n[*] Pressione ENTER para voltar...");
+>>             Console.ReadLine();
+>>         }
+>>     }
+>>
+>>     static async Task<string> DetectDevice()
+>>     {
+>>         var end = DateTime.Now.AddSeconds(30);
+>>
+>>         while (DateTime.Now < end)
+>>         {
+>>             try
+>>             {
+>>                 var psi = new ProcessStartInfo
+>>                 {
+>>                     FileName = "iOS.exe",
+>>                     Arguments = "list --details",
+>>                     RedirectStandardOutput = true,
+>>                     UseShellExecute = false,
+>>                     CreateNoWindow = true
+>>                 };
+>>
+>>                 using (var p = Process.Start(psi))
+>>                 {
+>>                     string output = p.StandardOutput.ReadToEnd();
+>>                     p.WaitForExit();
+>>
+>>                     if (output.Contains("DeviceName") || output.Contains("UDID"))
+>>                     {
+>>                         var match = Regex.Match(output, @"""DeviceName""\s*:\s""([^""]+)""");
+>>                         if (match.Success)
+>>                             return match.Groups[1].Value;
+>>
+>>                         return "Dispositivo iOS";
+>>                     }
+>>                 }
+>>             }
+>>             catch { }
+>>
+>>             await Task.Delay(2000);
+>>         }
+>>
+>>         return null;
+>>     }
+>> }
+>> '@ | Out-File "Program.cs" -Encoding UTF8
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows>
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> dotnet build -c Release
+Restauração concluída (0,5s)
+  Cliente Windows net10.0 falhou com 1 erro(s) (0,9s)
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\Program.cs(32,25): error CS8210: Uma tupla não pode conter um valor do tipo 'void'.
+
+Construir falhou com 1 erro(s) em 2,0s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows> cd bin\Release\net10.0
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\bin\Release\net10.0> dotnet "Cliente Windows.dll"
+Não foi possível executar porque o comando ou arquivo especificado não foi encontrado.
+Os possíveis motivos para isso incluem:
+  * Você digitou incorretamente um comando dotnet interno.
+  * Você pretendia executar um programa .NET, mas dotnet-Cliente Windows.dll não existe.
+  * Você pretendia executar uma ferramenta global, mas não foi possível encontrar um executável com prefixo dotnet com esse nome no PATH.
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\Cliente Windows\bin\Release\net10.0>

@@ -1,0 +1,26 @@
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo> cd "cliente windows"
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows> dotnet build -c Release
+Restauração concluída (0,5s)
+  Cliente Windows net10.0-windows falhou com12 erros e 1 avisos (0,9s)
+    C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.DefaultItems.targets(158,5): warning NETSDK1137: não é mais necessário usar o SDK do Microsoft.NET.Sdk.WindowsDesktop. Considere alterar o atributo SDK do elemento de Projeto raiz para 'Microsoft.NET.Sdk'.
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(1,1): error CS1525: Termo de expressão inválido "<"
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(1,14): error CS1002: ; esperado
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(1,42): error CS1002: ; esperado
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(2,79): error CS1002: ; esperado
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(3,68): error CS1002: ; esperado
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(4,43): error CS1525: Termo de expressão inválido "<"
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(5,28): error CS1525: Termo de expressão inválido "<"
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(6,6): error CS1525: Termo de expressão inválido "/"
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(6,29): error CS1525: Termo de expressão inválido "<"
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(7,2): error CS1525: Termo de expressão inválido "/"
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(7,15): error CS1733: Expressão esperada
+    C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows\App.xaml.cs(7,15): error CS1002: ; esperado
+
+Construir falhou com12 erros e 1 avisos em 1,9s
+PS C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo\cliente windows>

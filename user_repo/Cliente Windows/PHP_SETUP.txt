@@ -1,0 +1,220 @@
+╔════════════════════════════════════════════════════════════╗
+║   Como Instalar e Usar PHP Puro no Windows                 ║
+╚════════════════════════════════════════════════════════════╝
+
+Guia step-by-step para instalar PHP puro e usar com o cliente.
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 1: Baixar PHP
+═════════════════
+
+1. Acesse: https://windows.php.net/download/
+
+2. Baixe a versão "Non Thread Safe" (NTS) mais recente
+   Procure por: php-8.3.x-nts-Win32-vs17-x64.zip
+   (ou versão mais recente disponível)
+
+3. Clique para baixar o .zip
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 2: Extrair PHP
+═════════════════════
+
+1. Depois que baixar, extraia o arquivo .zip
+
+2. Escolha um local para colocar PHP:
+   Exemplos:
+   - C:\PHP
+   - C:\php-8.3
+   - Onde preferir (evite espaços no caminho)
+
+3. Extraia TODA a pasta do PHP nesse local
+
+Exemplo de resultado esperado:
+   C:\PHP\
+   ├── php.exe
+   ├── php.ini-production
+   ├── php.ini-development
+   ├── ext\
+   └── outros arquivos
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 3: Configurar php.ini
+═════════════════════════════
+
+1. Na pasta do PHP, procure por:
+   php.ini-production (se não houver php.ini)
+
+2. Renomeie php.ini-production para php.ini:
+   Clique com botão direito → Renomear → php.ini
+
+3. Abra php.ini com Bloco de Notas (clique direito → Editar)
+
+4. Use Ctrl+F para procurar por: sqlite3
+
+5. Encontre a linha:
+   ;extension=sqlite3
+   
+   Remova o ponto-e-virgula NO INICIO:
+   extension=sqlite3
+
+6. Procure por: zip
+
+7. Encontre a linha:
+   ;extension=zip
+   
+   Remova o ponto-e-virgula:
+   extension=zip
+
+8. Salve o arquivo (Ctrl+S)
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 4: Adicionar PHP ao PATH do Windows
+═════════════════════════════════════════
+
+Isso permite usar "php" no PowerShell/CMD de qualquer lugar.
+
+WINDOWS 10/11:
+
+1. Clique com BOTÃO DIREITO em:
+   "Este PC" ou "Meu Computador"
+
+2. Clique em: "Propriedades"
+
+3. Clique em: "Configurações avançadas do sistema"
+   (No lado esquerdo da janela que abriu)
+
+4. Clique em: "Variáveis de ambiente"
+   (Botão embaixo da aba "Avançado")
+
+5. Na janela que abrir, em "Variáveis do sistema", procure por:
+   Path
+
+6. Selecione "Path" e clique: "Editar"
+
+7. Clique em: "Novo"
+
+8. Digite o caminho do PHP:
+   Exemplo: C:\PHP
+   (Use o caminho onde você extraiu)
+
+9. Clique: OK
+
+10. Clique: OK (na janela de Variáveis de ambiente)
+
+11. Clique: OK (na janela anterior)
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 5: Testar PHP
+═════════════════
+
+1. FECHE todos os PowerShells/CMD que estão abertos
+
+2. Abra um NOVO PowerShell:
+   - Clique no Menu Iniciar
+   - Digite "PowerShell"
+   - Clique em "Windows PowerShell"
+
+3. Digite:
+   php --version
+
+4. Você deve ver algo como:
+   PHP 8.3.x (cli) ...
+
+Se apareceu, PHP está funcionando! ✓
+
+Se receber erro "php: comando não encontrado":
+   → Verifique o caminho no PATH
+   → Reinicie o computador
+   → Tente novamente
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 6: Rodar o Servidor e Cliente
+═════════════════════════════════════
+
+Agora que PHP está instalado:
+
+1. Abra PowerShell
+
+2. Navegue para a pasta MITEstudo:
+   cd "C:\Users\Tributos Consultoria\Desktop\certificado\MITEstudo"
+
+3. Inicie o servidor PHP:
+   php -S 0.0.0.0:8000 -t public
+
+   Você verá:
+   Development Server (http://0.0.0.0:8000) started
+
+4. Deixe esse terminal aberto (o servidor precisa rodar)
+
+5. Abra um NOVO PowerShell
+
+6. Navegue para Cliente Windows:
+   cd "Cliente Windows"
+
+7. Rode o cliente:
+   duplo clique em EXECUTAR.bat
+
+   Ou manualmente:
+   cd bin\Release\net10.0
+   dotnet "Cliente Windows.dll"
+
+8. Escolha:
+   [3] URL Customizada
+   
+9. Digite:
+   http://localhost:8000
+
+10. Pronto! Vai funcionar!
+
+═══════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING:
+
+❌ "php: comando não encontrado"
+  → PATH não foi adicionado corretamente
+  → Refaça o Passo 4
+  → Reinicie o computador
+  → Abra NOVO PowerShell
+
+❌ "SQLite3 não carrega"
+  → Edite php.ini (Passo 3)
+  → Procure por ";extension=sqlite3"
+  → Remova o ponto-e-virgula
+  → Salve e reinicie o servidor
+
+❌ "Porta 8000 já está em uso"
+  → Use outra porta:
+    php -S 0.0.0.0:9000 -t public
+  → Depois use: http://localhost:9000
+
+❌ "iPhone não detectado"
+  → Conecte via USB
+  → Libere confiança no dispositivo
+  → Feche iTunes/Finder
+  → Tente novamente
+
+═══════════════════════════════════════════════════════════════
+
+RESUMO RAPIDO:
+
+1. Baixa PHP (https://windows.php.net/download/)
+2. Extrai em C:\PHP
+3. Renomeia php.ini-production → php.ini
+4. Ativa extensões no php.ini (sqlite3, zip)
+5. Adiciona C:\PHP ao PATH do Windows
+6. Reinicia PowerShell
+7. Testa: php --version
+8. Roda: php -S 0.0.0.0:8000 -t public
+9. Cliente escolhe: [3] URL Customizada
+10. Digite: http://localhost:8000
+
+Pronto! 🎉
+
+═══════════════════════════════════════════════════════════════
