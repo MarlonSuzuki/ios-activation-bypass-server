@@ -21,9 +21,6 @@ COMO USAR:
 
 6. Seguir as instruções do programa
 
-SERVIDOR:
-URL: https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev
-
 SUPORTE:
 Se algo der erro, salvar o LOG e enviar.
 

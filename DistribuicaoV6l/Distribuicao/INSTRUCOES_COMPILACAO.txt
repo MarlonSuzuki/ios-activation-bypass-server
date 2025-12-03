@@ -1,0 +1,35 @@
+═════════════════════════════════════════════════════════════
+  INSTRUÇÕES PARA COMPILAÇÃO E DISTRIBUIÇÃO
+═════════════════════════════════════════════════════════════
+
+PASSO 1: COMPILAR NO POWERSHELL
+=================================
+
+cd "C:\Users\Tributos Consultoria\Pictures\MITEstudo\Cliente Windows"
+dotnet clean
+dotnet build -c Release
+
+PASSO 2: COPIAR ARQUIVOS COMPILADOS
+===================================
+
+Para a pasta "Distribuicao", copie:
+- bin\Release\net10.0-windows\ClienteWindows.exe
+- bin\Release\net10.0-windows\ClienteWindows.dll
+- bin\Release\net10.0-windows\ClienteWindows.deps.json
+- bin\Release\net10.0-windows\ClienteWindows.runtimeconfig.json
+- iOS.exe (da pasta Cliente Windows)
+
+PASSO 3: LIMPAR (OPCIONAL)
+===========================
+
+Delete da pasta Distribuicao:
+✗ *.pdb (arquivos de debug)
+✗ *.ucs (desnecessários)
+✗ Program.cs (código-fonte)
+
+PASSO 4: DISTRIBUIR
+====================
+
+Compacte a pasta Distribuicao em .zip e compartilhe!
+
+═════════════════════════════════════════════════════════════
