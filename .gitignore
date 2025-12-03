@@ -1,0 +1,45 @@
+# PHP
+vendor/
+composer.lock
+*.phar
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/*.log
+*.log
+
+# Cache directories
+public/cache/
+public/firststp/
+public/2ndd/
+public/last/
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+
+# Build artifacts (Windows client)
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# Replit specific
+.replit
+.breakpoints
