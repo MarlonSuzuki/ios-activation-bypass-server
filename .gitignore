@@ -43,3 +43,9 @@ obj/
 # Replit specific
 .replit
 .breakpoints
+
+# Ignorar arquivos temporários do Replit
+.local/
+
+# Ignorar atalhos do Windows
+*.lnk
