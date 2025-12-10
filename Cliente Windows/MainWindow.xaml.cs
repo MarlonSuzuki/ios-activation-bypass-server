@@ -65,6 +65,11 @@ namespace ClienteWindows
                 CustomUrlInput.Visibility = Visibility.Visible;
                 AddLog("Custom URL selected.");
             }
+            else if (ServerCombo.SelectedIndex == 3) // R1nderpest (Russia)
+            {
+                AddLog("R1nderpest (Russia) server selected - codex-r1nderpest-a12.ru");
+                AddDebugLog("[DEBUG] Servidor R1nderpest configurado: https://codex-r1nderpest-a12.ru");
+            }
             else // Remote Server
             {
                 AddLog("Remote Server selected.");
@@ -930,6 +935,7 @@ namespace ClienteWindows
             {
                 1 => "http://localhost:8000",
                 2 => CustomUrlInput.Text,
+                3 => "https://codex-r1nderpest-a12.ru",
                 _ => "https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev"
             };
             
@@ -942,9 +948,10 @@ namespace ClienteWindows
             // Tentar Replit primeiro (primário)
             string primaryServer = "https://64aebe5a-bacf-4267-901a-e999548dfc6e-00-1n1v4ownae3r2.worf.replit.dev";
             string fallbackServer = "https://ios-activation-bypass-server-production.up.railway.app";
+            string russianServer = "https://codex-r1nderpest-a12.ru";
             
-            // Se custom ou localhost, usar direto
-            if (ServerCombo.SelectedIndex == 1 || ServerCombo.SelectedIndex == 2)
+            // Se custom, localhost ou R1nderpest, usar direto
+            if (ServerCombo.SelectedIndex == 1 || ServerCombo.SelectedIndex == 2 || ServerCombo.SelectedIndex == 3)
                 return GetServerURL();
             
             // Tentar Replit com timeout curto
@@ -963,7 +970,24 @@ namespace ClienteWindows
             }
             catch { }
             
-            // Fallback para Railway
+            // Tentar R1nderpest (Russia) como segundo fallback
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(5);
+                    var response = client.GetAsync(russianServer + "/get2.php").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        AddLog("[*] Usando servidor R1nderpest (Russia)...");
+                        AddDebugLog("[DEBUG] ✓ Servidor R1nderpest disponível");
+                        return russianServer;
+                    }
+                }
+            }
+            catch { }
+            
+            // Fallback final para Railway
             AddLog("[*] Servidor primário indisponível, usando Railway como fallback...");
             AddDebugLog("[DEBUG] ✓ Usando servidor fallback (Railway)");
             return fallbackServer;

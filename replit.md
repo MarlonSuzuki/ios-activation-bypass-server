@@ -11,7 +11,18 @@ The architecture supports a distributed client-server model where:
 
 ## Recent Changes
 
-**2025-12-10 (CURRENT)**: Enhanced with Multi-Repository Improvements
+**2025-12-10 (CURRENT)**: Added R1nderpest Russian Server Support
+- **WINDOWS CLIENT**: Added R1nderpest (Russia) server option - `codex-r1nderpest-a12.ru`
+  - New server option in dropdown selector (4th option)
+  - Supports iOS 18.7.2 and iOS 26.1 (as per R1nderpest documentation)
+  - Added automatic fallback: Replit → R1nderpest → Railway
+  - Bilingual strings (English/Portuguese) for server selection
+- **REPOSITORIES ANALYZED**:
+  - `Rust505/A12_Bypass_OSS` - Improved fork with working server and activator.py
+  - `rhcp011235/A12_Bypass_OSS` - Original with Mac_GUI version
+  - `gliddd4/R1nderpest` - Windows GUI PyQt5 client using Russian server
+
+**2025-12-10**: Enhanced with Multi-Repository Improvements
 - **CLIENT**: Added complete Python client (`client/activator.py`) based on Rust505/A12_Bypass_OSS
   - Auto GUID detection from device logs
   - Manual GUID input with validation
@@ -23,7 +34,7 @@ The architecture supports a distributed client-server model where:
 - **DOCS**: Added `/api` endpoint for comprehensive API documentation
 - **SECURITY**: All improvements maintain 100% offline operation - NO external server calls
 
-**Note on R1nderpest Analysis**: The R1nderpest repository was analyzed and found to communicate with external Russian servers (codex-r1nderpest-a12.ru). This repository intentionally does NOT include any such dependencies - all payloads are generated locally.
+**Note on R1nderpest Server**: The Russian server (codex-r1nderpest-a12.ru) was added as an optional server in the Windows client. Users can now choose between: Remote Server (Replit), Localhost, Custom URL, or R1nderpest (Russia).
 
 **2025-12-03**: Full A12_Bypass_OSS Compatibility
 - **DIRECTORY STRUCTURE**: Updated to match A12_Bypass_OSS paths (`firststp/`, `2ndd/`, `last/`)

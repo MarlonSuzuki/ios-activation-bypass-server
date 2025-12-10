@@ -35,11 +35,15 @@ namespace ClienteWindows
         public static string Localhost => GetString("Localhost", "Localhost");
         public static string CustomURL => GetString("Custom URL", "URL Customizada");
         public static string CustomURLLabel => GetString("Custom URL", "URL Customizada");
+        public static string R1nderpestServer => GetString("R1nderpest (Russia)", "R1nderpest (Rússia)");
         public static string LocalhostSetup => GetString("Localhost Setup", "Configuração Localhost");
         public static string LocalhostInfoText => GetString(
             "Execute INICIAR_SERVIDOR.bat to run the server locally after installing PHP.",
             "Execute INICIAR_SERVIDOR.bat para rodar o servidor localmente após instalar PHP.");
         public static string StartLocalServer => GetString("Start Local Server", "Iniciar Servidor Local");
+        public static string R1nderpestSelected => GetString(
+            "R1nderpest (Russia) server selected - codex-r1nderpest-a12.ru",
+            "Servidor R1nderpest (Rússia) selecionado - codex-r1nderpest-a12.ru");
 
         // ========== Language & Actions ==========
         public static string Language_Label => GetString("Language", "Idioma");
