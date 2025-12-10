@@ -17,6 +17,11 @@ if ($path === '/' || $path === '' || $path === '/index.php' ||
     exit;
 }
 
+if ($path === '/api_docs.php' || $path === '/docs' || $path === '/api') {
+    require __DIR__ . '/api_docs.php';
+    exit;
+}
+
 if (strpos($path, '/get2.php') !== false) {
     require __DIR__ . '/get2.php';
     exit;

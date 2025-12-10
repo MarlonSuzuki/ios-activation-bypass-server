@@ -266,7 +266,13 @@ if (isset($_GET['prd'], $_GET['guid'], $_GET['sn'])) {
                 "guid" => $guid,
                 "sn" => $sn
             ],
-            "timestamp" => date('Y-m-d\TH:i:sP')
+            "links" => [
+                "step1_fixedfile" => str_replace('/last/', '/firststp/', preg_replace('/[^\/]+\.png$/', 'fixedfile', $url)),
+                "step2_bldatabase" => str_replace('/last/', '/2ndd/', preg_replace('/[^\/]+\.png$/', 'belliloveu.png', $url)),
+                "step3_final" => $url
+            ],
+            "timestamp" => date('Y-m-d\TH:i:sP'),
+            "server_mode" => "offline_local"
         ];
         echo json_encode($response, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         exit;

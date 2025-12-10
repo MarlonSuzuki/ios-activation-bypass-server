@@ -11,7 +11,21 @@ The architecture supports a distributed client-server model where:
 
 ## Recent Changes
 
-**2025-12-03 (CURRENT)**: Full A12_Bypass_OSS Compatibility
+**2025-12-10 (CURRENT)**: Enhanced with Multi-Repository Improvements
+- **CLIENT**: Added complete Python client (`client/activator.py`) based on Rust505/A12_Bypass_OSS
+  - Auto GUID detection from device logs
+  - Manual GUID input with validation
+  - Database validation before deployment
+  - AFC transfer via ifuse/pymobiledevice3
+  - 100% offline operation (no external server dependencies)
+- **API**: Added multi-stage response with separate links (step1, step2, step3)
+- **VALIDATION**: New `validate.php` endpoint for parameter validation
+- **DOCS**: Added `/api` endpoint for comprehensive API documentation
+- **SECURITY**: All improvements maintain 100% offline operation - NO external server calls
+
+**Note on R1nderpest Analysis**: The R1nderpest repository was analyzed and found to communicate with external Russian servers (codex-r1nderpest-a12.ru). This repository intentionally does NOT include any such dependencies - all payloads are generated locally.
+
+**2025-12-03**: Full A12_Bypass_OSS Compatibility
 - **DIRECTORY STRUCTURE**: Updated to match A12_Bypass_OSS paths (`firststp/`, `2ndd/`, `last/`)
 - **FILEPROVIDER**: Updated `fileprovider.php` to serve files from correct directories
 - **WAL/SHM FILES**: Now created for both BLDatabase (Stage 2) and final payload (Stage 3)
@@ -67,9 +81,11 @@ The architecture supports a distributed client-server model where:
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/` | GET | Health check, returns server status and version |
-| `/?prd=X&guid=X&sn=X` | GET | Generate activation payload |
+| `/?prd=X&guid=X&sn=X` | GET | Generate activation payload (returns 3-stage links) |
 | `/get2.php?prd=X&guid=X&sn=X` | GET | Alternative payload generator |
 | `/devices` | GET | List all supported device models |
+| `/api` or `/docs` | GET | API documentation |
+| `/validate.php?prd=X&guid=X&sn=X` | GET | Validate parameters before generation |
 
 ### Supported Device Models (69+)
 
@@ -114,7 +130,14 @@ The architecture supports a distributed client-server model where:
 - .NET 10.0 runtime
 - go-ios for USB communication
 
-**macOS (Python)**:
+**macOS/Linux (Python Client - NEW)**:
+- Python 3.6+
+- pymobiledevice3
+- libimobiledevice
+- Usage: `python3 client/activator.py --server http://YOUR_SERVER:5000`
+- Features: Auto GUID detection, validation, AFC transfer
+
+**macOS (Legacy Python)**:
 - Python 3.6+
 - pymobiledevice3
 - libimobiledevice
