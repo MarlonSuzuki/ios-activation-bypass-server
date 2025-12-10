@@ -1,4 +1,4 @@
-modules = ["php-8.2"]
+modules = ["dotnet-7.0", "python-3.12", "php-8.2"]
 [agent]
 expertMode = true
 
@@ -29,3 +29,10 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 37663
+externalPort = 3000
+
+[nix]
+channel = "stable-25_05"
