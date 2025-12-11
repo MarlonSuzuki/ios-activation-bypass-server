@@ -601,6 +601,22 @@ namespace ClienteWindows
 
                 // PHASE 4: Download Payload
                 AddLog("[*] PHASE 4: Baixando Payload");
+                
+                // Validar URL antes de baixar
+                if (string.IsNullOrWhiteSpace(downloadUrl))
+                {
+                    AddLog("[ERRO] URL do payload está vazia!");
+                    AddLog("[!] O servidor não retornou uma URL válida");
+                    return;
+                }
+                
+                // Se URL não for absoluta, construir com base no servidor
+                if (!downloadUrl.StartsWith("http://") && !downloadUrl.StartsWith("https://"))
+                {
+                    downloadUrl = server.TrimEnd('/') + "/" + downloadUrl.TrimStart('/');
+                    AddLog($"[DEBUG] URL construída: {downloadUrl}");
+                }
+                
                 string tempDir = Path.Combine(Path.GetTempPath(), "iOSPayload");
                 if (!Directory.Exists(tempDir)) Directory.CreateDirectory(tempDir);
                 string payloadPath = Path.Combine(tempDir, "payload.db");
@@ -619,7 +635,7 @@ namespace ClienteWindows
                     }
                     else
                     {
-                        AddLog($"[ERRO] Falha ao baixar payload");
+                        AddLog($"[ERRO] Falha ao baixar payload: {response.StatusCode}");
                         return;
                     }
                 }
@@ -1492,6 +1508,22 @@ namespace ClienteWindows
 
                 // FASE 3: Download Payload
                 AddLog("[MANUAL BYPASS] Downloading payload...");
+                
+                // Validar URL antes de baixar
+                if (string.IsNullOrWhiteSpace(downloadUrl))
+                {
+                    AddLog("[ERRO] URL do payload está vazia!");
+                    AddLog("[!] O servidor não retornou uma URL válida");
+                    return;
+                }
+                
+                // Se URL não for absoluta, construir com base no servidor
+                if (!downloadUrl.StartsWith("http://") && !downloadUrl.StartsWith("https://"))
+                {
+                    downloadUrl = server.TrimEnd('/') + "/" + downloadUrl.TrimStart('/');
+                    AddLog($"[DEBUG] URL construída: {downloadUrl}");
+                }
+                
                 string tempDir = Path.Combine(Path.GetTempPath(), "iOSPayload");
                 if (!Directory.Exists(tempDir)) Directory.CreateDirectory(tempDir);
                 string payloadPath = Path.Combine(tempDir, "payload.db");
@@ -1500,6 +1532,11 @@ namespace ClienteWindows
                 {
                     client.Timeout = TimeSpan.FromSeconds(30);
                     var response = client.GetAsync(downloadUrl).Result;
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        AddLog($"[ERRO] Falha ao baixar payload: {response.StatusCode}");
+                        return;
+                    }
                     using (var fs = new FileStream(payloadPath, FileMode.Create))
                     {
                         response.Content.CopyToAsync(fs).Wait();
@@ -1582,6 +1619,13 @@ namespace ClienteWindows
         {
             try
             {
+                // NÃO enviar logs para servidor russo (R1nderpest)
+                if (ServerCombo.SelectedIndex == 3)
+                {
+                    AddDebugLog("[DEBUG] Logs não enviados - servidor R1nderpest não suporta");
+                    return;
+                }
+                
                 string serverUrl = GetServerURLWithFallback();
                 string saveLogsUrl = serverUrl + "/save_logs.php";
                 
