@@ -11,16 +11,21 @@ The architecture supports a distributed client-server model where:
 
 ## Recent Changes
 
-**2025-12-10 (CURRENT)**: Added R1nderpest Russian Server Support
-- **WINDOWS CLIENT**: Added R1nderpest (Russia) server option - `codex-r1nderpest-a12.ru`
-  - New server option in dropdown selector (4th option)
+**2025-12-11 (CURRENT)**: Full Russian Server Integration
+- **WINDOWS CLIENT**: Complete integration with Russian server (codex-r1nderpest-a12.ru)
+  - Renamed to "Servidor Russo" in dropdown selector (4th option)
+  - **Response Parsing**: Uses `links.step3_final` for payload URL (server returns 3-stage links)
+  - **SSL Bypass**: Added `CreateHttpClient()` that ignores SSL certificates for Russian server
+  - **Log Sending**: Disabled for Russian server (only works on Replit/Railway/Localhost)
   - Supports iOS 18.7.2 and iOS 26.1 (as per R1nderpest documentation)
-  - Added automatic fallback: Replit → R1nderpest → Railway
-  - Bilingual strings (English/Portuguese) for server selection
+  - Added automatic fallback: Replit → Russian Server → Railway
 - **REPOSITORIES ANALYZED**:
   - `Rust505/A12_Bypass_OSS` - Improved fork with working server and activator.py
   - `rhcp011235/A12_Bypass_OSS` - Original with Mac_GUI version
-  - `gliddd4/R1nderpest` - Windows GUI PyQt5 client using Russian server
+  - `gliddd4/R1nderpest` - Full analysis of Russian server communication:
+    - API URL: `https://codex-r1nderpest-a12.ru/get2.php?prd=X&guid=X&sn=X`
+    - Response format: `{"success": true, "links": {"step1_fixedfile": "...", "step2_bldatabase": "...", "step3_final": "..."}}`
+    - Uses curl with `-k` flag (SSL bypass) - replicated in C# with HttpClientHandler
 
 **2025-12-10**: Enhanced with Multi-Repository Improvements
 - **CLIENT**: Added complete Python client (`client/activator.py`) based on Rust505/A12_Bypass_OSS

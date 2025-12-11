@@ -17,6 +17,24 @@ namespace ClienteWindows
         private string currentSerial = "";
         private string currentProductType = "";
         private HttpClient httpClient = new HttpClient();
+        
+        // Cria HttpClient que ignora SSL (necessário para servidor russo)
+        private HttpClient CreateHttpClient(bool bypassSsl = false)
+        {
+            if (bypassSsl || ServerCombo.SelectedIndex == 3)
+            {
+                var handler = new HttpClientHandler();
+                handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
+                return new HttpClient(handler);
+            }
+            return new HttpClient();
+        }
+        
+        // Verifica se está usando o servidor russo
+        private bool IsRussianServer()
+        {
+            return ServerCombo.SelectedIndex == 3;
+        }
 
         public MainWindow()
         {
@@ -65,10 +83,10 @@ namespace ClienteWindows
                 CustomUrlInput.Visibility = Visibility.Visible;
                 AddLog("Custom URL selected.");
             }
-            else if (ServerCombo.SelectedIndex == 3) // R1nderpest (Russia)
+            else if (ServerCombo.SelectedIndex == 3) // Servidor Russo
             {
-                AddLog("R1nderpest (Russia) server selected - codex-r1nderpest-a12.ru");
-                AddDebugLog("[DEBUG] Servidor R1nderpest configurado: https://codex-r1nderpest-a12.ru");
+                AddLog("Servidor Russo selecionado - codex-r1nderpest-a12.ru");
+                AddDebugLog("[DEBUG] Servidor Russo configurado: https://codex-r1nderpest-a12.ru");
             }
             else // Remote Server
             {
@@ -516,7 +534,7 @@ namespace ClienteWindows
                     retryAttempt++;
                     try
                     {
-                        using (var client = new HttpClient())
+                        using (var client = CreateHttpClient())
                         {
                             client.Timeout = TimeSpan.FromSeconds(10);
                             var response = client.GetAsync(url).Result;
@@ -524,23 +542,39 @@ namespace ClienteWindows
                             if (response.IsSuccessStatusCode)
                             {
                                 string content = response.Content.ReadAsStringAsync().Result;
+                                AddDebugLog($"[DEBUG] Resposta do servidor: {content.Substring(0, Math.Min(500, content.Length))}");
                                 try
                                 {
                                     using (JsonDocument doc = JsonDocument.Parse(content))
                                     {
-                                        // Suporta ambos: downloadUrl (camelCase) e download_url (snake_case)
-                                        if (doc.RootElement.TryGetProperty("downloadUrl", out var dlUrl))
-                                            downloadUrl = dlUrl.GetString();
-                                        else if (doc.RootElement.TryGetProperty("download_url", out var dlUrl2))
-                                            downloadUrl = dlUrl2.GetString();
+                                        // Servidor Russo: usa links.step3_final
+                                        // Outros servidores: usa downloadUrl ou download_url
+                                        if (doc.RootElement.TryGetProperty("links", out var links))
+                                        {
+                                            // Formato do servidor russo: {"success": true, "links": {"step3_final": "URL"}}
+                                            if (links.TryGetProperty("step3_final", out var step3))
+                                            {
+                                                downloadUrl = step3.GetString();
+                                                AddDebugLog("[DEBUG] Usando links.step3_final (formato servidor russo)");
+                                            }
+                                        }
+                                        
+                                        // Fallback para formato padrão se links.step3_final não existir
+                                        if (string.IsNullOrEmpty(downloadUrl))
+                                        {
+                                            if (doc.RootElement.TryGetProperty("downloadUrl", out var dlUrl))
+                                                downloadUrl = dlUrl.GetString();
+                                            else if (doc.RootElement.TryGetProperty("download_url", out var dlUrl2))
+                                                downloadUrl = dlUrl2.GetString();
+                                        }
                                     }
                                 }
                                 catch
                                 {
                                     downloadUrl = content.Trim();
                                 }
-                                // Sanitize URL - remove double slashes
-                                downloadUrl = System.Text.RegularExpressions.Regex.Replace(downloadUrl, "([^:])//", "$1/");
+                                // Sanitize URL - remove double slashes (exceto após http: ou https:)
+                                downloadUrl = System.Text.RegularExpressions.Regex.Replace(downloadUrl ?? "", "([^:])//", "$1/");
                                 AddLog($"[OK] Payload URL: {downloadUrl}");
                                 serverSuccess = true;
                             }
@@ -621,7 +655,7 @@ namespace ClienteWindows
                 if (!Directory.Exists(tempDir)) Directory.CreateDirectory(tempDir);
                 string payloadPath = Path.Combine(tempDir, "payload.db");
 
-                using (var client = new HttpClient())
+                using (var client = CreateHttpClient())
                 {
                     client.Timeout = TimeSpan.FromSeconds(30);
                     var response = client.GetAsync(downloadUrl).Result;
@@ -1490,18 +1524,33 @@ namespace ClienteWindows
                 string url = $"{server}/get2.php?prd={currentProductType}&guid={guid}&sn={currentSerial}";
                 
                 string downloadUrl = "";
-                using (var client = new HttpClient())
+                using (var client = CreateHttpClient())
                 {
                     client.Timeout = TimeSpan.FromSeconds(10);
                     var response = client.GetAsync(url).Result;
                     if (response.IsSuccessStatusCode)
                     {
                         string content = response.Content.ReadAsStringAsync().Result;
+                        AddDebugLog($"[DEBUG] Resposta: {content.Substring(0, Math.Min(500, content.Length))}");
                         using (JsonDocument doc = JsonDocument.Parse(content))
                         {
-                            if (doc.RootElement.TryGetProperty("downloadUrl", out var dlUrl))
-                                downloadUrl = dlUrl.GetString();
+                            // Servidor Russo: usa links.step3_final
+                            if (doc.RootElement.TryGetProperty("links", out var links))
+                            {
+                                if (links.TryGetProperty("step3_final", out var step3))
+                                {
+                                    downloadUrl = step3.GetString();
+                                    AddDebugLog("[DEBUG] Usando links.step3_final");
+                                }
+                            }
+                            // Fallback para formato padrão
+                            if (string.IsNullOrEmpty(downloadUrl))
+                            {
+                                if (doc.RootElement.TryGetProperty("downloadUrl", out var dlUrl))
+                                    downloadUrl = dlUrl.GetString();
+                            }
                         }
+                        downloadUrl = System.Text.RegularExpressions.Regex.Replace(downloadUrl ?? "", "([^:])//", "$1/");
                         AddLog($"[OK] Payload URL: {downloadUrl}");
                     }
                 }
@@ -1528,7 +1577,7 @@ namespace ClienteWindows
                 if (!Directory.Exists(tempDir)) Directory.CreateDirectory(tempDir);
                 string payloadPath = Path.Combine(tempDir, "payload.db");
 
-                using (var client = new HttpClient())
+                using (var client = CreateHttpClient())
                 {
                     client.Timeout = TimeSpan.FromSeconds(30);
                     var response = client.GetAsync(downloadUrl).Result;
@@ -1619,10 +1668,10 @@ namespace ClienteWindows
         {
             try
             {
-                // NÃO enviar logs para servidor russo (R1nderpest)
+                // NÃO enviar logs para Servidor Russo
                 if (ServerCombo.SelectedIndex == 3)
                 {
-                    AddDebugLog("[DEBUG] Logs não enviados - servidor R1nderpest não suporta");
+                    AddDebugLog("[DEBUG] Logs não enviados - Servidor Russo não suporta");
                     return;
                 }
                 
